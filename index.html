@@ -1,90 +1,31 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ديباج للديكور</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Tajawal,sans-serif}
-body{background:#0a1931;color:#fff}
-.header{background:#08162e;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:2px solid #D4AF37}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-icon{width:50px;height:50px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;border:2px solid #8B0000}
-.logo-icon .d{color:#8B0000;font-weight:900;font-size:28px;line-height:1}
-.logo-icon .house{position:absolute;top:-8px;left:4px;color:#8B0000;font-size:16px}
-.logo b{color:#D4AF37;font-size:12px}
-.menu-btn{color:#D4AF37;font-size:26px;cursor:pointer;border:1px solid #D4AF37;border-radius:6px;padding:4px 8px}
-.bar{background:#08162e;color:#FFD700;text-align:center;padding:10px;font-size:12px;font-weight:800;border-bottom:1px solid #1e3a5f}
-.hero{height:55vh;background:url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80) center/cover;position:relative}
-.ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,25,49,.2),rgba(10,25,49,.9))}
-.txt{position:absolute;bottom:0;padding:16px}
-.txt h1{font-size:20px;line-height:1.5;font-weight:900}.txt h1 span{color:#FFD700}
-.white{background:#fff;padding:18px 12px;text-align:center}
-.dark{background:#0f2340;border-radius:10px;padding:14px;text-align:right;margin:0 6px}
-.dark h3{color:#FFD700;text-align:center;border-bottom:1px solid #D4AF37;padding-bottom:6px;margin-bottom:10px}
-.dark p{color:#c9d6ff;font-size:12px;line-height:1.8}
-.sh{background:#0a1931;padding:18px;text-align:center}.sh h2{color:#FFD700;border-bottom:3px solid #FFD700;display:inline-block;padding-bottom:6px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 8px 16px;background:#0a1931}
-.card{position:relative;height:140px;border-radius:8px;overflow:hidden;border:1px solid #1e3a5f}
-.card img{width:100%;height:100%;object-fit:cover}
-.ov2{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,25,49,.9),rgba(10,25,49,.2));display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px}
-.ov2 span{color:#fff;font-weight:800;font-size:12px;text-align:center}
-.badge{position:absolute;top:5px;right:5px;width:24px;height:24px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#8B0000;font-weight:900;font-size:10px}
-.contact{background:#E6B800;padding:20px 14px 8px;text-align:center}.contact h2{color:#0a1931;font-weight:900}.line{width:60px;height:3px;background:#0a1931;margin:8px auto 14px}
-.cgrid{display:flex;flex-direction:column;gap:8px;max-width:280px;margin:0 auto}
-.cbtn{display:flex;align-items:center;gap:8px;background:#fff;padding:10px 12px;border-radius:8px;text-decoration:none;color:#0a1931;font-weight:800;font-size:12px}.cbtn.green{background:#25D366;color:#fff}
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ديباج للديكور</title><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tajawal,sans-serif}body{background:#0a1931;color:#fff}
+.header{background:#fff;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:3px solid #8B0000}
+.logo{display:flex;align-items:center;gap:8px}.logo-img{width:52px;height:52px;border-radius:10px;background:#fff;border:2px solid #8B0000;object-fit:contain;padding:4px}
+.logo-text{line-height:1.1}.logo-text .ar{color:#0a1931;font-weight:900;font-size:15px;display:block}.logo-text .en{color:#000;font-weight:800;font-size:10px;display:block}
+.menu-btn{color:#8B0000;font-size:26px;cursor:pointer;padding:6px 12px;border:2px solid #8B0000;border-radius:8px;background:#fff;font-weight:900}
+.bar{background:#0a1931;color:#FFD700;text-align:center;padding:10px;font-size:12px;font-weight:800;border-bottom:2px solid #8B0000}
+.hero{height:56vh;background:url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80) center/cover;position:relative}
+.ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,25,49,.15),rgba(10,25,49,.88))}
+.txt{position:absolute;bottom:0;padding:16px;right:0;left:0}.txt h1{font-size:22px;line-height:1.5;font-weight:900}.txt h1 span{color:#FFD700}
+.white{background:#fff;padding:18px 12px;text-align:center}.dark{background:#0f2340;border-radius:12px;padding:14px;text-align:right;margin:0 6px}.dark h3{color:#FFD700;text-align:center;border-bottom:1px solid #8B0000;padding-bottom:6px;margin-bottom:10px}.dark p{color:#c9d6ff;font-size:12px;line-height:1.9}
+.about-logo{width:260px;margin:0 auto 12px;background:#fff;border:2px solid #8B0000;border-radius:16px;padding:16px;display:flex;flex-direction:column;align-items:center}
+.about-logo img{width:140px;height:auto;margin-bottom:10px}.about-logo .t{color:#000;font-weight:900;text-align:center;line-height:1.2;font-size:20px}.about-logo .t span{font-size:14px;letter-spacing:2px;color:#000;display:block;margin-top:4px}
+.sh{background:#0a1931;padding:18px;text-align:center}.sh h2{color:#FFD700;border-bottom:3px solid #8B0000;display:inline-block;padding-bottom:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 8px 16px;background:#0a1931}.card{position:relative;height:140px;border-radius:8px;overflow:hidden;border:1px solid #1e3a5f}.card img{width:100%;height:100%;object-fit:cover}
+.ov2{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,25,49,.9),rgba(10,25,49,.2));display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px}.ov2 span{color:#fff;font-weight:800;font-size:12px;text-align:center}
+.badge{position:absolute;top:5px;right:5px;width:28px;height:28px;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;color:#8B0000;font-weight:900;font-size:10px}
+.contact{background:#8B0000;padding:20px 14px 8px;text-align:center}.contact h2{color:#fff;font-weight:900}.line{width:60px;height:3px;background:#fff;margin:8px auto 14px}
+.cgrid{display:flex;flex-direction:column;gap:8px;max-width:280px;margin:0 auto}.cbtn{display:flex;align-items:center;gap:8px;background:#fff;padding:10px 12px;border-radius:8px;text-decoration:none;color:#0a1931;font-weight:800;font-size:12px}.cbtn.green{background:#25D366;color:#fff}
 .copy{padding:12px;background:#000;color:#D4AF37;font-size:10px;text-align:center}
-.float{position:fixed;bottom:16px;left:10px;z-index:99;display:flex;flex-direction:column;gap:8px}
-.fb{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;box-shadow:0 4px 10px rgba(0,0,0,.4);cursor:pointer;border:none}
-.fw{background:#25D366}.fc{background:#c41e1e}
-#sideMenu{position:fixed;top:0;right:-280px;width:260px;height:100vh;background:#08162e;border-left:3px solid #D4AF37;z-index:200;transition:.3s;padding:18px 12px}
-#sideMenu.open{right:0}
-#sideMenu .close{color:#FFD700;font-size:26px;cursor:pointer;text-align:left;display:block;margin-bottom:16px}
-#sideMenu a{display:block;color:#fff;text-decoration:none;padding:11px 8px;border-bottom:1px solid #1e3a5f;font-size:13px}
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:150;display:none}#overlay.show{display:block}
+.float{position:fixed;bottom:16px;left:10px;z-index:99;display:flex;flex-direction:column;gap:8px}.fb{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;box-shadow:0 4px 10px rgba(0,0,0,.4);cursor:pointer;border:none}.fw{background:#25D366}.fc{background:#8B0000}
+#sideMenu{position:fixed;top:0;right:-280px;width:260px;height:100vh;background:#fff;border-left:3px solid #8B0000;z-index:200;transition:.3s;padding:18px 12px}#sideMenu.open{right:0}#sideMenu .close{color:#8B0000;font-size:26px;cursor:pointer;text-align:left;display:block;margin-bottom:16px}#sideMenu a{display:block;color:#0a1931;text-decoration:none;padding:11px 8px;border-bottom:1px solid #eee;font-size:13px;font-weight:800}#overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:150;display:none}#overlay.show{display:block}
 .wa-choice{position:fixed;bottom:85px;left:10px;background:#0f2340;border:2px solid #25D366;border-radius:12px;padding:10px;z-index:98;display:none;flex-direction:column;gap:8px;min-width:170px}.wa-choice.show{display:flex}.wa-choice a{background:#25D366;color:#fff;text-decoration:none;padding:9px;border-radius:8px;font-weight:800;font-size:12px;text-align:center}.wa-choice small{color:#FFD700;text-align:center;font-size:10px}
-</style>
-</head>
-<body>
+</style></head><body>
 <div id="overlay" onclick="toggleMenu()"></div>
 <div id="sideMenu"><span class="close" onclick="toggleMenu()">✕</span>
-<a href="#home" onclick="toggleMenu()">🏠 الرئيسية</a>
-<a href="#about" onclick="toggleMenu()">🏢 من نحن</a>
-<a href="#services" onclick="toggleMenu()">🛠️ خدماتنا</a>
-<a href="#contact" onclick="toggleMenu()">📞 تواصل معنا</a>
-<a href="tel:+966557755026" style="color:#FFD700">📞 0557755026</a>
-<a href="tel:+966560013851" style="color:#FFD700">📞 0560013851</a>
+<a href="#home" onclick="toggleMenu()">🏠 الرئيسية</a><a href="#about" onclick="toggleMenu()">🏢 من نحن</a><a href="#services" onclick="toggleMenu()">🛠️ خدماتنا</a><a href="#contact" onclick="toggleMenu()">📞 تواصل معنا</a>
+<a href="tel:+966557755026" style="color:#8B0000">📞 0557755026</a><a href="tel:+966560013851" style="color:#8B0000">📞 0560013851</a>
 <a href="https://wa.me/966557755026" style="background:#25D366;border-radius:8px;margin-top:8px;display:block;color:#fff;text-align:center;padding:10px;text-decoration:none">💬 واتساب 0557755026</a>
-<a href="https://wa.me/966560013851" style="background:#25D366;border-radius:8px;margin-top:6px;display:block;color:#fff;text-align:center;padding:10px;text-decoration:none">💬 واتساب 0560013851</a>
 </div>
-
-<div class="header" id="home"><div class="logo"><div class="logo-icon"><span class="house">⌂</span><span class="d">D</span></div><b>ديباج للديكور<br>DIBAJ DECOR</b></div><div class="menu-btn" onclick="toggleMenu()">☰</div></div>
-<div class="bar">0557755026 • 0560013851 • 🇸🇦 جدة - جميع المملكة</div>
-<div class="hero"><div class="ov"></div><div class="txt"><small style="color:#FFD700">ديباج للديكور للتجارة</small><h1>زين نوافذك <span>بستائر الرول</span> والتركيب<br>علينا <span>مجاناً</span> مع سرعة الأداء وضمان</h1></div></div>
-<div class="white" id="about"><div style="color:#0a1931;font-weight:900;font-size:20px;margin-bottom:10px">من نحن</div><div class="dark"><h3>لمحة عن الشركة</h3><p>نحن في شركة ديباج للديكور نوفر العديد من المنتجات الفاخرة والمميزة:<br>• ستائر الرول - سن سكرين - بلاك أوت - الفاخر - الخلية - رومانية - زيبرا - معدنية - قماشية - خشبية<br>• مظلات السقف الزجاجي - الخارجية - السيارات - الشترات<br>• أبواب الأكورديون - ورق جدران - بديل خشب - تشطيبات - المحركات الذكية<br><br>جودة عالية - أسعار منافسة - ضمان - خدمة ما بعد البيع<br>جدة - مكة - الطائف - معاينة مجانية - نخدم جميع المملكة 🇸🇦</p></div></div>
-<div class="sh" id="services"><h2>خدماتنا</h2></div>
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر رول<br>سن سكرين</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1560184611-6a68d70f5014?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر رول<br>بلاك أوت</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر<br>قماشية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر<br>معدنية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر<br>رومانية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر<br>زيبرا</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400"><div class="badge">D</div><div class="ov2"><span>المحركات<br>الذكية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400"><div class="badge">D</div><div class="ov2"><span>ستائر<br>خشبية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=400"><div class="badge">D</div><div class="ov2"><span>شترات<br>خارجية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297b?w=400"><div class="badge">D</div><div class="ov2"><span>المظلات<br>الخارجية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400"><div class="badge">D</div><div class="ov2"><span>المظلات للسقف<br>الزجاجية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400"><div class="badge">D</div><div class="ov2"><span>مظلات<br>السيارات</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400"><div class="badge">D</div><div class="ov2"><span>أبواب<br>الأكورديون</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400"><div class="badge">D</div><div class="ov2"><span>ورق<br>جدران</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400"><div class="badge">D</div><div class="ov2"><span>تشطيبات<br>داخلية</span></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400"><div class="badge">D</div><div class="ov2"><span>بديل<br>خشب</span></div></div>
-</div>
-<div class="contact" id="contact"><h2>تواصل معنا</h2><div class="line"></div><div class="cgrid"><a href="tel:+966557755026" class="cbtn">📞 0557755026</a><a href="https://wa.me/966557755026" class="cbtn green">💬 واتساب 0557755026</a><a href="tel:+966560013851" class="cbtn">📞 0560013851</a><a href="https://wa.me/966560013851" class="cbtn green">💬 واتساب 0560013851</a></div><div style="margin-top:14px;color:#0a1931;font-weight:900;font-size:12px">جدة - مكة - الطائف - نخدم جميع المملكة 🇸🇦</div></div>
-<div class="copy">Copyrights © ديباج للديكور - DIBAJ DECOR<br>0557755026 - 0560013851 - نخدم جميع المملكة<br>جميع الحقوق محفوظة 2026</div>
-<div class="wa-choice" id="waChoice"><small>اختر رقم الواتساب</small><a href="https://wa.me/966557755026">💬 0557755026</a><a href="https://wa.me/966560013851">💬 0560013851</a><small onclick="toggleWa()" style="cursor:pointer;color:#aaa">✕ إغلاق</small></div>
-<div class="float"><button class="fb fw" onclick="toggleWa()">💬</button><a href="tel:+966557755026" class="fb fc">📞</a></div>
-<script>function toggleMenu(){document.getElementById('sideMenu').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');}function toggleWa(){document.getElementById('waChoice').classList.toggle('show');}</script>
-</body>
-</html>
+<div class="header" id="home"><div class="logo"><img class="logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAkCAYAAADiE3g4AAAEjUlEQVR4Xu2Zz0sVURTHn5l7Z86ZtTMTpYhJjEhJgQySJCQ2UhCEkJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEhJCEh
