@@ -42,9 +42,52 @@ body{font-family:'Tajawal',sans-serif;background:#0a1931;color:#fff;line-height:
 .wa{position:fixed;bottom:18px;left:18px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.3);z-index:999;border:2px solid #fff}
 .dot{width:8px;height:8px;background:#FFD700;border-radius:50%;display:inline-block;margin-left:8px}
 .contact-box{background:rgba(255,255,255,.08);border:2px solid #FFD700;border-radius:16px;padding:16px;margin-top:16px}
+<style>
+.MENU{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;background:#0a1931;z-index:2000;transition:0.3s;padding:0;border-left:4px solid #FFD700;overflow-y:auto}
+.MENU.open{right:0}
+.MENU-OV{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1999;display:none}
+.MENU-OV.open{display:block}
+.MENU-H{background:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #8B0000}
+.MENU-H span{font-weight:900;color:#0a1931;font-size:14px}
+.MENU-X{width:36px;height:36px;border:2px solid #8B0000;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;color:#8B0000;font-weight:900}
+.MENU-L{list-style:none;padding:12px}
+.MENU-L li{margin-bottom:8px}
+.MENU-L a{display:flex;align-items:center;gap:10px;padding:14px 12px;background:rgba(255,255,255,.08);border:2px solid rgba(255,215,0,.3);border-radius:12px;color:#FFD700;text-decoration:none;font-weight:900;font-size:13px;transition:0.2s}
+.MENU-L a:hover{background:#FFD700;color:#0a1931;border-color:#FFD700}
+.MENU-C{padding:12px}
+.MENU-C .btn{width:100%;justify-content:center;margin-bottom:8px;font-size:12px;padding:12px}
 </style>
 </head>
 <body>
+<div class="MENU-OV" id="menuOv" onclick="closeMenu()">
+</div>
+<div class="MENU" id="menu">
+<div class="MENU-H">
+<span>📋 القائمة - ديباج للديكور</span>
+<div class="MENU-X" onclick="closeMenu()">✕</div>
+</div>
+<ul class="MENU-L">
+<li>
+<a href="#" onclick="closeMenu();document.querySelector('.SLIDER').scrollIntoView({behavior:'smooth'});return false;">🏠 الرئيسية</a>
+</li>
+<li>
+<a href="#" onclick="closeMenu();document.querySelector('.ABOUT').scrollIntoView({behavior:'smooth'});return false;">👥 من نحن</a>
+</li>
+<li>
+<a href="#" onclick="closeMenu();document.querySelector('.sec-w').scrollIntoView({behavior:'smooth'});return false;">✨ خدماتنا - 24 خدمة</a>
+</li>
+<li>
+<a href="#" onclick="closeMenu();document.querySelector('.sec-d').scrollIntoView({behavior:'smooth'});return false;">📍 تواصل معنا</a>
+</li>
+</ul>
+<div class="MENU-C">
+<div style="text-align:center;font-weight:900;color:#FFD700;margin-bottom:10px;font-size:12px">💬 تواصل فوري</div>
+<a href="https://wa.me/966557755026" target="_blank" class="btn btn-g">💬 واتساب 1 - 0557755026</a>
+<a href="https://wa.me/966560013851" target="_blank" class="btn btn-g">💬 واتساب 2 - 0560013851</a>
+<a href="tel:+966557755026" class="btn btn-y">📞 اتصال 1 - 0557755026</a>
+<a href="tel:+966560013851" class="btn btn-y">📞 اتصال 2 - 0560013851</a>
+</div>
+</div>
 <div class="SH">
 <div class="LG">
 <svg viewBox="0 0 100 100">
@@ -55,7 +98,7 @@ body{font-family:'Tajawal',sans-serif;background:#0a1931;color:#fff;line-height:
 <small style="font-size:10px">DIBAJ DECOR - جدة</small>
 </span>
 </div>
-<div class="MB">☰</div>
+<div class="MB" onclick="openMenu()">☰</div>
 </div>
 <div class="SLIDER">
 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900" alt="ستائر رول">
@@ -267,5 +310,30 @@ body{font-family:'Tajawal',sans-serif;background:#0a1931;color:#fff;line-height:
 </div>
 </div>
 <a href="https://wa.me/966557755026" target="_blank" class="wa">💬</a>
+
+<script>
+function openMenu(){
+document.getElementById('menu').classList.add('open');
+document.getElementById('menuOv').classList.add('open');
+document.body.style.overflow='hidden';
+}
+function closeMenu(){
+document.getElementById('menu').classList.remove('open');
+document.getElementById('menuOv').classList.remove('open');
+document.body.style.overflow='';
+}
+// slider arrows (simple)
+let s=0;
+const slides=["https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900","https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=900","https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900"];
+document.querySelectorAll('.SL-AR').forEach(b=>{
+b.addEventListener('click',()=>{
+s=b.classList.contains('SL-L')?s-1:s+1;
+if(s<0)s=slides.length-1;
+if(s>=slides.length)s=0;
+document.querySelector('.SLIDER img').src=slides[s];
+});
+});
+</script>
 </body>
+
 </html>
