@@ -3,74 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DIBAJ | ديباج - ستائر فاخرة جدة</title>
+<title>DIBAJ | ديباج للديكور - جدة</title>
 <style>
-:root{--navy:#0a1931;--gold:#d4af37;--white:#ffffff}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:var(--navy);color:var(--white)}
-.header{padding:20px;text-align:center;border-bottom:1px solid #d4af3744}
-.logo{font-size:32px;color:var(--gold);font-weight:900;letter-spacing:2px}
-.hero{padding:60px 20px;text-align:center}
-.hero h1{color:var(--gold);font-size:42px;margin:0}
-.hero p{color:#ccc;font-size:18px;margin-top:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;max-width:1000px;margin:auto}
-.card{background:#112240;border:1px solid #d4af3733;border-radius:16px;overflow:hidden}
-.card img{width:100%;height:220px;object-fit:cover}
-.card-body{padding:14px;text-align:center}
-.card-body h3{color:var(--gold);margin:5px 0}
-.icons{display:flex;justify-content:space-around;padding:30px 10px;max-width:1000px;margin:auto;flex-wrap:wrap;gap:20px}
-.icon-box{background:#112240;border:1px solid #d4af3722;border-radius:14px;padding:18px;width:150px;text-align:center}
-.icon{font-size:28px}
-.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:800;margin-top:20px}
-.footer{text-align:center;padding:30px;color:#888;border-top:1px solid #222;margin-top:40px}
+:root{--navy:#0a1931;--navy2:#112240;--gold:#d4af37;--gold2:#f1c75a}
+*{box-sizing:border-box;margin:0}body{font-family:system-ui;background:var(--navy);color:#fff}
+.header{padding:22px;text-align:center;border-bottom:1px solid #d4af3730;position:sticky;top:0;background:#0a1931f0;backdrop-filter:blur(8px);z-index:10}
+.logo{color:var(--gold);font-weight:900;font-size:30px;letter-spacing:2px}
+.sub{color:var(--gold);font-size:11px;letter-spacing:5px}
+.hero{padding:50px 20px;text-align:center;background:linear-gradient(180deg,#0a1931,#0d2147)}
+.hero h1{color:var(--gold);font-size:38px} .hero p{color:#b8c1d1;margin-top:10px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:900;margin-top:18px}
+.section{max-width:1200px;margin:auto;padding:30px 16px}
+.sec-title{color:var(--gold);font-size:22px;margin-bottom:16px;border-right:4px solid var(--gold);padding-right:12px}
+.grid24{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.grid24{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1000px){.grid24{grid-template-columns:repeat(6,1fr)}}
+.box{background:var(--navy2);border:1px solid #d4af3726;border-radius:16px;padding:16px;text-align:center;transition:.2s}
+.box:hover{border-color:var(--gold);transform:translateY(-3px)}
+.icon-circle{width:56px;height:56px;margin:0 auto 10px;background:radial-gradient(circle at 30% 30%,var(--gold2),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:900;font-size:22px}
+.box h3{font-size:13px;color:#fff;line-height:1.4;min-height:38px}
+.box span{font-size:11px;color:var(--gold)}
+.footer{text-align:center;padding:30px;color:#6b7a93;border-top:1px solid #1a2a4a;margin-top:30px;font-size:13px}
 </style>
 </head>
 <body>
 
 <div class="header">
 <div class="logo">DIBAJ - ديباج</div>
-<div style="color:var(--gold);font-size:12px;letter-spacing:4px">JEDDAH</div>
+<div class="sub">JEDDAH • ديكور فاخر</div>
 </div>
 
 <div class="hero">
-<h1>ستائر رول فاخرة</h1>
-<p>صن سكرين + بلاك أوت - تفصيل حسب المقاس</p>
-<p style="color:var(--gold)">طاولات عرض فاضية 100% بدون ورود ✓</p>
-<a class="btn" href="https://wa.me/966500000000">تواصل واتساب</a>
+<h1>كل حلول الستائر والديكور</h1>
+<p>24 قسم - تفصيل وتركيب في جدة</p>
+<a class="btn" href="https://wa.me/966500000000">اطلب واتساب الآن</a>
 </div>
 
-<div class="icons">
-<div class="icon-box"><div class="icon">🪟</div><div style="margin-top:8px;color:var(--gold)">صن سكرين</div><div style="font-size:12px;color:#aaa">شفاف يحجب الشمس</div></div>
-<div class="icon-box"><div class="icon">🌙</div><div style="margin-top:8px;color:var(--gold)">بلاك أوت</div><div style="font-size:12px;color:#aaa">تعتيم كامل</div></div>
-<div class="icon-box"><div class="icon">📏</div><div style="margin-top:8px;color:var(--gold)">تفصيل</div><div style="font-size:12px;color:#aaa">حسب مقاسك</div></div>
-<div class="icon-box"><div class="icon">🚚</div><div style="margin-top:8px;color:var(--gold)">جدة</div><div style="font-size:12px;color:#aaa">تركيب سريع</div></div>
+<div class="section">
+<div class="sec-title">أقسامنا - 24 تخصص</div>
+<div class="grid24">
+
+<div class="box"><div class="icon-circle">1</div><h3>ستائر رول صن سكرين</h3><span>Sun Screen</span></div>
+<div class="box"><div class="icon-circle">2</div><h3>ستائر رول بلاك اوت</h3><span>Blackout</span></div>
+<div class="box"><div class="icon-circle">3</div><h3>ستائر زيبرا</h3><span>Zebra</span></div>
+<div class="box"><div class="icon-circle">4</div><h3>ستائر طبية</h3><span>Medical</span></div>
+<div class="box"><div class="icon-circle">5</div><h3>ستائر قماشية</h3><span>Fabric</span></div>
+<div class="box"><div class="icon-circle">6</div><h3>ستائر روماني</h3><span>Roman</span></div>
+
+<div class="box"><div class="icon-circle">7</div><h3>ستائر عمودية</h3><span>Vertical</span></div>
+<div class="box"><div class="icon-circle">8</div><h3>ستائر معدنية</h3><span>Metal</span></div>
+<div class="box"><div class="icon-circle">9</div><h3>ستائر خشبية</h3><span>Wood</span></div>
+<div class="box"><div class="icon-circle">10</div><h3>ستائر بامبو</h3><span>Bamboo</span></div>
+<div class="box"><div class="icon-circle">11</div><h3>شترات خارجية</h3><span>Shutter</span></div>
+<div class="box"><div class="icon-circle">12</div><h3>بيرجولا كهربائية</h3><span>Pergola</span></div>
+
+<div class="box"><div class="icon-circle">13</div><h3>مظلات كهربائية سكاي لايت</h3><span>Sky Light</span></div>
+<div class="box"><div class="icon-circle">14</div><h3>مظلات كافيهات والسيارات</h3><span>Car & Cafe</span></div>
+<div class="box"><div class="icon-circle">15</div><h3>ورق جدران</h3><span>Wallpaper</span></div>
+<div class="box"><div class="icon-circle">16</div><h3>بديل خشب</h3><span>Wood Panel</span></div>
+<div class="box"><div class="icon-circle">17</div><h3>بديل رخام</h3><span>Marble</span></div>
+<div class="box"><div class="icon-circle">18</div><h3>ارضيات باركيه</h3><span>Parquet</span></div>
+
+<div class="box"><div class="icon-circle">19</div><h3>ابواب اوكرديون</h3><span>Accordion</span></div>
+<div class="box"><div class="icon-circle">20</div><h3>تشطيبات داخلية</h3><span>Finishing</span></div>
+<div class="box"><div class="icon-circle">21</div><h3>تصميمات دعاية واعلان</h3><span>Branding</span></div>
+<div class="box"><div class="icon-circle">22</div><h3>التظليل الالكتروني</h3><span>Smart Tint</span></div>
+<div class="box"><div class="icon-circle">23</div><h3>البيت الذكي</h3><span>Smart Home</span></div>
+<div class="box"><div class="icon-circle">24</div><h3>المحركات</h3><span>Motors</span></div>
+
+</div>
 </div>
 
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=600&q=80&auto=format" alt="طاولة فاضية">
-<div class="card-body"><h3>موديل رول فاخر</h3><p style="font-size:13px;color:#aaa">عرض على طاولة بيضاء فاضية</p></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80&auto=format" alt="ستارة رول">
-<div class="card-body"><h3>صن سكرين</h3><p style="font-size:13px;color:#aaa">بدون أي ورود</p></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&auto=format" alt="بلاك اوت">
-<div class="card-body"><h3>بلاك أوت</h3><p style="font-size:13px;color:#aaa">تعتيم 100%</p></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=600&q=80&auto=format" alt="تفصيل">
-<div class="card-body"><h3>تفصيل جدة</h3><p style="font-size:13px;color:#aaa">جاهز للتركيب</p></div>
-</div>
+<div style="text-align:center;padding:20px 16px 50px">
+<a class="btn" href="https://wa.me/966500000000">تواصل لجميع الأقسام - واتساب</a>
+<p style="color:#6b7a93;margin-top:12px;font-size:13px">جدة - تفصيل حسب المقاس - تركيب سريع</p>
 </div>
 
-<div style="text-align:center;padding:40px 20px">
-<h2 style="color:var(--gold)">اطلب الآن</h2>
-<p style="color:#ccc">أرسل المقاس على الواتساب</p>
-<a class="btn" href="https://wa.me/966500000000">واتساب - 0500000000</a>
-</div>
-
-<div class="footer">© 2026 DIBAJ - ديباج - جدة - كل الحقوق محفوظة</div>
+<div class="footer">© 2026 DIBAJ DECOR - dibaj-decor.github.io - جميع الأقسام الـ 24</div>
 
 </body>
 </html>
