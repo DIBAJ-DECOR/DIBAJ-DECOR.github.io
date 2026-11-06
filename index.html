@@ -145,5 +145,61 @@ function toggleDibaj(){
 <a href="https://wa.me/966560013851" style="background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">💬</a>
 <a href="tel:0560013851" style="background:#C8A96A;color:#000;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">📞</a>
 </div>
+<!-- ايقونة 1: صن سكرين - وصف نهائي -->
+<style>
+#dibaj-ss-overlay{display:none;position:fixed;inset:0;background:rgba(10,25,49,.93);z-index:99999;justify-content:center;align-items:center;padding:10px}
+#dibaj-ss-overlay.on{display:flex}
+.dibaj-ss-box{width:100%;max-width:480px;background:#0f2040;border-radius:18px;overflow:hidden;border:1px solid #d4af374d;color:#fff;direction:rtl;font-family:Tajawal,sans-serif;max-height:95vh;overflow-y:auto}
+.dibaj-ss-top{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #fff1;position:sticky;top:0;background:#0f2040;z-index:2}
+.dibaj-ss-top b{color:#d4af37;font-size:19px}
+.dibaj-ss-x{width:34px;height:34px;border-radius:50%;border:none;background:#d4af37;color:#0a1931;font-size:22px;cursor:pointer;font-weight:bold}
+.dibaj-ss-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px}
+.dibaj-ss-imgs img{width:100%;height:140px;object-fit:cover;border-radius:10px;background:#1a2a4a;border:1px solid #fff1}
+.dibaj-ss-imgs img:first-child{grid-column:span 2;height:240px}
+.dibaj-ss-body{padding:0 16px 18px;line-height:1.9;font-size:14.5px;color:#e6e6e6}
+.dibaj-ss-feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.dibaj-ss-feats div{background:#ffffff0d;border:1px solid #ffffff12;padding:9px;border-radius:9px;text-align:center;font-size:13px}
+.dibaj-ss-warn{margin:14px 0;background:#d4af3714;border:1px dashed #d4af37;color:#d4af37;padding:10px;border-radius:9px;text-align:center;font-weight:700;font-size:13.5px}
+.dibaj-ss-btns{display:flex;gap:10px;margin-top:16px}
+.dibaj-ss-btns a{flex:1;text-align:center;padding:12px;border-radius:11px;text-decoration:none;font-weight:800;font-size:14.5px}
+.dibaj-ss-wa{background:#25D366;color:#fff}
+.dibaj-ss-call{background:#d4af37;color:#0a1931}
+</style>
+<div id="dibaj-ss-overlay" onclick="if(event.target==this) this.classList.remove('on')">
+  <div class="dibaj-ss-box">
+    <div class="dibaj-ss-top"><b>ستائر رول صن سكرين</b><button class="dibaj-ss-x" onclick="document.getElementById('dibaj-ss-overlay').classList.remove('on')">×</button></div>
+    <div class="dibaj-ss-imgs">
+      <img src="./1-1.jpg" alt="صن سكرين 1">
+      <img src="./1-2.jpg" alt="صن سكرين 2">
+      <img src="./1-3.jpg" alt="صن سكرين 3">
+      <img src="./1-4.jpg" alt="صن سكرين 4">
+    </div>
+    <div class="dibaj-ss-body">
+      ستائر رول صن سكرين من ديباج ديكور بجدة هي الاختيار الذكي للمكاتب والشركات والفلل المودرن. قماش صن سكرين عالي الجودة يسمح بمرور الضوء الطبيعي بنسبة 3% الى 10% ويحجب حرارة الشمس وأشعة UV بنسبة تصل الى 95%، يحافظ على برودة المكان ويحمي الأثاث والباركيه من البهتان. توفر خصوصية نهارية ممتازة مع الحفاظ على رؤية خارجية واضحة، متوفرة بجميع الألوان والمقاسات مع محرك عادي أو كهرباء بالريموت. تركيب مجاني وضمان سنة كاملة بجدة.
+      <div class="dibaj-ss-feats">
+        <div>☀️ حماية UV 95%</div><div>👁️ رؤية خارجية</div><div>❄️ يقلل الحرارة</div><div>🧹 سهل التنظيف</div>
+      </div>
+      <div class="dibaj-ss-warn">🛡️ ضمان سنة + تركيب مجاني بجدة - خصم خاص للمكاتب</div>
+      <div class="dibaj-ss-btns">
+        <a class="dibaj-ss-wa" href="https://wa.me/966557755026?text=مرحبا ديباج، اريد ستائر رول صن سكرين">واتساب</a>
+        <a class="dibaj-ss-call" href="tel:+966560013851">اتصال</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function bind(){
+    document.querySelectorAll('*').forEach(function(el){
+      if(el.childElementCount>0) return;
+      if(el.textContent.trim()==='ستائر رول صن سكرين'){
+        var card=el.closest('div'); if(card){card.style.cursor='pointer'; card.onclick=function(e){e.stopPropagation(); document.getElementById('dibaj-ss-overlay').classList.add('on')}}
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', bind);
+  setTimeout(bind,1500);
+})();
+</script>
 </body>
 </html>
