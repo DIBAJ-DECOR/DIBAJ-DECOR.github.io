@@ -158,9 +158,11 @@
 
 </div>
 </div>
-<div class="footer">DIBAJ-DECOR.github.io - جدة</div>
+<div class="footer">DIBAJ-DECOR</div>
+<div id="dibaj-bg" onclick="toggleDibaj()" style="position:fixed;inset:0;background:rgba(10,25,49,0.65);backdrop-filter:blur(4px);z-index:9998;opacity:0;pointer-events:none;transition:opacity 0.4s ease"></div>
 <script>
-function toggleDibajMenu(){var n=document.getElementById("dibaj-nav");n.classList.toggle("dibaj-open");document.body.style.overflow=n.classList.contains("dibaj-open")?"hidden":"";}
+function toggleDibaj(){var n=document.getElementById('dibaj-nav');var b=document.getElementById('dibaj-bg');var isOpen=n.classList.toggle('dibaj-open');if(isOpen){b.style.opacity='1';b.style.pointerEvents='auto';document.body.style.overflow='hidden';}else{b.style.opacity='0';b.style.pointerEvents='none';document.body.style.overflow='';}}
+function toggleDibajMenu(){toggleDibaj();}
 </script>
 </body>
 </html>
