@@ -78,15 +78,15 @@
     <span style="color:#d4af37; font-size:19px; font-weight:800; font-family:Cairo, sans-serif;">ديباج للديكور</span>
   </div>
     <div id="dibaj-menu-btn" style="border:2px solid #d4af37; border-radius:8px; padding:10px 8px; cursor:pointer; display:flex; flex-direction:column; gap:5px;" onclick="toggleDibajMenu()">
-    <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
-    <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
-    <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
-  </div>
-  <div id="dibaj-nav" style="display:none; position:absolute; top:60px; left:0; width:100%; background:#0a1931; border-top:1px solid #d4af37; z-index:999; flex-direction:column; text-align:right; padding:20px;">
-    <a href="#about-dibaj" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;">من نحن</a>
-    <a href="#services" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;">خدماتنا</a>
-    <a href="#contact" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;">تواصل معنا</a>
-  </div>
+      <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
+      <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
+      <span style="display:block; width:22px; height:2.5px; background:#d4af37; border-radius:2px;"></span>
+    </div>
+    <div id="dibaj-nav" style="display:none; position:absolute; top:60px; left:0; width:100%; background:#0a1931; border-top:1px solid #d4af37; z-index:999; flex-direction:column; text-align:right; padding:20px;">
+      <a href="#about-dibaj" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;" onclick="toggleDibajMenu()">من نحن</a>
+      <a href="#services" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;" onclick="toggleDibajMenu()">خدماتنا</a>
+      <a href="#contact" style="color:#d4af37; padding:15px 0; display:block; text-decoration:none;" onclick="toggleDibajMenu()">تواصل معنا</a>
+    </div>
 </header>
 
 <!-- الصورة فقط بدون أي شي فوقها -->
@@ -159,5 +159,9 @@
 </div>
 </div>
 <div class="footer">DIBAJ-DECOR.github.io - جدة</div>
+<script>
+function toggleDibajMenu(){var n=document.getElementById('dibaj-nav');n.style.display=n.style.display=='flex'?'none':'flex';}
+</script>
 </body>
 </html>
+
