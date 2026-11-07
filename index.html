@@ -74,7 +74,7 @@ body{font-family:'Tajawal',system-ui;background:#0a1931;color:#fff;overflow-x:hi
 <div class="box" data-popup="popup-sun"><img src="1.jpg"><div class="txt"><h3>ستائر رول صن سكرين</h3><span>Sun Screen</span></div></div>
 <div class="box" data-popup="popup-blackout"><img src="2.jpg"><div class="txt"><h3>ستائر رول بلاك اوت</h3><span>Blackout</span></div></div>
 <div class="box" data-popup="popup-zebra"><img src="3.jpg"><div class="txt"><h3>ستائر زيبرا</h3><span>Zebra</span></div></div>
-<div class="box"><img src="4.jpg"><div class="txt"><h3>ستائر طبية</h3><span>Medical</span></div></div>
+<div class="box" data-popup="popup-medical"><img src="4.jpg"><div class=
 <div class="box"><img src="5.jpg"><div class="txt"><h3>ستائر قماشية</h3><span>Fabric</span></div></div>
 <div class="box"><img src="6.jpg"><div class="txt"><h3>ستائر روماني</h3><span>Roman</span></div></div>
 <div class="box"><img src="7.jpg"><div class="txt"><h3>ستائر عمودية</h3><span>Vertical</span></div></div>
@@ -219,5 +219,34 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
+<!-- POPUP MEDICAL -->
+<div id="popup-medical" class="popup-overlay">
+  <div class="popup-card">
+    <div style="position:relative">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:#f5f5f5">
+        <img src="4-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:16px 4px 4px 4px">
+        <img src="4-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 16px 4px 4px">
+        <img src="4-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 4px 16px">
+        <img src="4-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 16px 4px">
+      </div>
+      <button onclick="closeAllPopups()" style="position:absolute; top:12px; right:12px; width:36px; height:36px; background:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
+      <div style="position:absolute; bottom:12px; left:12px; background:#0a1931; color:#d4af37; padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700">معتمد للمستشفيات والعيادات</div>
+    </div>
+    <div style="padding:22px">
+      <h2 style="margin:0; font-size:24px; font-weight:800; color:#111">ستائر طبية</h2>
+      <p style="margin:6px 0 14px; color:#b89a5a; font-size:12px; letter-spacing:2px; font-weight:700">MEDICAL • معايير عالمية للرعاية الصحية</p>
+      <div style="width:40px; height:3px; background:#b89a5a; border-radius:2px; margin-bottom:14px"></div>
+      <p style="color:#333; line-height:1.9; font-size:14px; margin:0 0 14px">حل متكامل صمم وفق <b>أعلى المعايير الدولية لمكافحة العدوى</b>. قماش مضاد للبكتيريا والفطريات، مقاوم للسوائل، وسهل التعقيم، يمنح بيئة آمنة وراقية تليق بمؤسساتكم الطبية وتعزز ثقة المرضى.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 18px">
+        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مضاد للبكتيريا</div>
+        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مقاوم للسوائل</div>
+        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ سهل التعقيم</div>
+        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ خصوصية تامة</div>
+      </div>
+      <a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20طبية%20للمستشفى%2Fالعيادة%0Aالمقاس%3A%0Aالموقع%3A" style="display:block; background:#0a1931; color:#d4af37; text-align:center; padding:14px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; margin-bottom:10px; border:1px solid #d4af37">طلب عرض سعر - ستائر طبية</a>
+      <a href="https://wa.me/966557755026?text=استشارة%20ستائر%20طبية" style="display:block; background:#fff; color:#111; text-align:center; padding:12px; border-radius:12px; text-decoration:none; font-size:13px; border:1.5px solid #111">استشارة فنية مجانية</a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
