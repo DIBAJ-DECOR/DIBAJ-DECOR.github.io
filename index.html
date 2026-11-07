@@ -169,73 +169,66 @@ function toggleDibaj(){
 .dibaj-bo-box{max-width:900px;width:95%;}
 </style>
 <!-- POPUP 1 : SCREEN -->
-<!-- POPUP 1 : SCREEN -->
-<div id="dibaj-ss-overlay"><div class="dibaj-ss-box">
-<div id="dibaj-ss-x" style="position:absolute;top:12px;left:12px;width:32px;height:32px;background:#fff;color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;cursor:pointer;z-index:10;">✕</div>
-<div class="dibaj-ss-top"><b>ستائر رول صن سكرين - رؤية خارجية مع خصوصية تامة</b></div>
-<div class="dibaj-ss-imgs">
-<img src="1-1.jpg"><img src="1-2.jpg"><img src="1-3.jpg"><img src="1-4.jpg">
+<!-- POPUP SUN SCREEN -->
+<div id="popup-sun" class="popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+  <div style="background:#fff; max-width:800px; width:100%; border-radius:16px; overflow:hidden; position:relative; max-height:90vh; overflow-y:auto;">
+    <button onclick="closeAllPopups()" style="position:absolute; top:15px; right:15px; width:36px; height:36px; border-radius:50%; background:#fff; border:none; box-shadow:0 2px 8px rgba(0,0,0,0.2); font-size:20px; cursor:pointer; z-index:10;">✕</button>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:20px;">
+      <img src="1-1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="1-2.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="1-3.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="1-4.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+    </div>
+    <div style="padding:0 24px 24px;">
+      <h2 style="margin:0 0 10px; font-size:22px;">ستائر صن سكرين - رؤية واضحة وضوء طبيعي</h2>
+      <p style="color:#555; line-height:1.8; font-size:15px;">ستائر صن سكرين تسمح بدخول الضوء الطبيعي مع حجب الحرارة وأشعة الشمس الضارة، تحافظ على الإطلالة الخارجية وتمنحك خصوصية نهارية. مثالية للواجهات الزجاجية والمكاتب.</p>
+      <a href="https://wa.me/966XXXXXXXXX?text=مرحبا، أريد الاستفسار عن ستائر صن سكرين" target="_blank" style="display:block; text-align:center; background:#25D366; color:#fff; padding:14px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:16px; font-size:16px;">تواصل واتساب - صن سكرين</a>
+    </div>
+  </div>
 </div>
-<div class="dibaj-ss-body">
-<p style="color:#ccc;line-height:1.9;font-size:15px">
-<b style="color:#fff;font-size:17px">الحل العصري الأمثل للمكاتب والفلل والمطاعم</b><br><br>
-نسيج سكرين أوروبي عالي الجودة يمنحك إضاءة طبيعية مريحة ورؤية واضحة للخارج نهاراً، مع حجب تام للرؤية من الخارج لخصوصية كاملة.<br><br>
-<b style="color:#fff">المميزات:</b><br>
-✓ يحجب 90% من حرارة الشمس وأشعة UV<br>
-✓ يقلل استهلاك التكييف ويحافظ على برودة المكان<br>
-✓ يحمي الأثاث من بهتان اللون<br>
-✓ مقاوم للغبار وسهل التنظيف
-</p>
-<div class="dibaj-ss-btns"><a class="dibaj-ss-wa" href="https://wa.me/966500000000" style="display:block;text-align:center;background:#25D366;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;">طلب عرض سعر على الواتساب</a></div>
-</div>
-</div></div>
 
-<!-- POPUP 2 : BLACKOUT -->
-<div id="dibaj-bo-overlay"><div class="dibaj-ss-box">
-<div id="dibaj-bo-x" style="position:absolute;top:12px;left:12px;width:32px;height:32px;background:#fff;color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;cursor:pointer;z-index:10;">✕</div>
-<div class="dibaj-ss-top"><b>ستائر رول بلاك أوت - تعتيم كامل 100%</b></div>
-<div class="dibaj-ss-imgs">
-<img src="2-1.jpg"><img src="2-2.jpg"><img src="2-3.jpg"><img src="2-4.jpg">
+<!-- POPUP BLACKOUT -->
+<div id="popup-blackout" class="popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+  <div style="background:#fff; max-width:800px; width:100%; border-radius:16px; overflow:hidden; position:relative; max-height:90vh; overflow-y:auto;">
+    <button onclick="closeAllPopups()" style="position:absolute; top:15px; right:15px; width:36px; height:36px; border-radius:50%; background:#fff; border:none; box-shadow:0 2px 8px rgba(0,0,0,0.2); font-size:20px; cursor:pointer; z-index:10;">✕</button>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:20px;">
+      <img src="2-1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="2-2.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="2-3.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="2-4.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+    </div>
+    <div style="padding:0 24px 24px;">
+      <h2 style="margin:0 0 10px; font-size:22px;">ستائر بلاك أوت - تعتيم كامل 100%</h2>
+      <p style="color:#555; line-height:1.8; font-size:15px;">ستائر بلاك أوت تمنع دخول الضوء بشكل كامل، مثالية لغرف النوم وقاعات الاجتماعات والسينما المنزلية. قماش سميك عازل للحرارة والصوت.</p>
+      <a href="https://wa.me/966XXXXXXXXX?text=مرحبا، أريد الاستفسار عن ستائر بلاك أوت" target="_blank" style="display:block; text-align:center; background:#25D366; color:#fff; padding:14px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:16px; font-size:16px;">تواصل واتساب - بلاك أوت</a>
+    </div>
+  </div>
 </div>
-<div class="dibaj-ss-body">
-<p style="color:#ccc;line-height:1.9;font-size:15px">
-<b style="color:#fff;font-size:17px">الخيار الأول لغرف النوم والفنادق وقاعات الاجتماعات</b><br><br>
-قماش بلاك أوت أصلي 3 طبقات يمنع دخول الضوء نهائياً بنسبة 100%، يمنحك نوم عميق حتى في عز النهار وعزل حراري وصوتي فاخر.<br><br>
-<b style="color:#fff">المميزات:</b><br>
-✓ تعتيم 100% بدون أي تسريب للضوء<br>
-✓ عزل حراري يقلل الحرارة 40%<br>
-✓ عزل صوتي للهدوء والخصوصية<br>
-✓ قماش سميك فاخر لا يبهت ولا يتجعد
-</p>
-<div class="dibaj-ss-btns"><a class="dibaj-ss-wa" href="https://wa.me/966500000000" style="display:block;text-align:center;background:#25D366;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;">طلب عرض سعر على الواتساب</a></div>
+
+<!-- POPUP ZEBRA -->
+<div id="popup-zebra" class="popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+  <div style="background:#fff; max-width:800px; width:100%; border-radius:16px; overflow:hidden; position:relative; max-height:90vh; overflow-y:auto;">
+    <button onclick="closeAllPopups()" style="position:absolute; top:15px; right:15px; width:36px; height:36px; border-radius:50%; background:#fff; border:none; box-shadow:0 2px 8px rgba(0,0,0,0.2); font-size:20px; cursor:pointer; z-index:10;">✕</button>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:20px;">
+      <img src="3-1.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="3-2.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="3-3.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+      <img src="3-4.jpg" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
+    </div>
+    <div style="padding:0 24px 24px;">
+      <h2 style="margin:0 0 10px; font-size:22px;">ستائر زيبرا - تحكم مزدوج بالضوء</h2>
+      <p style="color:#555; line-height:1.8; font-size:15px;">ستائر زيبرا بتصميمها المبتكر بشريطين متداخلين (شفاف ومعتم) تمنحك تحكم كامل بكمية الضوء الداخل. تناسب المكاتب والمجالس والمنازل العصرية.</p>
+      <a href="https://wa.me/966XXXXXXXXX?text=مرحبا، أريد الاستفسار عن ستائر زيبرا" target="_blank" style="display:block; text-align:center; background:#25D366; color:#fff; padding:14px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:16px; font-size:16px;">تواصل واتساب - زيبرا</a>
+    </div>
+  </div>
 </div>
-</div></div>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
- var ov1=document.getElementById('dibaj-ss-overlay');
- var ov2=document.getElementById('dibaj-bo-overlay');
- var x1=document.getElementById('dibaj-ss-x');
- var x2=document.getElementById('dibaj-bo-x');
- function o1(){ ov1.classList.add('on'); document.body.style.overflow='hidden'; }
- function c1(){ ov1.classList.remove('on'); document.body.style.overflow=''; }
- function o2(){ ov2.classList.add('on'); document.body.style.overflow='hidden'; }
- function c2(){ ov2.classList.remove('on'); document.body.style.overflow=''; }
- if(x1) x1.onclick=function(e){ e.stopPropagation(); c1(); };
- if(x2) x2.onclick=function(e){ e.stopPropagation(); c2(); };
- ov1.addEventListener('click',function(e){ if(e.target===ov1) c1(); });
- ov2.addEventListener('click',function(e){ if(e.target===ov2) c2(); });
- function bind(){
-  document.querySelectorAll('*').forEach(function(el){
-   if(el.children.length>0) return;
-   var t=(el.textContent||'').trim();
-   if(t.length>50 || t.length<2) return;
-   var card=el; for(var i=0;i<7;i++){ if(card.querySelector && card.querySelector('img')) break; card=card.parentElement; }
-   if(!card || !card.querySelector('img')) return;
-   if(t.includes('سكرين') || t.includes('رؤية')){ card.style.cursor='pointer'; card.onclick=function(e){ e.preventDefault(); e.stopPropagation(); o1(); }; }
-   if(t.includes('بلاك')){ card.style.cursor='pointer'; card.onclick=function(e){ e.preventDefault(); e.stopPropagation(); o2(); }; }
-  });
- }
- bind(); setTimeout(bind,800); setTimeout(bind,2000);
+function closeAllPopups(){ document.querySelectorAll('.popup-overlay').forEach(p=>p.style.display='none'); }
+document.addEventListener('click', function(e){
+  if(e.target.classList.contains('popup-overlay')) closeAllPopups();
 });
+// اربط الايقونات - عدل ال selectors حسب موقعك
+// مثال:
+// document.querySelector('[data-curtain="zebra"]')?.addEventListener('click', ()=>{ document.getElementById('popup-zebra').style.display='flex'; });
 </script>
