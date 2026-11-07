@@ -1,252 +1,84 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DIBAJ | ديباج</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ديباج للستائر - Dibaj Decor</title>
 <style>
-:root{--navy:#0a1931;--navy2:#12244d;--gold:#d4af37;--gold2:#e8c96a}
-*{box-sizing:border-box;margin:0}
-body{font-family:'Tajawal',system-ui;background:#0a1931;color:#fff;overflow-x:hidden}
-.dibaj-top{position:sticky;top:0;z-index:20;background:#0a1931f2;backdrop-filter:blur(8px);border-bottom:1px solid #d4af3730;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
-.dibaj-logo{display:flex;align-items:center;gap:10px}
-.dibaj-logo img{width:44px;height:44px;object-fit:contain}
-.dibaj-logo span{color:var(--gold);font-family:'Cairo',sans-serif;font-size:19px;font-weight:800}
-#dibaj-menu-btn{border:2px solid var(--gold);border-radius:8px;padding:10px 8px;cursor:pointer;display:flex;flex-direction:column;gap:5px;background:#0a1931}
-#dibaj-menu-btn span{display:block;width:22px;height:2.5px;background:var(--gold);border-radius:2px}
-#dibaj-nav{position:fixed!important;top:0;right:0;bottom:0;width:280px;background:#0f1e3a;display:flex!important;flex-direction:column;padding:70px 24px;transform:translateX(100%);transition:transform 0.35s ease;z-index:9999;box-shadow:-8px 0 30px rgba(0,0,0,.4)}
-#dibaj-nav.dibaj-open{transform:translateX(0)!important}
-#dibaj-nav a{color:var(--gold);padding:16px 0;display:block;text-decoration:none;font-size:18px;border-bottom:1px solid #d4af3720;font-weight:700}
-#dibaj-bg{position:fixed;inset:0;background:rgba(10,25,49,0.65);backdrop-filter:blur(4px);z-index:9998;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
-#dibaj-bg.show{opacity:1;pointer-events:auto}
-.hero-img{width:100%;display:block}
-.section{max-width:1200px;margin:auto;padding:24px 14px}
-.sec-title{color:var(--gold);font-size:20px;margin-bottom:14px;border-right:4px solid var(--gold);padding-right:10px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:1000px){.grid{grid-template-columns:repeat(6,1fr)}}
-.box{background:var(--navy2);border:1px solid #d4af3726;border-radius:14px;overflow:hidden;text-align:center;cursor:pointer;transition:transform .2s}
-.box:hover{transform:translateY(-3px);border-color:var(--gold)}
-.box img{width:100%;height:130px;object-fit:cover;display:block}
-.box .txt{padding:10px 6px;background:var(--navy2)}
-.box h3{font-size:13px;line-height:1.3;min-height:34px;color:#fff;font-weight:700}
-.box span{font-size:11px;color:var(--gold);display:block;margin-top:4px}
-.footer{text-align:center;padding:24px;color:#6b7a93;border-top:1px solid #1a2a4a;margin-top:20px;font-size:12px}
-.popup-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.85);backdrop-filter:blur(8px);justify-content:center;align-items:center;z-index:99999;padding:15px}
-.popup-card{background:#fefefe;max-width:480px;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.3);max-height:92vh;overflow-y:auto;color:#111;direction:rtl;font-family:'Tajawal',sans-serif}
+body{margin:0;font-family:system-ui;background:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.box{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);cursor:pointer}
+.box img{width:100%;height:180px;object-fit:cover;display:block}
+.txt{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:#fff;padding:10px}
+.txt h3{margin:0;font-size:15px}.txt span{font-size:11px;opacity:0.8}
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:9999;padding:12px}
+.popup-overlay.active{display:flex}
+.popup-card{background:#fff;border-radius:20px;overflow:hidden;max-width:400px;width:100%;max-height:90vh;overflow-y:auto;animation:pop 0.3s}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
 </style>
 </head>
 <body>
-<header class="dibaj-top">
-  <div class="dibaj-logo"><img src="logo.png?v=final"><span>ديباج للديكور</span></div>
-  <div id="dibaj-menu-btn" onclick="toggleDibaj()"><span></span><span></span><span></span></div>
-</header>
-<div id="dibaj-nav">
-  <a href="#" onclick="toggleDibaj()">الرئيسية</a>
-  <a href="#about-dibaj" onclick="toggleDibaj()">من نحن</a>
-  <a href="#services" onclick="toggleDibaj()">خدماتنا</a>
-  <a href="#contact" onclick="toggleDibaj()">تواصل معنا</a>
-  <a href="tel:0557755026" onclick="toggleDibaj()" style="color:#C8A96A">📞 0557755026</a>
-  <a href="https://wa.me/966557755026" onclick="toggleDibaj()" style="color:#25D366">💬 واتساب 0557755026</a>
-  <a href="tel:0560013851" onclick="toggleDibaj()" style="color:#C8A96A">📞 0560013851</a>
-  <a href="https://wa.me/966560013851" onclick="toggleDibaj()" style="color:#25D366">💬 واتساب 0560013851</a>
-</div>
-<div id="dibaj-bg" onclick="toggleDibaj()"></div>
-<div style="width:100%;"><img src="dibaj-hero.jpg" alt="ديباج للديكور" class="hero-img"></div>
-<section id="about-dibaj" style="background:#0a1931; padding:0; font-family:'Tajawal', sans-serif; direction:rtl;">
-  <div style="padding:30px 20px; border-bottom:1px solid #1a2f5a;">
-    <h2 style="color:#d4af37; text-align:right; font-size:22px;">• لمحة عن الشركة</h2>
-    <p style="color:#e8d5a3; line-height:2.2; text-align:justify; font-size:17px; margin:10px 0 0;">نحن في شركة ديباج للديكور نوفر العديد من المنتجات الفاخرة والعصرية لتلبية كافة الأذواق من : ستائر الرول ، أقمشة الستائر الفاخرة، ستائر الطبية، ستائر الخشبية، ستائر الزيبرا ، ستائر العامودية، ستائر المعدنية، ستائر الروماني، المظلات الكهربائية ، مظلات الاسقف الزجاجية المتحركة ، مظلات السيارات ، الشترات ، البيت الذكي مع كافة الإكسسوارات والمحركات الكهربائية بالإضافة لأبواب الأكورديون وأرضيات الباركيه وورق الجدران وبديل الخشب وبديل الرخام وبعض أعمال التشطيبات الداخلية ونعتمد في عملنا علي تاريخ طويل من الخبرة والكفاءة العالية وجودة المنتجات والاتقان في التركيب وتسليم المشاريع حيث نمارس عملنا بمهنية واحترافية مع متابعة اعمال الصيانة لكافة منتجاتنا ان وجدت بأيدي مدربة وذات خبرة طويلة في هذا الإختصاص.</p>
-  </div>
-  <div style="padding:30px 20px; border-bottom:1px solid #1a2f5a;">
-    <h2 style="color:#d4af37; text-align:right; font-size:22px;">• هدف الشركة</h2>
-    <p style="color:#e8d5a3; line-height:2.2; text-align:justify; font-size:17px; margin:10px 0 0;">تهدف شركة ديباج للديكور إلي تلبية الاحتياجات في السوق المحلي بأنواع مختلفة من الستائر والمظلات والديكورات وتقدم أحدث الإبداعات العالمية في روعة الألوان والتصاميم الجذابة بما يوافق رغبة ومصالح العملاء.</p>
-  </div>
-  <div style="padding:30px 20px;">
-    <h2 style="color:#d4af37; text-align:right; font-size:22px;">• رسالة الشركة</h2>
-    <p style="color:#e8d5a3; line-height:2.2; text-align:justify; font-size:17px; margin:10px 0 0;">تحدد شركة ديباج للديكور رسالتها عن طريق إرضاء العملاء ، من خلال منحهم تصاميم راقية وأنيقة وفاخرة تفوق توقعاتهم مع ضمان الجودة مما تجعلهم يشعرون بالرضا ، مما يزيدنا إصرارا على ملاحقة التطور باستمرار لتقديم خدماتنا بأفخر المنتجات وأحدث التقنيات وأعلى مواصفات الجودة.</p>
-  </div>
-</section>
-<div class="section" id="services">
-<div class="sec-title">أقسامنا</div>
+
 <div class="grid">
-<div class="box" data-popup="popup-sun"><img src="1.jpg"><div class="txt"><h3>ستائر رول صن سكرين</h3><span>Sun Screen</span></div></div>
-<div class="box" data-popup="popup-blackout"><img src="2.jpg"><div class="txt"><h3>ستائر رول بلاك اوت</h3><span>Blackout</span></div></div>
+<div class="box" data-popup="popup-blackout"><img src="1.jpg"><div class="txt"><h3>ستائر بلاك اوت</h3><span>Blackout</span></div></div>
+<div class="box" data-popup="popup-sunscreen"><img src="2.jpg"><div class="txt"><h3>ستائر سن سكرين</h3><span>Sun Screen</span></div></div>
 <div class="box" data-popup="popup-zebra"><img src="3.jpg"><div class="txt"><h3>ستائر زيبرا</h3><span>Zebra</span></div></div>
-<div class="box" data-popup="popup-medical"><img src="4.jpg"><div class=
+<div class="box" data-popup="popup-medical"><img src="4.jpg"><div class="txt"><h3>ستائر طبية</h3><span>Medical</span></div></div>
 <div class="box"><img src="5.jpg"><div class="txt"><h3>ستائر قماشية</h3><span>Fabric</span></div></div>
-<div class="box"><img src="6.jpg"><div class="txt"><h3>ستائر روماني</h3><span>Roman</span></div></div>
-<div class="box"><img src="7.jpg"><div class="txt"><h3>ستائر عمودية</h3><span>Vertical</span></div></div>
-<div class="box"><img src="8.jpg"><div class="txt"><h3>ستائر معدنية</h3><span>Metal</span></div></div>
-<div class="box"><img src="9.jpg"><div class="txt"><h3>ستائر خشبية</h3><span>Wood</span></div></div>
-<div class="box"><img src="10.jpg"><div class="txt"><h3>ستائر بامبو</h3><span>Bamboo</span></div></div>
-<div class="box"><img src="11.jpg"><div class="txt"><h3>شترات خارجية</h3><span>Shutter</span></div></div>
-<div class="box"><img src="12.jpg"><div class="txt"><h3>بيرجولا كهربائية</h3><span>Pergola</span></div></div>
-<div class="box"><img src="13.jpg"><div class="txt"><h3>مظلات سكاي لايت</h3><span>Sky Light</span></div></div>
-<div class="box"><img src="14.jpg"><div class="txt"><h3>مظلات كافيهات</h3><span>Cafe</span></div></div>
-<div class="box"><img src="15.jpg"><div class="txt"><h3>ورق جدران</h3><span>Wallpaper</span></div></div>
-<div class="box"><img src="16.jpg"><div class="txt"><h3>بديل خشب</h3><span>Wood Panel</span></div></div>
-<div class="box"><img src="17.jpg"><div class="txt"><h3>بديل رخام</h3><span>Marble</span></div></div>
-<div class="box"><img src="18.jpg"><div class="txt"><h3>ارضيات باركيه</h3><span>Parquet</span></div></div>
-<div class="box"><img src="19.jpg"><div class="txt"><h3>ابواب اوكرديون</h3><span>Accordion</span></div></div>
-<div class="box"><img src="20.jpg"><div class="txt"><h3>تشطيبات داخلية</h3><span>Finishing</span></div></div>
-<div class="box"><img src="21.jpg"><div class="txt"><h3>دعاية واعلان</h3><span>Branding</span></div></div>
-<div class="box"><img src="22.jpg"><div class="txt"><h3>التظليل الالكتروني</h3><span>Smart Tint</span></div></div>
-<div class="box"><img src="23.jpg"><div class="txt"><h3>البيت الذكي</h3><span>Smart Home</span></div></div>
-<div class="box"><img src="24.jpg"><div class="txt"><h3>المحركات</h3><span>Motors</span></div></div>
-</div>
-</div>
-<div class="footer" id="contact">DIBAJ-DECOR - تواصل معنا</div>
-<div style="position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:10px">
-<a href="https://wa.me/966557755026" style="background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">💬</a>
-<a href="tel:0557755026" style="background:#C8A96A;color:#000;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">📞</a>
-</div>
-<div style="position:fixed;bottom:20px;left:20px;z-index:99999;display:flex;flex-direction:column;gap:10px">
-<a href="https://wa.me/966560013851" style="background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">💬</a>
-<a href="tel:0560013851" style="background:#C8A96A;color:#000;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.4)">📞</a>
+<div class="box"><img src="6.jpg"><div class="txt"><h3>ستائر رول</h3><span>Roll</span></div></div>
 </div>
 
-<!-- POPUP SUN -->
-<div id="popup-sun" class="popup-overlay">
-  <div class="popup-card">
-    <div style="position:relative">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:#f5f5f5">
-        <img src="1-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:16px 4px 4px 4px">
-        <img src="1-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 16px 4px 4px">
-        <img src="1-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 4px 16px">
-        <img src="1-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 16px 4px">
-      </div>
-      <button onclick="closeAllPopups()" style="position:absolute; top:12px; right:12px; width:36px; height:36px; background:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
-      <div style="position:absolute; bottom:12px; left:12px; background:#0a1931; color:#d4af37; padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700">للواجهات الزجاجية</div>
-    </div>
-    <div style="padding:22px">
-      <h2 style="margin:0; font-size:24px; font-weight:800; color:#111">ستائر صن سكرين</h2>
-      <p style="margin:6px 0 14px; color:#b89a5a; font-size:12px; letter-spacing:2px; font-weight:700">SUN SCREEN • رؤية بنهار</p>
-      <div style="width:40px; height:3px; background:#b89a5a; border-radius:2px; margin-bottom:14px"></div>
-      <p style="color:#333; line-height:1.9; font-size:14px; margin:0 0 14px">تحجب <b>90% من الحرارة</b> وتحافظ على إطلالتك الخارجية. قماش نسيجي يسمح بدخول الضوء الطبيعي بدون وهج، مثالي لمكاتب مكة والواجهات الشمسية.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 18px">
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ حجب حرارة 90%</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ رؤية خارجية</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مقاوم UV</div>
-      </div>
-      <a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20صن%20سكرين%0Aالمقاس%3A%0Aالموقع%3A%20مكة" style="display:block; background:#111; color:#fff; text-align:center; padding:14px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; margin-bottom:10px">طلب عرض سعر مجاني — صن سكرين</a>
-      <a href="https://wa.me/966557755026?text=استشارة%20صن%20سكرين" style="display:block; background:#fff; color:#111; text-align:center; padding:12px; border-radius:12px; text-decoration:none; font-size:13px; border:1.5px solid #111">استشارة واتساب</a>
-    </div>
-  </div>
-</div>
+<!-- POPUP 1 BLACKOUT -->
+<div id="popup-blackout" class="popup-overlay"><div class="popup-card"><div style="position:relative"><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#f5f5f5"><img src="1-1.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:16px 4px 4px 4px"><img src="1-2.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 16px 4px 4px"><img src="1-3.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 4px 16px"><img src="1-4.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 16px 4px"></div><button onclick="closeAllPopups()" style="position:absolute;top:12px;right:12px;width:36px;height:36px;background:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer">×</button></div><div style="padding:22px"><h2 style="margin:0">ستائر بلاك اوت</h2><p style="color:#b89a5a;font-size:12px;letter-spacing:2px;font-weight:700">BLACKOUT • عتمة تامة</p><p style="color:#333;line-height:1.8;font-size:14px">حجب 100% للضوء وعزل حراري وصوتي، لمسة فندقية راقية لغرف النوم.</p><a href="https://wa.me/966557755026" style="display:block;background:#0a1931;color:#d4af37;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:700;margin-top:10px">طلب عرض سعر</a></div></div></div>
 
-<!-- POPUP BLACKOUT -->
-<div id="popup-blackout" class="popup-overlay">
-  <div class="popup-card">
-    <div style="position:relative">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:#f5f5f5">
-        <img src="2-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:16px 4px 4px 4px">
-        <img src="2-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 16px 4px 4px">
-        <img src="2-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 4px 16px">
-        <img src="2-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 16px 4px">
-      </div>
-      <button onclick="closeAllPopups()" style="position:absolute; top:12px; right:12px; width:36px; height:36px; background:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
-      <div style="position:absolute; bottom:12px; left:12px; background:#111; color:#fff; padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700">تعتيم 100% لغرف النوم</div>
-    </div>
-    <div style="padding:22px">
-      <h2 style="margin:0; font-size:24px; font-weight:800; color:#111">ستائر بلاك أوت</h2>
-      <p style="margin:6px 0 14px; color:#b89a5a; font-size:12px; letter-spacing:2px; font-weight:700">BLACKOUT • نوم فندقي</p>
-      <div style="width:40px; height:3px; background:#b89a5a; border-radius:2px; margin-bottom:14px"></div>
-      <p style="color:#333; line-height:1.9; font-size:14px; margin:0 0 14px">تعتيم <b>100% حقيقي</b>، عزل حراري وصوتي. قماش ثلاثي الطبقات ثقيل، يمنح غرفة نومك ظلام فندق 5 نجوم حتى في عز الظهر.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 18px">
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ تعتيم 100%</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ عازل حرارة وصوت</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ قماش فندقي ثقيل</div>
-      </div>
-      <a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20بلاك%20اوت%0Aالمقاس%3A%0Aالموقع%3A%20مكة" style="display:block; background:#111; color:#fff; text-align:center; padding:14px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; margin-bottom:10px">طلب عرض سعر مجاني — بلاك أوت</a>
-      <a href="https://wa.me/966557755026?text=استشارة%20بلاك%20اوت" style="display:block; background:#fff; color:#111; text-align:center; padding:12px; border-radius:12px; text-decoration:none; font-size:13px; border:1.5px solid #111">استشارة واتساب</a>
-    </div>
-  </div>
-</div>
+<!-- POPUP 2 SUNSCREEN -->
+<div id="popup-sunscreen" class="popup-overlay"><div class="popup-card"><div style="position:relative"><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#f5f5f5"><img src="2-1.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:16px 4px 4px 4px"><img src="2-2.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 16px 4px 4px"><img src="2-3.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 4px 16px"><img src="2-4.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 16px 4px"></div><button onclick="closeAllPopups()" style="position:absolute;top:12px;right:12px;width:36px;height:36px;background:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer">×</button></div><div style="padding:22px"><h2 style="margin:0">ستائر سن سكرين</h2><p style="color:#b89a5a;font-size:12px;font-weight:700">SUN SCREEN • رؤية نهارية</p><p style="color:#333;line-height:1.8;font-size:14px">تحجب الحرارة وتحافظ على إطلالة النهار، مثالية للمكاتب والواجهات الزجاجية.</p><a href="https://wa.me/966557755026" style="display:block;background:#0a1931;color:#d4af37;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:700;margin-top:10px">طلب عرض سعر</a></div></div></div>
 
-<!-- POPUP ZEBRA -->
-<div id="popup-zebra" class="popup-overlay">
-  <div class="popup-card">
-    <div style="position:relative">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:#f5f5f5">
-        <img src="3-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:16px 4px 4px 4px">
-        <img src="3-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 16px 4px 4px">
-        <img src="3-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 4px 16px">
-        <img src="3-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 16px 4px">
-      </div>
-      <button onclick="closeAllPopups()" style="position:absolute; top:12px; right:12px; width:36px; height:36px; background:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
-      <div style="position:absolute; bottom:12px; left:12px; background:#111; color:#fff; padding:6px 14px; border-radius:20px; font-size:11px; letter-spacing:1px">الأكثر طلباً في مكة</div>
-    </div>
-    <div style="padding:22px">
-      <h2 style="margin:0; font-size:24px; font-weight:800; color:#111">ستائر زيبرا</h2>
-      <p style="margin:6px 0 14px; color:#b89a5a; font-size:12px; letter-spacing:2px; font-weight:700">ZEBRA • تحكم فندقي بالإضاءة</p>
-      <div style="width:40px; height:3px; background:#b89a5a; border-radius:2px; margin-bottom:14px"></div>
-      <p style="color:#333; line-height:1.9; font-size:14px; margin:0 0 14px">نظام طبقات مزدوج أوروبي يمنحك <b>3 مستويات إضاءة</b> بلمسة واحدة. قماش كوري أصلي معالج ضد الغبار والبهتان، حركة هادئة بدون صوت.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 18px">
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ تحكم 0-100% بالإضاءة</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ قماش كوري فاخر</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مقاوم للغبار</div>
-      </div>
-      <a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20زيبرا%0Aالمقاس%3A%0Aالموقع%3A%20مكة" style="display:block; background:#111; color:#fff; text-align:center; padding:14px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; margin-bottom:10px">طلب عرض سعر مجاني — معاينة مجانية</a>
-      <a href="https://wa.me/966557755026?text=استشارة%20ستائر%20زيبرا" style="display:block; background:#fff; color:#111; text-align:center; padding:12px; border-radius:12px; text-decoration:none; font-size:13px; border:1.5px solid #111">استشارة واتساب فورية</a>
-      <p style="text-align:center; color:#999; font-size:10px; margin:10px 0 0">✓ تركيب احترافي ✓ معاينة مجانية داخل مكة ✓ دفع بعد التركيب</p>
-    </div>
-  </div>
+<!-- POPUP 3 ZEBRA -->
+<div id="popup-zebra" class="popup-overlay"><div class="popup-card"><div style="position:relative"><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#f5f5f5"><img src="3-1.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:16px 4px 4px 4px"><img src="3-2.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 16px 4px 4px"><img src="3-3.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 4px 16px"><img src="3-4.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 16px 4px"></div><button onclick="closeAllPopups()" style="position:absolute;top:12px;right:12px;width:36px;height:36px;background:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer">×</button></div><div style="padding:22px"><h2 style="margin:0">ستائر زيبرا</h2><p style="color:#b89a5a;font-size:12px;font-weight:700">ZEBRA • تحكم بالضوء</p><p style="color:#333;line-height:1.8;font-size:14px">شريحتين متداخلة للتحكم الأنيق بمستوى الخصوصية والإضاءة بلمسة عصرية.</p><a href="https://wa.me/966557755026" style="display:block;background:#0a1931;color:#d4af37;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:700;margin-top:10px">طلب عرض سعر</a></div></div></div>
+
+<!-- POPUP 4 MEDICAL - الوصف العالمي المحترم -->
+<div id="popup-medical" class="popup-overlay">
+<div class="popup-card">
+<div style="position:relative">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#f5f5f5">
+<img src="4-1.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:16px 4px 4px 4px">
+<img src="4-2.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 16px 4px 4px">
+<img src="4-3.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 4px 16px">
+<img src="4-4.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:4px 4px 16px 4px">
+</div>
+<button onclick="closeAllPopups()" style="position:absolute;top:12px;right:12px;width:36px;height:36px;background:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
+<div style="position:absolute;bottom:12px;left:12px;background:#0a1931;color:#d4af37;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700">معتمد للمستشفيات والعيادات</div>
+</div>
+<div style="padding:22px">
+<h2 style="margin:0;font-size:24px;font-weight:800;color:#111">ستائر طبية</h2>
+<p style="margin:6px 0 14px;color:#b89a5a;font-size:12px;letter-spacing:2px;font-weight:700">MEDICAL • معايير عالمية للرعاية الصحية</p>
+<div style="width:40px;height:3px;background:#b89a5a;border-radius:2px;margin-bottom:14px"></div>
+<p style="color:#333;line-height:1.9;font-size:14px;margin:0 0 14px">حل متكامل صمم وفق <b>أعلى المعايير الدولية لمكافحة العدوى</b>. قماش مضاد للبكتيريا والفطريات، مقاوم للسوائل، وسهل التعقيم، يمنح بيئة آمنة وراقية تليق بمؤسساتكم الطبية وتعزز ثقة المرضى.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 18px">
+<div style="background:#faf8f3;border:1px solid #f0e8d5;padding:10px;border-radius:12px;font-size:12px;text-align:center">✓ مضاد للبكتيريا</div>
+<div style="background:#faf8f3;border:1px solid #f0e8d5;padding:10px;border-radius:12px;font-size:12px;text-align:center">✓ مقاوم للسوائل</div>
+<div style="background:#faf8f3;border:1px solid #f0e8d5;padding:10px;border-radius:12px;font-size:12px;text-align:center">✓ سهل التعقيم</div>
+<div style="background:#faf8f3;border:1px solid #f0e8d5;padding:10px;border-radius:12px;font-size:12px;text-align:center">✓ خصوصية تامة</div>
+</div>
+<a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20طبية%20للمستشفى%2Fالعيادة" style="display:block;background:#0a1931;color:#d4af37;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;margin-bottom:10px;border:1px solid #d4af37">طلب عرض سعر - ستائر طبية</a>
+<a href="https://wa.me/966557755026?text=استشارة%20ستائر%20طبية" style="display:block;background:#fff;color:#111;text-align:center;padding:12px;border-radius:12px;text-decoration:none;font-size:13px;border:1.5px solid #111">استشارة فنية مجانية</a>
+</div>
+</div>
 </div>
 
 <script>
-function toggleDibaj(){
-  var n=document.getElementById('dibaj-nav');
-  var b=document.getElementById('dibaj-bg');
-  var isOpen=n.classList.toggle('dibaj-open');
-  if(isOpen){b.classList.add('show');document.body.style.overflow='hidden';}
-  else{b.classList.remove('show');document.body.style.overflow='';}
-}
-function closeAllPopups(){
-  document.querySelectorAll('.popup-overlay').forEach(el=> el.style.display='none');
-  document.body.style.overflow='';
-}
-document.addEventListener('click', function(e){
-  if(e.target.classList.contains('popup-overlay')) closeAllPopups();
-});
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('[data-popup]').forEach(el=>{
-    el.addEventListener('click', function(){
-      var pop = document.getElementById(this.dataset.popup);
-      if(pop){ pop.style.display='flex'; document.body.style.overflow='hidden'; }
-    });
-  });
-});
+function closeAllPopups(){document.querySelectorAll('.popup-overlay').forEach(p=>p.classList.remove('active'))}
+document.querySelectorAll('[data-popup]').forEach(box=>{
+box.addEventListener('click',()=>{
+const id=box.getAttribute('data-popup');
+document.getElementById(id)?.classList.add('active');
+})
+})
+document.querySelectorAll('.popup-overlay').forEach(overlay=>{
+overlay.addEventListener('click',(e)=>{if(e.target===overlay)closeAllPopups()})
+})
 </script>
-<!-- POPUP MEDICAL -->
-<div id="popup-medical" class="popup-overlay">
-  <div class="popup-card">
-    <div style="position:relative">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; background:#f5f5f5">
-        <img src="4-1.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:16px 4px 4px 4px">
-        <img src="4-2.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 16px 4px 4px">
-        <img src="4-3.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 4px 16px">
-        <img src="4-4.jpg" style="width:100%; height:140px; object-fit:cover; border-radius:4px 4px 16px 4px">
-      </div>
-      <button onclick="closeAllPopups()" style="position:absolute; top:12px; right:12px; width:36px; height:36px; background:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15)">×</button>
-      <div style="position:absolute; bottom:12px; left:12px; background:#0a1931; color:#d4af37; padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700">معتمد للمستشفيات والعيادات</div>
-    </div>
-    <div style="padding:22px">
-      <h2 style="margin:0; font-size:24px; font-weight:800; color:#111">ستائر طبية</h2>
-      <p style="margin:6px 0 14px; color:#b89a5a; font-size:12px; letter-spacing:2px; font-weight:700">MEDICAL • معايير عالمية للرعاية الصحية</p>
-      <div style="width:40px; height:3px; background:#b89a5a; border-radius:2px; margin-bottom:14px"></div>
-      <p style="color:#333; line-height:1.9; font-size:14px; margin:0 0 14px">حل متكامل صمم وفق <b>أعلى المعايير الدولية لمكافحة العدوى</b>. قماش مضاد للبكتيريا والفطريات، مقاوم للسوائل، وسهل التعقيم، يمنح بيئة آمنة وراقية تليق بمؤسساتكم الطبية وتعزز ثقة المرضى.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 18px">
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مضاد للبكتيريا</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ مقاوم للسوائل</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ سهل التعقيم</div>
-        <div style="background:#faf8f3; border:1px solid #f0e8d5; padding:10px; border-radius:12px; font-size:12px; text-align:center">✓ خصوصية تامة</div>
-      </div>
-      <a href="https://wa.me/966557755026?text=السلام%20عليكم%20ديباج%20%F0%9F%91%8B%0Aاريد%20عرض%20سعر%20ستائر%20طبية%20للمستشفى%2Fالعيادة%0Aالمقاس%3A%0Aالموقع%3A" style="display:block; background:#0a1931; color:#d4af37; text-align:center; padding:14px; border-radius:12px; text-decoration:none; font-weight:700; font-size:14px; margin-bottom:10px; border:1px solid #d4af37">طلب عرض سعر - ستائر طبية</a>
-      <a href="https://wa.me/966557755026?text=استشارة%20ستائر%20طبية" style="display:block; background:#fff; color:#111; text-align:center; padding:12px; border-radius:12px; text-decoration:none; font-size:13px; border:1.5px solid #111">استشارة فنية مجانية</a>
-    </div>
-  </div>
-</div>
+
 </body>
 </html>
