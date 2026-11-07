@@ -70,8 +70,7 @@ body{font-family:'Tajawal',system-ui;background:#0a1931;color:#fff;overflow-x:hi
 </section>
 <div class="section" id="services">
 <div class="sec-title">أقسامنا</div>
-<div class="popup-card" style="background:#fff;border-radius:22px;max-width:480px;margin:2% auto;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative">
-<button onclick="closePopup()" style="position:absolute;top:12px;left:12px;width:34px;height:34px;border-radius:50%;background:#111;color:#fff;border:none;font-size:18px;font-weight:900;z-index:10;cursor:pointer">×</button>
+<div class="grid">
 <div class="box" data-popup="popup-sun"><img src="1.jpg"><div class="txt"><h3>ستائر رول صن سكرين</h3><span>Sun Screen</span></div></div>
 <div class="box" data-popup="popup-blackout"><img src="2.jpg"><div class="txt"><h3>ستائر رول بلاك اوت</h3><span>Blackout</span></div></div>
 <div class="box" data-popup="popup-zebra"><img src="3.jpg"><div class="txt"><h3>ستائر زيبرا</h3><span>Zebra</span></div></div>
@@ -248,23 +247,26 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 </div>
-<div id="fabricPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;overflow-y:auto;padding:20px">
-<div style="background:#fff;border-radius:22px;max-width:480px;margin:2% auto;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative">
-<button onclick="document.getElementById('fabricPopup').style.display='none'" style="position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:50%;background:#000;color:#fff;border:2px solid #fff;font-size:22px;font-weight:900;z-index:9999;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>
-<img src="https://...صورة القماشية" style="width:100%;height:220px;object-fit:cover;border-radius:22px 22px 0 0">
-<div style="padding:18px">
-<p style="font-size:10.5px;letter-spacing:3px;color:#999;margin-bottom:6px;text-align:center">VELVET • LINEN • SILK • CHIFFON</p>
+<div id="popup-fabric" class="popup-overlay" onclick="if(event.target==this)closePopup()">
+<div class="popup-card" style="background:#fff;border-radius:22px;max-width:480px;margin:2% auto;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+<img src="5-1.jpg" style="width:100%;height:150px;object-fit:cover">
+<img src="5-2.jpg" style="width:100%;height:150px;object-fit:cover">
+<img src="5-3.jpg" style="width:100%;height:150px;object-fit:cover">
+<img src="5-4.jpg" style="width:100%;height:150px;object-fit:cover">
+</div>
+<div style="padding:22px 20px">
+<p style="color:#b89a5a;font-size:11px;letter-spacing:1.5px;font-weight:800;margin-bottom:6px;text-align:center">VELVET • LINEN • SILK • CHIFFON</p>
 <h2 style="font-size:24px;font-weight:900;color:#111;margin-bottom:10px;text-align:center">ستائر قماشية بفخامة الفنادق</h2>
-<p style="line-height:2;color:#333;font-size:15px;margin-bottom:18px;text-align:center">لمسة فخامة تغيّر جو البيت بالكامل.<br>قماش بانسيابية راقية، خياطة مخفية بتشطيب فندقي، وبطانة تحجب الضوء بالكامل.</p>
+<p style="line-height:1.9;color:#444;font-size:14px;margin-bottom:18px;text-align:center">نحول شباكك لتحفة فنية. أقمشة طبيعية مستوردة من أوروبا، بتفصيل حسب المقاس، مع بطانة بلاك أوت عازلة 100%.</p>
 <div style="display:grid;gap:9px;margin-bottom:22px">
-<div style="display:flex;gap:12px;align-items:center;background:#fdfaf6;border:1px solid #f3e9d6;padding:12px;border-radius:14px">👑 <div><b>مخمل فاخر</b><br><span style="font-size:11.5px;color:#777">ملمس غني ودافئ</span></div></div>
-<div style="display:flex;gap:12px;align-items:center;background:#f8f9ff;border:1px solid #e6e8ff;padding:12px;border-radius:14px">✨ <div><b>حرير طبيعي</b><br><span style="font-size:11.5px;color:#777">انسيابية و لمعة ناعمة</span></div></div>
-<div style="display:flex;gap:12px;align-items:center;background:#f5faf5;border:1px solid #d8ecd8;padding:12px;border-radius:14px">🌿 <div><b>لينن أصلي</b><br><span style="font-size:11.5px;color:#777">خفيف يتنفس</span></div></div>
-<div style="display:flex;gap:12px;align-items:center;background:#faf5ff;border:1px solid #eee3ff;padding:12px;border-radius:14px">💨 <div><b>شيفون شفاف</b><br><span style="font-size:11.5px;color:#777">ضوء ناعم وخصوصية راقية</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;background:#fdfaf6;border:1px solid #f3e9d6;padding:12px;border-radius:14px"><span>👑</span><div><b>مخمل بلجيكي فاخر</b><br><span style="font-size:11.5px;color:#777">كثافة 450g - عزل صوتي وحراري</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;background:#f8f9ff;border:1px solid #e6e8ff;padding:12px;border-radius:14px"><span>✨</span><div><b>حرير إيطالي طبيعي</b><br><span style="font-size:11.5px;color:#777">لمعة حريرية راقية</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;background:#f5faf5;border:1px solid #d8ecd8;padding:12px;border-radius:14px"><span>🌿</span><div><b>لينن إسباني 100%</b><br><span style="font-size:11.5px;color:#777">قماش يتنفس - مودرن</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;background:#faf5ff;border:1px solid #eee3ff;padding:12px;border-radius:14px"><span>💨</span><div><b>شيفون فرنسي شفاف</b><br><span style="font-size:11.5px;color:#777">خصوصية ناعمة مع ضوء طبيعي</span></div></div>
 </div>
-<a href="https://wa.me/966XXXXXXXXX" style="display:block;background:#25D366;color:#fff;text-align:center;padding:15px;border-radius:12px;font-weight:900;text-decoration:none;font-size:17px">اطلب الآن - واتساب</a>
-<p style="text-align:center;font-size:11px;color:#999;margin-top:10px">✓ تركيب مجاني بجدة</p>
-</div>
+<a href="https://wa.me/966557755026?text=السلام%20عليكم%20أريد%20عرض%20سعر%20للستائر%20القماشية" style="display:block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-align:center;padding:15px;border-radius:14px;font-weight:900;font-size:15px;text-decoration:none">💬 طلب عرض سعر واتساب - معاينة مجانية</a>
+<p style="text-align:center;font-size:11px;color:#999;margin-top:10px">✓ تركيب مجاني بجدة - مكة - الطائف ✓ ضمان 5 سنوات</p>
 </div>
 </div>
 </div>
