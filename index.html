@@ -222,31 +222,31 @@ function toggleDibaj(){
     </div>
   </div>
 </div>
-
 </script>
 <script>
-function closeAllPopups(){
-document.querySelectorAll('.popup-overlay')
-.forEach(p=>p.style.display='none')}
-document.addEventListener('click',e=>{
-if(e.target.classList.contains('popup-overlay')){
-closeAllPopups();return}
-document.addEventListener('click',e=>{
-if(e.target.classList.contains('popup-overlay')){
-closeAllPopups();return}
-if(e.target.tagName==='IMG'){e.target=e.target.parentElement}
-let t=e.target.innerText||'';
-...
-let t=e.target.innerText||'';
-t=t.trim();
+function X(){
+document.querySelectorAll(
+'.popup-overlay').forEach(
+p=>p.style.display='none')}
+document.addEventListener(
+'click',e=>{
+if(e.target.classList.contains(
+'popup-overlay')){X();return}
+let a=e.target;
+if(a.tagName=='IMG'){
+a=a.parentElement}
+let t=(a.innerText||'').trim();
 if(t.includes('زيبرا')){
-document.getElementById('popup-zebra')
-.style.display='flex'}
-if(t.includes('صن سكرين')){
-document.getElementById('popup-sun')
-.style.display='flex'}
+document.getElementById(
+'popup-zebra').style.display=
+'flex'}
+if(t.includes('صن')){
+document.getElementById(
+'popup-sun').style.display=
+'flex'}
 if(t.includes('بلاك')){
-document.getElementById('popup-blackout')
-.style.display='flex'}
-});
+document.getElementById(
+'popup-blackout').style.display=
+'flex'}
+})
 </script>
