@@ -249,19 +249,20 @@ function toggleDibaj(){
     </div>
   </div>
 </div>
-</script>
-</script>
+</div>
+</div>
+<script>
 function closeAllPopups(){
-document.querySelectorAll('.popup-overlay').forEach(p=>p.style.display='none')}
-document.addEventListener('click',e=>{
-if(e.target.classList.contains('popup-overlay')){closeAllPopups();return}
-if((e.target.innerText||'').trim()=='×'){closeAllPopups();return}
-if(e.target.tagName=='BUTTON'){closeAllPopups();return}
-let a=e.target;
-if(a.tagName=='IMG'){a=a.parentElement}
-let t=(a.innerText||'').trim();
-if(t.includes('زيبرا')){document.getElementById('popup-zebra').style.display='flex'}
-if(t.includes('صن')){document.getElementById('popup-sun').style.display='flex'}
-if(t.includes('بلاك')){document.getElementById('popup-blackout').style.display='flex'}
-})
+  document.querySelectorAll('.popup-overlay').forEach(el=> el.style.display='none');
+  document.body.style.overflow='';
+}
+document.addEventListener('click', function(e){
+  if(e.target.classList.contains('popup-overlay')) closeAllPopups();
+});
+document.querySelectorAll('[data-popup]').forEach(el=>{
+  el.addEventListener('click', function(){
+    var pop = document.getElementById(this.dataset.popup);
+    if(pop){ pop.style.display='flex'; document.body.style.overflow='hidden'; }
+  });
+});
 </script>
