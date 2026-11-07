@@ -230,7 +230,13 @@ document.querySelectorAll(
 p=>p.style.display='none')}
 document.addEventListener(
 'click',e=>{
-if(e.target.classList.contains(
+let q=e.target;
+if(q.innerText=='×'||q.innerText=='X'
+||q.tagName=='BUTTON'
+||q.classList.contains('close')){
+X();return}
+if(q.classList.contains(
+'popup-overlay')){X();return}
 'popup-overlay')){X();return}
 let a=e.target;
 if(a.tagName=='IMG'){
