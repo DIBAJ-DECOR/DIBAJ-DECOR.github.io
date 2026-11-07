@@ -232,3 +232,17 @@ document.addEventListener('click', function(e){
 // مثال:
 // document.querySelector('[data-curtain="zebra"]')?.addEventListener('click', ()=>{ document.getElementById('popup-zebra').style.display='flex'; });
 </script>
+<script>
+// تفعيل تلقائي لأيقونة زيبرا
+document.addEventListener('DOMContentLoaded', function(){
+  const allIcons = document.querySelectorAll('*');
+  allIcons.forEach(el => {
+    if(el.textContent && el.textContent.includes('زيبرا')){
+      el.style.cursor = 'pointer';
+      el.onclick = () => {
+        document.getElementById('popup-zebra').style.display='flex';
+      }
+    }
+  });
+});
+</script>
