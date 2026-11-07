@@ -223,33 +223,19 @@ function toggleDibaj(){
   </div>
 </div>
 
-<script>
-function closeAllPopups(){ document.querySelectorAll('.popup-overlay').forEach(p=>p.style.display='none'); }
-document.addEventListener('click', function(e){
-  if(e.target.classList.contains('popup-overlay')) closeAllPopups();
-});
-// اربط الايقونات - عدل ال selectors حسب موقعك
-// مثال:
-// document.querySelector('[data-curtain="zebra"]')?.addEventListener('click', ()=>{ document.getElementById('popup-zebra').style.display='flex'; });
 </script>
 <script>
-function closeAllPopups(){document.querySelectorAll('.popup-overlay').forEach(function(p){p.style.display='none';});}
+function closeAllPopups(){document.querySelectorAll('.popup-overlay').forEach(p=>p.style.display='none');}
 
-document.addEventListener('DOMContentLoaded',function(){
-  var map = {
-    'ستائر صن سكرين':'popup-sun',
-    'ستائر بلاك أوت':'popup-blackout',
-    'ستائر زيبرا':'popup-zebra'
-  };
-  Object.keys(map).forEach(function(name){
-    document.querySelectorAll('*').forEach(function(el){
-      if(el.children.length===0 && el.textContent.trim()===name){
-        el.style.cursor='pointer';
-        el.onclick=function(e){e.preventDefault();e.stopPropagation();document.getElementById(map[name]).style.display='flex';};
-      }
-    });
-  });
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('popup-overlay')){closeAllPopups(); return;}
+  
+  var txt = (e.target.innerText || e.target.textContent || '').trim();
+  // لو ضغط على صورة داخل الايقونة، خذ نص الأب
+  if(txt.length>30) txt = e.target.closest('div,button,a')?.innerText?.trim() || txt;
+
+  if(txt==='ستائر زيبرا'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-zebra').style.display='flex'; }
+  if(txt==='ستائر صن سكرين'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-sun').style.display='flex'; }
+  if(txt==='ستائر بلاك أوت'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-blackout').style.display='flex'; }
 });
-
-document.addEventListener('click',function(e){if(e.target.classList.contains('popup-overlay')){closeAllPopups();}});
 </script>
