@@ -211,10 +211,10 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('*').forEach(function(el){
    if(el.childElementCount!==0) return;
    var t=el.textContent.trim();
-   var card=el; for(var i=0;i<6;i++){ if(card && card.querySelector('img')) break; card=card.parentElement; }
-   if(!card || card.dataset.bound) return;
-   if(t==='ستائر سكرين'){ card.dataset.bound="1"; card.style.cursor='pointer'; card.addEventListener('click',function(e){e.stopPropagation();o1();}); }
-   if(t==='ستائر رول بلاك اوت'){ card.dataset.bound="1"; card.style.cursor='pointer'; card.addEventListener('click',function(e){e.stopPropagation();o2();}); }
+   var card=el; for(var i=0;i<6;i++){ if(!card) break; if(card.querySelector('img')) break; card=card.parentElement; }
+   if(!card) return;
+   if(t==='ستائر سكرين'){ card.style.cursor='pointer'; card.onclick=function(e){e.stopPropagation();o1();}; }
+   if(t==='ستائر رول بلاك اوت'){ card.style.cursor='pointer'; card.onclick=function(e){e.stopPropagation();o2();}; }
   });
  }
  bindAll(); setTimeout(bindAll,1500); setTimeout(bindAll,3000);
