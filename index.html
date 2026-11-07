@@ -189,6 +189,7 @@ function toggleDibaj(){
 </div>
 </div></div>
 <!-- POPUP 2 : BLACKOUT -->
+<!-- POPUP 2 : BLACKOUT -->
 <div id="dibaj-bo-overlay"><div class="dibaj-ss-box">
 <div class="dibaj-ss-top"><b>ستائر رول بلاك أوت - تعتيم كامل 100%</b></div>
 <div class="dibaj-ss-imgs">
@@ -196,52 +197,40 @@ function toggleDibaj(){
 </div>
 <div class="dibaj-ss-body">
 <p style="color:#ccc;line-height:1.9;font-size:15px">
-<b style="color:#fff;font-size:17px">الخيار الأول لغرف النوم والفنادق</b><br><br>
-قماش بلاك أوت أصلي 3 طبقات يمنع دخول الضوء 100%، نوم عميق حتى في عز النهار وعزل حراري وصوتي فاخر.<br><br>
+<b style="color:#fff;font-size:17px">الخيار الأول لغرف النوم والفنادق وقاعات الاجتماعات</b><br><br>
+قماش بلاك أوت أصلي 3 طبقات يمنع دخول الضوء نهائياً بنسبة 100%، يمنحك نوم عميق حتى في عز النهار وعزل حراري وصوتي فاخر.<br><br>
 <b style="color:#fff">المميزات:</b><br>
-✓ تعتيم 100% بدون تسريب<br>
-✓ عزل حراري 40%<br>
-✓ عزل صوتي<br>
-✓ لا يبهت ولا يتجعد<br>
+✓ تعتيم 100% بدون أي تسريب للضوء<br>
+✓ عزل حراري يقلل الحرارة 40%<br>
+✓ عزل صوتي للهدوء والخصوصية<br>
+✓ قماش سميك فاخر لا يبهت ولا يتجعد<br>
 ✓ ضمان 5 سنوات
 </p>
-<div class="dibaj-ss-btns"><a class="dibaj-ss-wa" href="https://wa.me/966500000000">طلب عرض سعر</a></div>
+<div class="dibaj-ss-btns"><a class="dibaj-ss-wa" href="https://wa.me/966500000000">طلب عرض سعر على الواتساب</a></div>
 </div>
 </div></div>
+
 <script>
 document.addEventListener('DOMContentLoaded',function(){
  var ov1=document.getElementById('dibaj-ss-overlay');
- var x1=document.getElementById('dibaj-ss-x');
  var ov2=document.getElementById('dibaj-bo-overlay');
- var x2=document.getElementById('dibaj-bo-x');
- function o1(){ov1.classList.add('on');document.body.style.overflow='hidden';}
- function c1(){ov1.classList.remove('on');document.body.style.overflow='';}
- function o2(){ov2.classList.add('on');document.body.style.overflow='hidden';}
- function c2(){ov2.classList.remove('on');document.body.style.overflow='';}
- x1.addEventListener('click',function(e){e.stopPropagation();c1();});
- x2.addEventListener('click',function(e){e.stopPropagation();c2();});
- ov1.addEventListener('click',function(e){if(e.target===ov1)c1();});
- ov2.addEventListener('click',function(e){if(e.target===ov2)c2();});
- function bindAll(){
+ function o1(){ if(ov1){ ov1.classList.add('on'); document.body.style.overflow='hidden'; } }
+ function c1(){ if(ov1){ ov1.classList.remove('on'); document.body.style.overflow=''; } }
+ function o2(){ if(ov2){ ov2.classList.add('on'); document.body.style.overflow='hidden'; } }
+ function c2(){ if(ov2){ ov2.classList.remove('on'); document.body.style.overflow=''; } }
+ if(ov1) ov1.addEventListener('click',function(e){ if(e.target===ov1) c1(); });
+ if(ov2) ov2.addEventListener('click',function(e){ if(e.target===ov2) c2(); });
+ function bind(){
   document.querySelectorAll('*').forEach(function(el){
-   if(el.childElementCount!==0) return;
+   if(el.children.length>0) return;
    var t=(el.textContent||'').trim();
-   var card=el; for(var i=0;i<6;i++){ if(!card) break; if(card.querySelector('img')) break; card=card.parentElement; }
-   if(!card) return;
-   // الأولى: أي شي فيه سكرين وما فيه بلاك
-   if(t.includes('سكرين') && !t.includes('بلاك')){
-     card.style.cursor='pointer';
-     card.onclick=function(e){e.stopPropagation();o1();};
-   }
-   // الثانية: فيها بلاك اوت
-   if(t.includes('بلاك')){
-     card.style.cursor='pointer';
-     card.onclick=function(e){e.stopPropagation();o2();};
-   }
+   if(t.length>50 || t.length<2) return;
+   var card=el; for(var i=0;i<7;i++){ if(!card) break; if(card.querySelector && card.querySelector('img')) break; card=card.parentElement; }
+   if(!card || !card.querySelector('img')) return;
+   if(t.includes('سكرين') || t.includes('رؤية')){ card.style.cursor='pointer'; card.onclick=function(e){ e.preventDefault(); e.stopPropagation(); o1(); }; }
+   if(t.includes('بلاك')){ card.style.cursor='pointer'; card.onclick=function(e){ e.preventDefault(); e.stopPropagation(); o2(); }; }
   });
  }
- bindAll(); setTimeout(bindAll,1500); setTimeout(bindAll,3000);
+ bind(); setTimeout(bind,800); setTimeout(bind,2000);
 });
 </script>
-</body>
-</html>
