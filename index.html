@@ -231,6 +231,12 @@ document.querySelectorAll('.popup-overlay')
 document.addEventListener('click',e=>{
 if(e.target.classList.contains('popup-overlay')){
 closeAllPopups();return}
+document.addEventListener('click',e=>{
+if(e.target.classList.contains('popup-overlay')){
+closeAllPopups();return}
+if(e.target.tagName==='IMG'){e.target=e.target.parentElement}
+let t=e.target.innerText||'';
+...
 let t=e.target.innerText||'';
 t=t.trim();
 if(t.includes('زيبرا')){
