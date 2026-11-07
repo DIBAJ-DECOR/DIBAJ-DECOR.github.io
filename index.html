@@ -225,17 +225,22 @@ function toggleDibaj(){
 
 </script>
 <script>
-function closeAllPopups(){document.querySelectorAll('.popup-overlay').forEach(p=>p.style.display='none');}
-
-document.addEventListener('click',function(e){
-  if(e.target.classList.contains('popup-overlay')){closeAllPopups(); return;}
-  
-  var txt = (e.target.innerText || e.target.textContent || '').trim();
-  // لو ضغط على صورة داخل الايقونة، خذ نص الأب
-  if(txt.length>30) txt = e.target.closest('div,button,a')?.innerText?.trim() || txt;
-
-  if(txt==='ستائر زيبرا'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-zebra').style.display='flex'; }
-  if(txt==='ستائر صن سكرين'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-sun').style.display='flex'; }
-  if(txt==='ستائر بلاك أوت'){ e.preventDefault(); e.stopPropagation(); document.getElementById('popup-blackout').style.display='flex'; }
+function closeAllPopups(){
+document.querySelectorAll('.popup-overlay')
+.forEach(p=>p.style.display='none')}
+document.addEventListener('click',e=>{
+if(e.target.classList.contains('popup-overlay')){
+closeAllPopups();return}
+let t=e.target.innerText||'';
+t=t.trim();
+if(t.includes('زيبرا')){
+document.getElementById('popup-zebra')
+.style.display='flex'}
+if(t.includes('صن سكرين')){
+document.getElementById('popup-sun')
+.style.display='flex'}
+if(t.includes('بلاك')){
+document.getElementById('popup-blackout')
+.style.display='flex'}
 });
 </script>
