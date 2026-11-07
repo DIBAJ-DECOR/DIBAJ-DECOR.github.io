@@ -192,7 +192,6 @@ function toggleDibaj(){
 <div class="dibaj-ss-btns"><a class="dibaj-ss-wa" href="https://wa.me/966XXXXXXXXX">واتساب</a><a class="dibaj-ss-call" href="tel:+966XXXXXXXXX">اتصال</a></div>
 </div>
 </div></div>
-
 <script>
 document.addEventListener('DOMContentLoaded',function(){
  var ov1=document.getElementById('dibaj-ss-overlay');
@@ -210,11 +209,19 @@ document.addEventListener('DOMContentLoaded',function(){
  function bindAll(){
   document.querySelectorAll('*').forEach(function(el){
    if(el.childElementCount!==0) return;
-   var t=el.textContent.trim();
+   var t=(el.textContent||'').trim();
    var card=el; for(var i=0;i<6;i++){ if(!card) break; if(card.querySelector('img')) break; card=card.parentElement; }
    if(!card) return;
-   if(t==='ستائر سكرين'){ card.style.cursor='pointer'; card.onclick=function(e){e.stopPropagation();o1();}; }
-   if(t==='ستائر رول بلاك اوت'){ card.style.cursor='pointer'; card.onclick=function(e){e.stopPropagation();o2();}; }
+   // الأولى: أي شي فيه سكرين وما فيه بلاك
+   if(t.includes('سكرين') && !t.includes('بلاك')){
+     card.style.cursor='pointer';
+     card.onclick=function(e){e.stopPropagation();o1();};
+   }
+   // الثانية: فيها بلاك اوت
+   if(t.includes('بلاك')){
+     card.style.cursor='pointer';
+     card.onclick=function(e){e.stopPropagation();o2();};
+   }
   });
  }
  bindAll(); setTimeout(bindAll,1500); setTimeout(bindAll,3000);
