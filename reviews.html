@@ -2077,19 +2077,45 @@ Error generating stack: `+o.message+`
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if(((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host)||u.protocol==="mailto:"||u.protocol==="tel:"||u.protocol==="sms:"){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   <script type="application/json" data-clippy-inline-media-manifest="1">{"version":1,"slots":[]}</script>
   <script>
-// تصليح زر الرئيسية يرجع للموقع الاساسي
-setInterval(()=>{
-  document.querySelectorAll('a').forEach(a=>{
-    let t=(a.textContent||'').trim();
-    if(t.includes('الرئيسية')){
-      a.href='index.html';
-      a.onclick=()=>{location.href='index.html';return false;};
+<script>
+(function(){
+  // كل 200ms نصلح الروابط - React ما بيقدر يلحقنا
+  function forceFix(){
+    document.querySelectorAll('a, button, div, span, li').forEach(function(el){
+      var txt = (el.innerText || el.textContent || '').trim();
+      if(txt === 'الرئيسية'){
+        el.setAttribute('onclick',"event.preventDefault();event.stopPropagation();window.location.href='index.html';return false;");
+        el.onclick = function(e){ e.preventDefault(); e.stopPropagation(); window.location.href='index.html'; return false; };
+      }
+    });
+  }
+  setInterval(forceFix, 200);
+  forceFix();
+
+  // اعتراض اي ضغطة على مستوى الصفحة كاملة - قبل ما توصل لـ React
+  document.addEventListener('click', function(e){
+    var target = e.target;
+    // دور على اقرب عنصر فيه كلمة الرئيسية
+    while(target && target !== document){
+      var t = (target.innerText || target.textContent || '').trim();
+      if(t === 'الرئيسية' || t === 'الرئيسية'){
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        window.location.href = 'index.html';
+        return false;
+      }
+      if(t === 'خدماتنا'){
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        window.location.href = 'index.html#services';
+        return false;
+      }
+      target = target.parentElement;
     }
-    if(t.includes('خدماتنا')){a.href='index.html#services';}
-    if(t.includes('من نحن')){a.href='index.html#about';}
-    if(t.includes('تواصل')){a.href='index.html#contact';}
-  });
-},400);
+  }, true); // true = capture phase = قبل React
+})();
 </script>
 </body>
 </html>
