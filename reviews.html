@@ -11,52 +11,74 @@
 <body class="bg-[#0A1931]">
 <div class="min-h-screen">
 <header class="py-6 px-6 flex justify-between items-center border-b border-white/20">
-<h1 class="text-2xl font-bold text-white">تقييمات العملاء</h1>
-<button onclick="window.location.href='index.html'" class="bg-white text-[#0A1931] px-6 py-2 rounded-full font-bold">الرئيسية</button>
+<h1 class="text-2xl font-bold text-white">آراء عملائنا</h1>
+<button onclick="location.href='index.html'" class="bg-white text-[#0A1931] px-6 py-2 rounded-full font-bold">الرئيسية</button>
 </header>
 
-<div class="max-w-6xl mx-auto px-6 py-12">
-<h2 class="text-3xl font-bold text-white text-center mb-10">آراء عملائنا في خدماتنا</h2>
+<div class="max-w-6xl mx-auto px-6 py-10">
 <div class="grid md:grid-cols-2 gap-6">
 
-<div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-white">
-<div class="flex justify-between mb-3">
-<h3 class="font-bold text-lg text-[#0A1931]">جودة المنتج</h3>
-<span class="text-yellow-400">★★★★★</span>
-</div>
-<p class="text-gray-600 mb-3">"جودة ممتازة وقماش فاخر"</p>
-<p class="font-bold text-sm text-[#0A1931]">محمد الغامدي - عميل موثق</p>
-</div>
+<div class="bg-white rounded-2xl p-6"><div class="flex justify-between mb-3"><h3 class="font-bold text-[#0A1931]">جودة المنتج</h3><span class="text-yellow-400">★★★★★</span></div><p class="text-gray-600 text-sm">"جودة ممتازة وقماش فاخر"</p><p class="font-bold text-xs mt-2 text-[#0A1931]">محمد الغامدي - عميل موثق</p></div>
 
-<div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-white">
-<div class="flex justify-between mb-3">
-<h3 class="font-bold text-lg text-[#0A1931]">سرعة الاستجابة بأخذ المقاسات</h3>
-<span class="text-yellow-400">★★★★★</span>
-</div>
-<p class="text-gray-600 mb-3">"جاء الفريق بنفس اليوم"</p>
-<p class="font-bold text-sm text-[#0A1931]">عبدالله الحربي - عميل موثق</p>
-</div>
+<div class="bg-white rounded-2xl p-6"><div class="flex justify-between mb-3"><h3 class="font-bold text-[#0A1931]">سرعة الاستجابة بأخذ المقاسات</h3><span class="text-yellow-400">★★★★★</span></div><p class="text-gray-600 text-sm">"جاء الفريق بنفس اليوم"</p><p class="font-bold text-xs mt-2 text-[#0A1931]">عبدالله الحربي - عميل موثق</p></div>
 
-<div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-white">
-<div class="flex justify-between mb-3">
-<h3 class="font-bold text-lg text-[#0A1931]">الالتزام بمواعيد التركيب</h3>
-<span class="text-yellow-400">★★★★★</span>
-</div>
-<p class="text-gray-600 mb-3">"التزام دقيق بالوقت"</p>
-<p class="font-bold text-sm text-[#0A1931]">سارة العتيبي - عميلة موثقة</p>
-</div>
+<div class="bg-white rounded-2xl p-6"><div class="flex justify-between mb-3"><h3 class="font-bold text-[#0A1931]">الالتزام بمواعيد التركيب</h3><span class="text-yellow-400">★★★★★</span></div><p class="text-gray-600 text-sm">"التزام دقيق بالوقت"</p><p class="font-bold text-xs mt-2 text-[#0A1931]">سارة العتيبي - عميلة موثقة</p></div>
 
-<div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-white">
-<div class="flex justify-between mb-3">
-<h3 class="font-bold text-lg text-[#0A1931]">خدمة ما بعد البيع</h3>
-<span class="text-yellow-400">★★★★☆</span>
-</div>
-<p class="text-gray-600 mb-3">"متابعة ممتازة بعد التركيب"</p>
-<p class="font-bold text-sm text-[#0A1931]">خالد الزهراني - عميل موثق</p>
-</div>
+<div class="bg-white rounded-2xl p-6"><div class="flex justify-between mb-3"><h3 class="font-bold text-[#0A1931]">خدمة ما بعد البيع</h3><span class="text-yellow-400">★★★★☆</span></div><p class="text-gray-600 text-sm">"متابعة ممتازة بعد التركيب"</p><p class="font-bold text-xs mt-2 text-[#0A1931]">خالد الزهراني - عميل موثق</p></div>
 
 </div>
+
+<div class="text-center mt-10">
+<button id="openRate" class="bg-white text-[#0A1931] px-8 py-3 rounded-full font-bold text-lg shadow-lg">⭐ قيّم خدماتنا الآن</button>
 </div>
 </div>
+
+<!-- Modal -->
+<div id="modal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
+<div class="bg-white rounded-2xl p-6 w-full max-w-md">
+<h3 class="font-bold text-xl text-[#0A1931] mb-4">قيّم تجربتك</h3>
+
+<label class="text-sm font-bold">نوع الخدمة</label>
+<select id="service" class="w-full border rounded-xl p-3 mt-1 mb-3">
+<option>جودة المنتج</option>
+<option>سرعة الاستجابة بأخذ المقاسات</option>
+<option>الالتزام بمواعيد التركيب</option>
+<option>خدمة ما بعد البيع</option>
+</select>
+
+<label class="text-sm font-bold">تقييمك</label>
+<div id="stars" class="flex gap-1 text-3xl my-2 cursor-pointer"><span data-v="1">☆</span><span data-v="2">☆</span><span data-v="3">☆</span><span data-v="4">☆</span><span data-v="5">☆</span></div>
+
+<label class="text-sm font-bold">تعليقك</label>
+<textarea id="comment" class="w-full border rounded-xl p-3 mt-1" rows="3" placeholder="اكتب رأيك..."></textarea>
+
+<div class="flex gap-3 mt-5">
+<button id="sendWA" class="flex-1 bg-[#25D366] text-white py-3 rounded-xl font-bold">إرسال عبر واتساب</button>
+<button id="close" class="flex-1 bg-gray-100 py-3 rounded-xl font-bold">إلغاء</button>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+let rating=0;
+const modal=document.getElementById('modal');
+document.getElementById('openRate').onclick=()=>modal.classList.remove('hidden');
+document.getElementById('close').onclick=()=>modal.classList.add('hidden');
+document.querySelectorAll('#stars span').forEach(s=>{
+ s.onclick=()=>{
+  rating=parseInt(s.dataset.v);
+  document.querySelectorAll('#stars span').forEach((x,i)=>{x.textContent=i<rating?'★':'☆'; x.style.color=i<rating?'#facc15':'#ccc'});
+ }
+});
+document.getElementById('sendWA').onclick=()=>{
+ const ser=document.getElementById('service').value;
+ const com=document.getElementById('comment').value;
+ if(!rating){alert('اختر عدد النجوم'); return;}
+ const msg=`تقييم جديد لديباج للديكور%0A%0Aالخدمة: ${ser}%0Aالتقييم: ${'★'.repeat(rating)} (${rating}/5)%0Aالتعليق: ${com}`;
+ window.open(`https://wa.me/966557755026?text=${msg}`,'_blank'); // غير الرقم لرقمك
+ modal.classList.add('hidden');
+}
+</script>
 </body>
 </html>
