@@ -2077,13 +2077,34 @@ Error generating stack: `+o.message+`
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if(((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host)||u.protocol==="mailto:"||u.protocol==="tel:"||u.protocol==="sms:"){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   <script type="application/json" data-clippy-inline-media-manifest="1">{"version":1,"slots":[]}</script>
   <script>
-// تصليح زر الرئيسية
+// تصليح نهائي لزر الرئيسية - يشتغل على كلشي
+<script>
+document.addEventListener('click', function(e){
+  let t = e.target;
+  // دور على 3 مستويات فوق
+  for(let i=0;i<3;i++){
+    if(!t) break;
+    if(t.textContent && t.textContent.trim() === 'الرئيسية'){
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = 'index.html';
+      return false;
+    }
+    t = t.parentElement;
+  }
+}, true);
+
 setTimeout(()=>{
-document.querySelectorAll('a').forEach(a=>{
-if(a.textContent.includes('الرئيسية')) a.href='index.html';
-if(a.textContent.includes('خدماتنا')) a.href='index.html#services';
-});
-},500);
+  document.querySelectorAll('button, a, div, span').forEach(el=>{
+    if(el.textContent && el.textContent.trim() === 'الرئيسية'){
+      el.style.cursor='pointer';
+      el.onclick = function(e){
+        e.preventDefault();
+        window.location.href='index.html';
+      };
+    }
+  });
+}, 300);
 </script>
 </body>
 </html>
