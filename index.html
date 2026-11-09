@@ -1207,5 +1207,30 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 </div>
+<script>
+// === ربط ديباج مع Google Sheet ===
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwSouL8uBn01vP85agnojOcrj_Se1TytVkCdvbkoQQuX5_DNk7mY1JF9KQbX6dzp1r/exec";
+
+async function loadReviewsFromSheet(){
+  try{
+    const res = await fetch(SHEET_URL);
+    const reviews = await res.json();
+    console.log("تم جلب", reviews.length, "تقييم");
+    // اذا في دالة عرض عندك رح تشتغل تلقائيا
+    if(window.displayReviews) displayReviews(reviews);
+    // غير حالة الاتصال
+    const badge = document.querySelector('[class*="متصل"], [class*="غير"]');
+    if(badge) { badge.textContent = "متصل ✓"; badge.style.background="#16a34a"; }
+  }catch(err){
+    console.log("غير متصل", err);
+  }
+}
+
+async function saveToSheet(obj){
+  fetch(SHEET_URL, {method:"POST", mode:"no-cors", body: JSON.stringify(obj)});
+}
+
+loadReviewsFromSheet();
+</script>
 </body>
 </html>
