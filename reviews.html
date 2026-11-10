@@ -319,7 +319,7 @@
     // small delay to let toast show
     setTimeout(()=>{
       const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
-      window.open(waUrl, '_blank');
+window.location.href = waUrl;
     }, 700);
   });
 
