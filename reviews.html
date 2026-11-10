@@ -13,10 +13,10 @@
 .criteria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0 30px}
 .criteria-box{background:rgba(245,230,200,.07);border:1px solid rgba(245,230,200,.16);border-radius:18px;padding:18px 14px;text-align:center}
 .criteria-box h3{margin:0 0 12px;font-size:17px;font-weight:800;color:#f5e6c8}
-.stars{display:flex;justify-content:center;gap:6px;direction:ltr}.star{font-size:30px;cursor:pointer;color:#23365c}.star.active{color:#d4af37}
+.stars{display:flex;justify-content:center;gap:6px;direction:ltr}.star{font-size:30px;cursor:pointer;color:#23365c;transition:.2s}.star.active{color:#d4af37;transform:scale(1.15)}
 .form-card{background:#fdfbf7;color:#0a1931;border-radius:24px;padding:26px;margin-bottom:40px}
 .form-card h2{margin:0 0 18px;font-size:22px;font-weight:800;text-align:center}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.form-label{display:block;font-weight:700;font-size:14px;margin:10px 2px 6px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.form-label{display:block;font-weight:700;font-size:14px;margin:10px 2px 6px;color:#0a1931}
 .input{width:100%;padding:12px 14px;border:1.6px solid #e8ddd0;border-radius:12px;font-family:'Tajawal';font-size:15px}
 .file-label{display:block;background:#0a1931;color:#f5e6c8;padding:12px;border-radius:12px;text-align:center;cursor:pointer;font-weight:800}
 .preview-img{width:100%;max-height:240px;object-fit:cover;border-radius:14px;margin-top:12px;display:none}
@@ -37,7 +37,8 @@
 <div class="container">
 <div class="logo-wrap"><img src="logo.png" alt="ديباج" style="width:130px;display:block;margin:0 auto"></div>
 <h1 class="main-title">تقييمات عملائنا</h1><p class="sub-title">رأيكم يهمنا - قيّموا تجربتكم مع ديباج للديكور</p>
-<div class="criteria-grid" id="criteriaGrid"></<div class="form-card"><h2>أضف تقييمك الآن ⭐</h2>
+<div class="criteria-grid" id="criteriaGrid"></div>
+<div class="form-card"><h2>أضف تقييمك الآن ⭐</h2>
 <label class="form-label">الاسم الكريم *</label><input id="cName" class="input" placeholder="مثال: أحمد محمد" />
 <div class="form-row"><div><label class="form-label">رقم الجوال</label><input id="cPhone" class="input" placeholder="05xxxxxxxx" /></div>
 <div><label class="form-label">نوع الخدمة *</label><select id="cService" class="input"><option value="">اختر الخدمة</option><option>جودة المنتج</option><option>السرعة في معاينة الموقع واخذ المقاسات</option><option>الالتزام بالمواعيد</option><option>جودة التركيب والنظافة</option><option>خدمة ما بعد البيع</option><option>اخرى</option></select></div></div>
@@ -56,7 +57,8 @@ const CRITERIA=[{id:'quality',label:'جودة المنتج'},{id:'speed',label:'
 function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
 function renderCriteria(){const g=document.getElementById('criteriaGrid');g.innerHTML=CRITERIA.map(c=>`<div class="criteria-box"><h3>${c.label}</h3><div class="stars" data-c="${c.id}">${[1,2,3,4,5].map(n=>`<span class="star" data-val="${n}" data-c="${c.id}">★</span>`).join('')}</div></div>`).join('');g.querySelectorAll('.star').forEach(s=>{s.onclick=function(){const c=this.dataset.c;const v=parseInt(this.dataset.val);ratings[c]=v;g.querySelectorAll(`.stars[data-c="${c}"] .star`).forEach(x=>{x.classList.toggle('active',parseInt(x.dataset.val)<=v)})}})}
 function esc(s){return s?s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])):''}
-function fmt(ts){try{const d=ts?.toDate?ts.toDate():new Date();return d.toLocaleDateString('ar-EG')}catch{const q=query(reviewsCol,orderBy('createdAt','desc'));onSnapshot(q,(snap)=>{allReviews=[];snap.forEach(d=>{allReviews.push({id:d.id,...d.data()})});render()});
+function fmt(ts){try{const d=ts?.toDate?ts.toDate():new Date();return d.toLocaleDateString('ar-EG')}catch{return''}}
+const q=query(reviewsCol,orderBy('createdAt','desc'));onSnapshot(q,(snap)=>{allReviews=[];snap.forEach(d=>{allReviews.push({id:d.id,...d.data()})});render()});
 function render(){const c=document.getElementById('reviewsList');const co=document.getElementById('reviewsCount');co.textContent=allReviews.length+' تقييم';if(!allReviews.length){c.innerHTML='<div class="empty">لا توجد تقييمات بعد - كن أول من يقيّم ✨</div>';return}c.innerHTML=allReviews.map(r=>{const st=Object.entries(r.ratings||{}).map(([k,v])=>{const lb=(CRITERIA.find(x=>x.id===k)||{}).label||k;return `<b>${lb}: ${'★'.repeat(v)}</b>`}).join(' ');return `<div class="review-card"><div class="review-head"><span class="review-name">${esc(r.name)}</span><span class="review-meta">${fmt(r.createdAt)} • ⭐ ${r.avg}</span></div><span class="review-service">${esc(r.service)}</span><div class="review-stars">${st}</div><div class="review-comment">${esc(r.comment)}</div>${r.imageUrl?`<img src="${r.imageUrl}" class="review-img" />`:''}<div style="margin-top:10px"><button class="mini-btn" onclick="window.del('${r.id}')">حذف</button></div></div>`}).join('')}
 window.del=async(id)=>{if(!confirm('حذف؟'))return;await deleteDoc(doc(db,"reviews",id));showToast('تم الحذف')}
 document.getElementById('cImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;uploadedFile=f;const r=new FileReader();r.onload=ev=>{const p=document.getElementById('imgPreview');p.src=ev.target.result;p.style.display='block'};r.readAsDataURL(f)});
@@ -70,9 +72,15 @@ if(!service){showToast('اختر الخدمة');return}
 if(!Object.values(ratings).some(v=>v>0)){showToast('قيم نجمة واحدة على الأقل');return}
 const avg=Object.values(ratings).filter(v=>v>0).reduce((a,b)=>a+b,0)/(Object.values(ratings).filter(v=>v>0).length||1);
 const finalAvg = parseFloat(avg.toFixed(1));
-const txt = encodeURIComponent(`🔔 تقييم جديد - ديباج للديكور\n\n👤 الاسم: ${name}\n📱 جوال العميل: ${phone || 'بدون'}\n🛠 الخدمة: ${service}\n⭐ التقييم: ${finalAvg}\n💬 التعليق: ${comment || 'بدون تعليق'}`);
-const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${txt}`;
-const a=document.createElement('a');a.href=waUrl;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+const txt = encodeURIComponent('🔔 تقييم جديد - ديباج\n\n👤 '+name+'\n📱 '+phone+'\n🛠 '+service+'\n⭐ '+finalAvg+'\n💬 '+comment);
+const waUrl = 'https://wa.me/'+OWNER_WHATSAPP+'?text='+txt;
+const a=document.createElement('a');
+a.href=waUrl;
+a.target='_blank';
+a.rel='noopener';
+document.body.appendChild(a);
+a.click();
+a.remove();
 this.disabled=true;this.textContent='جاري...';
 try{
 let imageUrl='';
@@ -84,4 +92,3 @@ this.disabled=false;this.textContent='إرسال التقييم ✨'
 }
 renderCriteria();
 </script></body></html>
-
