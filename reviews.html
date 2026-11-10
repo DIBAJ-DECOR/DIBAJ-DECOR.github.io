@@ -72,7 +72,7 @@ const avg=Object.values(ratings).filter(v=>v>0).reduce((a,b)=>a+b,0)/(Object.val
 const finalAvg = parseFloat(avg.toFixed(1));
 const txt = encodeURIComponent(`🔔 تقييم جديد - ديباج للديكور\n\n👤 الاسم: ${name}\n📱 جوال العميل: ${phone || 'بدون'}\n🛠 الخدمة: ${service}\n⭐ التقييم: ${finalAvg}\n💬 التعليق: ${comment || 'بدون تعليق'}`);
 const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${txt}`;
-window.open(waUrl,'_blank');
+const a=document.createElement('a');a.href=waUrl;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
 this.disabled=true;this.textContent='جاري...';
 try{
 let imageUrl='';
