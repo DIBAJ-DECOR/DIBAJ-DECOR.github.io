@@ -311,17 +311,11 @@
     document.getElementById('cImage').value='';
     ratings = { quality:0, speed:0, punctual:0, install:0, after:0, other:0 };
     renderCriteria();
-
-    showToast('شكراً لتقييمك! تم الحفظ بنجاح ✨');
-
-    // WhatsApp integration - open with summary
-    const waText = `مرحباً ديباج للديكور 👋\n\nتقييم جديد:\n👤 الاسم: ${name}\n📞 الجوال: ${phone}\n🔧 الخدمة: ${service}\n⭐ التقييم العام: ${avg.toFixed(1)}/5\n\nالتفاصيل:\n${CRITERIA.map(c=>`${c.label}: ${ratings[c.id] ? ratings[c.id]+'/5' : '-'} `).join('\n')}\n💬 التعليق: ${comment || 'لا يوجد'}`;
-    // small delay to let toast show
-    setTimeout(()=>{
-      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
+showToast('شكراً لتقييمك! تم الحفظ بنجاح ✨');
+const waText = `مرحبا ديباج 👋 الاسم: ${name} الخدمة: ${service}`;
+const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
 window.location.href = waUrl;
-    }, 700);
-  });
+});
 
   // fallback for home button - if /index.html fails, go to main domain
   document.getElementById('homeBtn').addEventListener('click', function(e){
