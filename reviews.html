@@ -283,7 +283,6 @@
     const service = document.getElementById('cService').value;
     const comment = document.getElementById('cComment').value.trim();
     if(!name){ showToast('الرجاء إدخال الاسم'); return; }
-    if(!phone){ showToast('الرجاء إدخال رقم الجوال'); return; }
     if(!service){ showToast('اختر نوع الخدمة'); return; }
     const ratedCount = Object.values(ratings).filter(v=>v>0).length;
     if(ratedCount===0){ showToast('قيّم على الأقل معياراً واحداً بالنجوم'); return; }
