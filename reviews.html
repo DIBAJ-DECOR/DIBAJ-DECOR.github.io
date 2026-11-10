@@ -37,8 +37,7 @@
 <div class="container">
 <div class="logo-wrap"><img src="logo.png" alt="ديباج" style="width:130px;display:block;margin:0 auto"></div>
 <h1 class="main-title">تقييمات عملائنا</h1><p class="sub-title">رأيكم يهمنا - قيّموا تجربتكم مع ديباج للديكور</p>
-<div class="criteria-grid" id="criteriaGrid"></div>
-<div class="form-card"><h2>أضف تقييمك الآن ⭐</h2>
+<div class="criteria-grid" id="criteriaGrid"></<div class="form-card"><h2>أضف تقييمك الآن ⭐</h2>
 <label class="form-label">الاسم الكريم *</label><input id="cName" class="input" placeholder="مثال: أحمد محمد" />
 <div class="form-row"><div><label class="form-label">رقم الجوال</label><input id="cPhone" class="input" placeholder="05xxxxxxxx" /></div>
 <div><label class="form-label">نوع الخدمة *</label><select id="cService" class="input"><option value="">اختر الخدمة</option><option>جودة المنتج</option><option>السرعة في معاينة الموقع واخذ المقاسات</option><option>الالتزام بالمواعيد</option><option>جودة التركيب والنظافة</option><option>خدمة ما بعد البيع</option><option>اخرى</option></select></div></div>
@@ -53,25 +52,36 @@ import { initializeApp } from "firebase/app";import { getFirestore, collection, 
 const firebaseConfig = { apiKey: "AIzaSyBqRdVHpGMStLO8qDFq55B-9nw9ydT74gc", authDomain: "dibaj-94ed5.firebaseapp.com", projectId: "dibaj-94ed5", storageBucket: "dibaj-94ed5.firebasestorage.app", messagingSenderId: "465317569395", appId: "1:465317569395:web:faded71f98ebd896fa9b06" };
 const app = initializeApp(firebaseConfig);const db = getFirestore(app);const storage = getStorage(app);const reviewsCol = collection(db, "reviews");
 const OWNER_WHATSAPP = "966557755026";
-let waWindow = null;
-function sendWhatsAppToOwner(name, service, ratingAvg, comment, phone){
-  const txt = encodeURIComponent(`🔔 تقييم جديد - ديباج للديكور\n\n👤 الاسم: ${name}\n📱 جوال العميل: ${phone || 'بدون'}\n🛠 الخدمة: ${service}\n⭐ التقييم: ${ratingAvg}\n💬 التعليق: ${comment || 'بدون تعليق'}`);
-  const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${txt}`;
-  if(waWindow){ try{ waWindow.location.href = waUrl; }catch(e){ window.location.href = waUrl; } } else { window.open(waUrl,'_blank'); }
-}
 const CRITERIA=[{id:'quality',label:'جودة المنتج'},{id:'speed',label:'السرعة في معاينة الموقع'},{id:'punctual',label:'الالتزام بالمواعيد'},{id:'install',label:'جودة التركيب والنظافة'},{id:'after',label:'خدمة ما بعد البيع'},{id:'other',label:'اخرى'}];let ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};let uploadedFile=null;let allReviews=[];
 function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
 function renderCriteria(){const g=document.getElementById('criteriaGrid');g.innerHTML=CRITERIA.map(c=>`<div class="criteria-box"><h3>${c.label}</h3><div class="stars" data-c="${c.id}">${[1,2,3,4,5].map(n=>`<span class="star" data-val="${n}" data-c="${c.id}">★</span>`).join('')}</div></div>`).join('');g.querySelectorAll('.star').forEach(s=>{s.onclick=function(){const c=this.dataset.c;const v=parseInt(this.dataset.val);ratings[c]=v;g.querySelectorAll(`.stars[data-c="${c}"] .star`).forEach(x=>{x.classList.toggle('active',parseInt(x.dataset.val)<=v)})}})}
 function esc(s){return s?s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])):''}
-function fmt(ts){try{const d=ts?.toDate?ts.toDate():new Date();return d.toLocaleDateString('ar-EG')}catch{return''}}
-const q=query(reviewsCol,orderBy('createdAt','desc'));onSnapshot(q,(snap)=>{allReviews=[];snap.forEach(d=>{allReviews.push({id:d.id,...d.data()})});render()});
+function fmt(ts){try{const d=ts?.toDate?ts.toDate():new Date();return d.toLocaleDateString('ar-EG')}catch{const q=query(reviewsCol,orderBy('createdAt','desc'));onSnapshot(q,(snap)=>{allReviews=[];snap.forEach(d=>{allReviews.push({id:d.id,...d.data()})});render()});
 function render(){const c=document.getElementById('reviewsList');const co=document.getElementById('reviewsCount');co.textContent=allReviews.length+' تقييم';if(!allReviews.length){c.innerHTML='<div class="empty">لا توجد تقييمات بعد - كن أول من يقيّم ✨</div>';return}c.innerHTML=allReviews.map(r=>{const st=Object.entries(r.ratings||{}).map(([k,v])=>{const lb=(CRITERIA.find(x=>x.id===k)||{}).label||k;return `<b>${lb}: ${'★'.repeat(v)}</b>`}).join(' ');return `<div class="review-card"><div class="review-head"><span class="review-name">${esc(r.name)}</span><span class="review-meta">${fmt(r.createdAt)} • ⭐ ${r.avg}</span></div><span class="review-service">${esc(r.service)}</span><div class="review-stars">${st}</div><div class="review-comment">${esc(r.comment)}</div>${r.imageUrl?`<img src="${r.imageUrl}" class="review-img" />`:''}<div style="margin-top:10px"><button class="mini-btn" onclick="window.del('${r.id}')">حذف</button></div></div>`}).join('')}
 window.del=async(id)=>{if(!confirm('حذف؟'))return;await deleteDoc(doc(db,"reviews",id));showToast('تم الحذف')}
 document.getElementById('cImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;uploadedFile=f;const r=new FileReader();r.onload=ev=>{const p=document.getElementById('imgPreview');p.src=ev.target.result;p.style.display='block'};r.readAsDataURL(f)});
 document.getElementById('submitBtn').onclick=async function(){
-waWindow = window.open('about:blank','_blank');
-const name=document.getElementById('cName').value.trim();const service=document.getElementById('cService').value;const comment=document.getElementById('cComment').value.trim();const phone=document.getElementById('cPhone').value.trim();if(!name){if(waWindow)waWindow.close();showToast('ادخل الاسم');return}if(!service){if(waWindow)waWindow.close();showToast('اختر الخدمة');return}if(!Object.values(ratings).some(v=>v>0)){if(waWindow)waWindow.close();showToast('قيم نجمة واحدة على الأقل');return}this.disabled=true;this.textContent='جاري...';try{let imageUrl='';if(uploadedFile){const sref=ref(storage,'reviews/'+Date.now()+'_'+uploadedFile.name);await uploadBytes(sref,uploadedFile);imageUrl=await getDownloadURL(sref)}const avg=Object.values(ratings).filter(v=>v>0).reduce((a,b)=>a+b,0)/(Object.values(ratings).filter(v=>v>0).length||1);const finalAvg = parseFloat(avg.toFixed(1));await addDoc(reviewsCol,{name,phone,service,comment,ratings:{...ratings},avg:finalAvg,imageUrl,createdAt:serverTimestamp()});
-sendWhatsAppToOwner(name, service, finalAvg, comment, phone);
-document.getElementById('cName').value='';document.getElementById('cService').value='';document.getElementById('cComment').value='';document.getElementById('cPhone').value='';uploadedFile=null;document.getElementById('imgPreview').style.display='none';ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};renderCriteria();showToast('تم النشر ✨')}catch(e){if(waWindow)waWindow.close();showToast('خطأ:'+e.message)}this.disabled=false;this.textContent='إرسال التقييم ✨'}
+const name=document.getElementById('cName').value.trim();
+const service=document.getElementById('cService').value;
+const comment=document.getElementById('cComment').value.trim();
+const phone=document.getElementById('cPhone').value.trim();
+if(!name){showToast('ادخل الاسم');return}
+if(!service){showToast('اختر الخدمة');return}
+if(!Object.values(ratings).some(v=>v>0)){showToast('قيم نجمة واحدة على الأقل');return}
+const avg=Object.values(ratings).filter(v=>v>0).reduce((a,b)=>a+b,0)/(Object.values(ratings).filter(v=>v>0).length||1);
+const finalAvg = parseFloat(avg.toFixed(1));
+const txt = encodeURIComponent(`🔔 تقييم جديد - ديباج للديكور\n\n👤 الاسم: ${name}\n📱 جوال العميل: ${phone || 'بدون'}\n🛠 الخدمة: ${service}\n⭐ التقييم: ${finalAvg}\n💬 التعليق: ${comment || 'بدون تعليق'}`);
+const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${txt}`;
+window.open(waUrl,'_blank');
+this.disabled=true;this.textContent='جاري...';
+try{
+let imageUrl='';
+if(uploadedFile){const sref=ref(storage,'reviews/'+Date.now()+'_'+uploadedFile.name);await uploadBytes(sref,uploadedFile);imageUrl=await getDownloadURL(sref)}
+await addDoc(reviewsCol,{name,phone,service,comment,ratings:{...ratings},avg:finalAvg,imageUrl,createdAt:serverTimestamp()});
+document.getElementById('cName').value='';document.getElementById('cService').value='';document.getElementById('cComment').value='';document.getElementById('cPhone').value='';uploadedFile=null;document.getElementById('imgPreview').style.display='none';ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};renderCriteria();showToast('تم النشر ✨')
+}catch(e){showToast('خطأ:'+e.message)}
+this.disabled=false;this.textContent='إرسال التقييم ✨'
+}
 renderCriteria();
 </script></body></html>
+
