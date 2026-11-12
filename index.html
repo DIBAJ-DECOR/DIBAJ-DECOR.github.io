@@ -1268,5 +1268,31 @@ async function saveToSheet(obj){
 
 loadReviewsFromSheet();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const els=document.querySelectorAll('.dibaj-counter');
+ const anim=el=>{
+  const t=parseInt(el.dataset.target);
+  const s=performance.now(); const d=2000;
+  const tick=n=>{
+   const p=Math.min((n-s)/d,1);
+   const e=1-Math.pow(1-p,3);
+   el.textContent=Math.floor(e*t);
+   if(p<1) requestAnimationFrame(tick);
+   else el.textContent=t;
+  };
+  requestAnimationFrame(tick);
+ };
+ const io=new IntersectionObserver(es=>{
+  es.forEach(en=>{
+   if(en.isIntersecting && !en.target.dataset.done){
+    en.target.dataset.done=1;
+    setTimeout(()=>anim(en.target),[...els].indexOf(en.target)*150);
+   }
+  });
+ },{threshold:0.3});
+ els.forEach(el=>io.observe(el));
+});
+</script>
 </body>
 </html>
