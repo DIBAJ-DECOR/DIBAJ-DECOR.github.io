@@ -54,7 +54,42 @@ body{font-family:'Tajawal',system-ui;background:#0a1931;color:#fff;overflow-x:hi
   <a href="https://wa.me/966560013851" onclick="toggleDibaj()" style="color:#25D366">💬 واتساب 0560013851</a>
 </div>
 <div id="dibaj-bg" onclick="toggleDibaj()"></div>
-<!-- DIBAJ SLIDER - ابدأ من هون - انسخ كلشي -->
+<!-- DIBAJ SLIDER FINAL - أسهم تظهر عند الحركة فقط -->
+<div id="dibaj-slider" dir="rtl">
+<style>
+#dibaj-slider .wrap{position:relative;width:100%;height:600px;overflow:hidden;background:#0a1931}
+#dibaj-slider .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s}
+#dibaj-slider .slide.on{opacity:1;z-index:1}
+#dibaj-slider .slide img{width:100%;height:100%;object-fit:cover;display:block}
+#dibaj-slider .arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;opacity:0;transition:.3s}
+#dibaj-slider .wrap:hover .arrow,#dibaj-slider .wrap.show .arrow{opacity:1}
+#dibaj-slider .arrow.prev{left:20px}#dibaj-slider .arrow.next{right:20px}
+#dibaj-slider .arrow:hover{background:#F9D975;color:#0a1931}
+#dibaj-slider .dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;opacity:0;transition:.3s}
+#dibaj-slider .wrap:hover .dots,#dibaj-slider .wrap.show .dots{opacity:1}
+#dibaj-slider .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.6);cursor:pointer}
+#dibaj-slider .dot.on{background:#F9D975;width:28px;border-radius:10px}
+#dibaj-slider .cap{position:absolute;bottom:65px;left:50%;transform:translateX(-50%);text-align:center;color:#fff;z-index:5;width:90%}
+#dibaj-slider .cap h2{color:#F9D975;font-size:38px;margin:0;text-shadow:0 2px 10px #000}
+#dibaj-slider .cap p{margin:6px 0 0;font-size:18px;text-shadow:0 2px 6px #000}
+</style>
+<div class="wrap">
+  <div class="slide on"><img src="./slide1.jpg"><div class="cap"><h2>15 عاماً معكم</h2><p>نزيّن نوافذك بأرقى تصاميم الستائر</p></div></div>
+  <div class="slide"><img src="./slide2.jpg"><div class="cap"><p>لمساتنا في كل مكان – من المشافي إلى أرقى المطاعم والفنادق</p></div></div>
+  <div class="slide"><img src="./slide3.jpg"><div class="cap"><p>فريق ديباج – تركيب احترافي</p></div></div>
+  <div class="arrow prev" onclick="goD(-1)">‹</div>
+  <div class="arrow next" onclick="goD(1)">›</div>
+  <div class="dots"><div class="dot on" onclick="goToD(0)"></div><div class="dot" onclick="goToD(1)"></div><div class="dot" onclick="goToD(2)"></div></div>
+</div>
+<script>
+let curD=0;const slidesD=document.querySelectorAll('#dibaj-slider .slide');const dotsD=document.querySelectorAll('#dibaj-slider .dot');const wrapD=document.querySelector('#dibaj-slider .wrap');
+function goToD(n){slidesD[curD].classList.remove('on');dotsD[curD].classList.remove('on');curD=n;slidesD[curD].classList.add('on');dotsD[curD].classList.add('on');showD()}
+function goD(d){goToD((curD+d+3)%3)}
+function showD(){wrapD.classList.add('show');clearTimeout(wrapD.t);wrapD.t=setTimeout(()=>wrapD.classList.remove('show'),2500)}
+setInterval(()=>goD(1),5000);
+wrapD.addEventListener('mouseenter',showD);wrapD.addEventListener('touchstart',showD);
+</script>
+</div>
 <div id="dibaj-slider-final" dir="rtl">
 <style>
 #dibaj-slider-final .wrap{position:relative;width:100%;height:600px;overflow:hidden;background:#0a1931}
