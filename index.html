@@ -1331,29 +1331,59 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script>
+const dict = {
+  'ديباج للديكور': 'DIBAJ Decor',
+  '15 عاماً معكم': '15 Years With You',
+  'لمساتنا في كل مكان - من المشافي إلى أرقى المطاعم والفنادق': 'Our touches everywhere - from hospitals to finest restaurants & hotels',
+  'لمساتنا في كل مكان': 'Our touches everywhere',
+  'من المشافي إلى أرقى المطاعم والفنادق': 'From hospitals to finest restaurants & hotels',
+  'منتجاتنا': 'Our Products',
+  'خدماتنا': 'Our Services',
+  'آراء العملاء': 'Reviews',
+  'من نحن': 'About Us',
+  'تواصل معنا': 'Contact Us',
+  'اطلب الآن': 'Order Now',
+  'شاهد المزيد': 'See More',
+  'ستائر رول': 'Roller Curtains',
+  'ستائر زيبرا': 'Zebra Curtains',
+  'ستائر واجهات': 'Facade Curtains',
+  'جميع الحقوق محفوظة': 'All Rights Reserved'
+};
+
 const langBtn = document.createElement('button');
 langBtn.innerText = 'EN';
-langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;font-family:inherit;';
+langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.3s;';
 let isAr = true;
+
+function doTranslate(toEn){
+  document.querySelectorAll('h1,h2,h3,h4,p,a,span,button,div').forEach(el=>{
+    if(el.children.length>0) return; // لا تترجم الحاويات الكبيرة عشان ما تخرب الأيقونات
+    const txt = el.innerText.trim();
+    if(!txt) return;
+    if(!el.dataset.orig) el.dataset.orig = txt;
+    
+    if(toEn){
+      if(dict[txt]) el.innerText = dict[txt];
+      else if(dict[el.dataset.orig]) el.innerText = dict[el.dataset.orig];
+    } else {
+      el.innerText = el.dataset.orig;
+    }
+  });
+}
+
 langBtn.onclick = () => {
   if(isAr){
-    // صار انجليزي - انقل الزر لليمين جنب المينو
-    langBtn.style.left = 'auto';
-    langBtn.style.right = '70px';
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = 'en';
-    document.body.style.direction = 'ltr';
-    langBtn.innerText = 'عربي';
+    doTranslate(true);
+    langBtn.style.left='auto'; langBtn.style.right='70px';
+    document.documentElement.dir='ltr'; document.documentElement.lang='en'; document.body.style.direction='ltr';
+    langBtn.innerText='عربي';
   } else {
-    // رجع عربي - رجع الزر لليسار
-    langBtn.style.right = 'auto';
-    langBtn.style.left = '70px';
-    document.documentElement.dir = 'rtl';
-    document.documentElement.lang = 'ar';
-    document.body.style.direction = 'rtl';
-    langBtn.innerText = 'EN';
+    doTranslate(false);
+    langBtn.style.right='auto'; langBtn.style.left='70px';
+    document.documentElement.dir='rtl'; document.documentElement.lang='ar'; document.body.style.direction='rtl';
+    langBtn.innerText='EN';
   }
-  isAr = !isAr;
+  isAr=!isAr;
 };
 document.body.appendChild(langBtn);
 </script>
