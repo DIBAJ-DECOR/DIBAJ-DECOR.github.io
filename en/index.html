@@ -2,59 +2,81 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dibaj Decor - Curtains & Blinds</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
-body{background:#0a1931;color:#fff}
-header{background:#0a1931;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;position:sticky;top:0;z-index:99;border-bottom:1px solid #1a2a4a}
-.logo{display:flex;align-items:center;gap:8px;font-weight:900}
-.logo-icon{width:32px;height:32px;background:#c41e3a;display:grid;place-items:center;border-radius:4px}
-.nav-left{display:flex;align-items:center;gap:12px}
-.menu{width:44px;height:44px;border:1.5px solid #ffcc00;border-radius:10px;display:grid;place-items:center;color:#ffcc00}
-.ar-btn{background:#fff;color:#0a1931;padding:6px 14px;border-radius:20px;font-weight:700;text-decoration:none}
-.hero{padding:16px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{border-radius:18px;overflow:hidden;position:relative;height:220px;background:#112240}
-.card img{width:100%;height:100%;object-fit:cover}
-.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.prod{background:#132040;border-radius:16px;overflow:hidden;text-align:center;padding-bottom:10px;border:1px solid #1e345c}
-.prod img{width:100%;height:110px;object-fit:cover}
-.prod h4{font-size:13px;margin-top:8px;color:#d6e2ff}
-.stats{display:flex;justify-content:space-around;padding:22px 0;text-align:center;border-top:1px solid #162a50}
-.stats b{color:#ffcc00;font-size:26px;display:block}
-.float{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
-.float a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;text-decoration:none;font-size:22px;color:#fff}
-.wa{background:#25D366} .ph{background:#0f243e;border:1px solid #2a4a7a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a1931;color:#e6eefc;font-family:Inter,system-ui;max-width:480px;margin:0 auto}
+header{position:sticky;top:0;z-index:99;background:#0a1931;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #162a4e;height:58px}
+.left{display:flex;align-items:center;gap:10px}
+.menu{width:40px;height:40px;border:1.6px solid #ffcc00;border-radius:10px;display:grid;place-items:center;color:#ffcc00;font-size:16px}
+.lang{background:#fff;color:#0a1931;padding:0 14px;height:32px;border-radius:20px;font-weight:800;font-size:13px;text-decoration:none;display:flex;align-items:center;gap:4px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-mark{width:30px;height:30px;background:#c41e3a;border-radius:5px;display:grid;place-items:center;color:#fff;font-weight:900}
+.logo-text{color:#f0c040;font-weight:900;font-size:15px}
+.hero{position:relative;width:100%;height:420px;overflow:hidden;background:#112240}
+.hero img{width:100%;height:100%;object-fit:cover}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(10,25,49,.75), rgba(10,25,49,.15) 55%, transparent)}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;z-index:2;font-size:18px}
+.arrow.left-arr{left:12px} .arrow.right-arr{right:12px}
+.hero-content{position:absolute;bottom:54px;left:0;right:0;text-align:center;z-index:2;padding:0 16px}
+.hero-content h1{color:#ffcc00;font-size:26px;font-weight:900}
+.hero-content p{color:#fff;font-size:14px;margin-top:8px}
+.dots{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:2}
+.dot{height:8px;border-radius:20px;background:rgba(255,255,255,.45)}
+.dot.active{width:24px;background:#ffcc00} .dot:not(.active){width:8px}
+.about{padding:22px 16px;background:#0a1931}
+.about-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.y-dot{width:8px;height:8px;background:#ffcc00;border-radius:50%}
+.about-head h2{color:#ffcc00;font-size:18px;font-weight:800}
+.about p{color:#c2cfe3;font-size:13.5px;line-height:1.95}
+.float{position:fixed;right:10px;bottom:90px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.fbtn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.4);text-decoration:none}
+.fbtn.wa{background:#25D366} .fbtn.call{background:#112a4e;border:1px solid #2a4a7a}
 </style>
 </head>
 <body>
 <header>
-<div class="nav-left"><div class="menu">☰</div><a class="ar-btn" href="../index.html">AR</a></div>
-<div class="logo"><div class="logo-icon">D</div> DIBAJ DECOR</div>
+<div class="left">
+<div class="menu">☰</div>
+<a class="lang" href="../index.html">🌐 AR</a>
+</div>
+<div class="logo">
+<div class="logo-mark">D</div>
+<div class="logo-text">DIBAJ DECOR</div>
+</div>
 </header>
+
 <div class="hero">
-<div class="grid2">
-<div class="card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600"><div style="position:absolute;bottom:10px;left:12px;z-index:2;font-weight:700">Hospitals</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600"><div style="position:absolute;bottom:10px;left:12px;z-index:2">Offices</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600"><div style="position:absolute;bottom:10px;left:12px;z-index:2">Hotels</div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600"><div style="position:absolute;bottom:10px;left:12px;z-index:2">Homes</div></div>
+<img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&h=1000&fit=crop" alt="Curtains">
+<div class="arrow left-arr">‹</div>
+<div class="arrow right-arr">›</div>
+<div class="hero-content">
+<h1>15 YEARS WITH YOU</h1>
+<p>We decorate your windows with the finest curtain designs</p>
+</div>
+<div class="dots">
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
 </div>
 </div>
-<div style="padding:18px">
-<h2>Our Products</h2>
-<div class="prod-grid">
-<div class="prod"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400"><h4>Zebra Blinds</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400"><h4>Roller Blinds</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400"><h4>Blackout</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400"><h4>Sunscreen</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400"><h4>Roman Blinds</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400"><h4>Fabric Curtains</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400"><h4>Vertical</h4></div>
-<div class="prod"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400"><h4>Wooden</h4></div>
+
+<div class="about">
+<div class="about-head">
+<span class="y-dot"></span>
+<h2>About the Company</h2>
 </div>
+<p>
+At Dibaj Decor Company, we offer many luxurious and modern products that satisfy all tastes, including: roller blinds, luxury curtain fabrics, medical curtains, wooden blinds, zebra blinds, vertical blinds, metal blinds, Roman blinds, electric blinds, skylight shades, movable shades, car shades, shutters, smart home with all accessories and electric motors, accordion doors, in addition to parquet, wallpaper, wood alternative, marble alternative, and some interior finishing works.<br><br>
+We rely in our work on a long history of experience, high efficiency and mastery in installation and delivery of projects, where we practice our work professionally and with high professionalism, in addition to after-sales maintenance for all our products if needed, by trained hands with long experience in this specialization.
+</p>
 </div>
-<div class="stats"><div><b>+500</b><small>Projects</small></div><div><b>2012</b><small>Since</small></div><div><b>5★</b><small>Rating</small></div></div>
-<div class="float"><a class="wa" href="https://wa.me/966500000000">W</a><a class="ph" href="tel:+966500000000">☎</a></div>
+
+<div class="float">
+<a class="fbtn wa" href="https://wa.me/966500000000"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.72 14.93L2 22l5.26-1.38A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.12.82.83-3.04-.19-.31A8 8 0 1 1 12 20zm4.49-6.03c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.16-.28.18-.53.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.75-1.82-.2-.47-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a>
+<a class="fbtn call" href="tel:+966500000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8fb4ff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5 12.07a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.16a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+</div>
 </body>
 </html>
