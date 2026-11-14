@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dibaj Decor — Luxury Decor & Design | Jeddah</title>
+<meta name="description" content="Dibaj Decor is a luxury interior design studio in Jeddah. Bespoke villas, apartments, majlis, finishing and 3D visualization.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0a;--bg-soft:#111;--bg-card:#151515;--bg-elev:#1c1c1c;--gold:#d4af37;--gold-2:#b8962e;--gold-soft:rgba(212,175,55,.12);--gold-border:rgba(212,175,55,.22);--text:#f5f3ef;--text-dim:#a8a29a;--text-faint:#6b6762;--line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.14)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  .font-display{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+  @media(min-width:640px){.container{padding:0 40px}}
+  @media(min-width:1024px){.container{padding:0 48px}}
+  header{position:sticky;top:0;z-index:50;height:76px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:rgba(10,10,10,.86);backdrop-filter:blur(18px)}
+  .nav-inner{width:100%;max-width:1280px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+  @media(min-width:1024px){.nav-inner{padding:0 48px}}
+  .logo{display:flex;gap:12px;align-items:center}
+  .logo-mark{width:38px;height:38px;border-radius:10px;background:var(--gold);color:#000;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:18px}
+  .logo-type{line-height:1}
+  .logo-type b{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.14em;font-size:15px;display:block}
+  .logo-type span{font-size:9.5px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:2px;display:block;font-weight:500}
+  nav.desktop{display:none;gap:32px;align-items:center}
+  @media(min-width:1024px){nav.desktop{display:flex}}
+  nav.desktop a.link{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--text-dim)}
+  nav.desktop a.link:hover{color:var(--text)}
+  .btn-ar{margin-left:8px;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+  .btn-ar:hover{border-color:var(--gold-border);background:var(--gold-soft)}
+  .hero{position:relative;overflow:hidden;padding:64px 0 84px}
+  @media(min-width:640px){.hero{padding:96px 0 112px}}
+  @media(min-width:1024px){.hero{padding:124px 0 112px}}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;margin-bottom:32px}
+  .hero-eyebrow i{display:block;width:28px;height:1px;background:var(--gold)}
+  .hero-eyebrow span{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:.92;letter-spacing:-.02em;font-size:clamp(44px,8vw,96px)}
+  .hero h1 em{color:var(--gold);font-style:italic;font-weight:500;display:block;margin-top:-2px}
+  .hero p{margin-top:32px;font-size:18px;line-height:1.7;color:var(--text-dim);max-width:520px}
+  .hero-actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px}
+  .btn-gold{height:52px;padding:0 32px;background:var(--gold);color:#000;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;border-radius:999px;border:0;cursor:pointer;display:inline-flex;align-items:center}
+  .btn-outline{height:52px;padding:0 32px;border-radius:999px;border:1px solid var(--line-strong);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:transparent;color:var(--text);cursor:pointer}
+  .stats{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);max-width:520px;border-top:1px solid var(--line);padding-top:32px;gap:24px}
+  .stats b{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1;letter-spacing:-.02em;display:block}
+  .stats span{margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);line-height:1.4;display:block}
+  .gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .section{padding:88px 0}
+  @media(min-width:640px){.section{padding:112px 0}}
+  .section.soft{background:var(--bg-soft)}
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .eyebrow i{width:32px;height:1px;background:var(--gold);display:block}
+  .eyebrow span{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h2.display{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,5vw,56px);line-height:.95;letter-spacing:-.02em}
+  h2.display em{color:var(--text-dim);font-style:italic;font-weight:400;display:block;margin-top:4px}
+  .about-grid{display:grid;gap:48px}
+  @media(min-width:1024px){.about-grid{grid-template-columns:1.05fr .95fr;gap:80px}}
+  .about-text{margin-top:32px;display:flex;flex-direction:column;gap:20px;font-size:15.5px;line-height:1.85;color:var(--text-dim);max-width:560px}
+  .about-text strong{color:var(--text);font-weight:600}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:440px;margin-top:40px}
+  .chip{border-radius:14px;background:var(--bg-card);border:1px solid var(--line);padding:16px}
+  .chip small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);display:block}
+  .chip b{margin-top:4px;font-size:13px;font-weight:500;line-height:1.3;display:block}
+  .services-head{display:flex;flex-direction:column;gap:32px;margin-bottom:48px}
+  @media(min-width:1024px){.services-head{flex-direction:row;justify-content:space-between;align-items:end}}
+  .cards{display:grid;gap:14px}
+  @media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){.cards{grid-template-columns:repeat(4,1fr)}}
+  .card{position:relative;border-radius:20px;background:var(--bg-card);border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;min-height:320px}
+  .card-icon{width:44px;height:44px;border-radius:12px;background:var(--bg-elev);border:1px solid var(--line);display:grid;place-items:center;font-size:18px}
+  .card h3{margin-top:24px;font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.1;letter-spacing:-.01em}
+  .card p{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--text-dim);flex:1}
+  .card ul{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);list-style:none;display:flex;flex-direction:column;gap:7px}
+  .card ul li{font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:8px}
+  .card ul li:before{content:"";width:4px;height:4px;border-radius:999px;background:var(--gold);display:inline-block}
+  .gallery-grid{display:grid;gap:14px}
+  @media(min-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+  .work{position:relative;border-radius:20px;overflow:hidden;background:var(--bg-card);border:1px solid var(--line);aspect-ratio:1.15/1}
+  .work-bg{position:absolute;inset:0}
+  .work-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,175,55,.18),transparent 55%)}
+  .work-badge{position:absolute;top:16px;left:16px;background:rgba(0,0,0,.4);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:4px 12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  .work-foot{position:absolute;bottom:0;left:0;right:0;padding:20px}
+  .work-foot-inner{border-radius:14px;background:rgba(10,10,10,.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);padding:12px 16px;display:flex;justify-content:space-between;align-items:end;gap:12px}
+  .work-foot-inner b{font-family:"Cormorant Garamond",serif;font-size:18px;line-height:1;letter-spacing:-.01em;display:block}
+  .work-foot-inner small{margin-top:4px;font-size:11px;color:rgba(255,255,255,.6);display:block}
+  .contact-grid{display:grid;gap:48px}
+  @media(min-width:1024px){.contact-grid{grid-template-columns:1.1fr .9fr;gap:64px}}
+  .contact-cards{display:grid;gap:12px;max-width:520px;margin-top:40px}
+  @media(min-width:640px){.contact-cards{grid-template-columns:repeat(2,1fr)}}
+  .c-card{border-radius:16px;background:var(--bg-card);border:1px solid var(--line);padding:16px;display:flex;gap:12px}
+  .c-icon{width:36px;height:36px;border-radius:10px;background:var(--bg-elev);border:1px solid var(--line);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+  footer{border-top:1px solid var(--line);background:#080808;padding:40px 0}
+  .footer-inner{display:flex;flex-direction:column;gap:24px;justify-content:space-between}
+  @media(min-width:640px){.footer-inner{flex-direction:row;align-items:center}}
+  .copy{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="#home"><div class="logo-mark">D</div><div class="logo-type"><b>DIBAJ DECOR</b><span>Luxury Decor & Design</span></div></a>
+    <nav class="desktop"><a class="link" href="#home">Home</a><a class="link" href="#about">About</a><a class="link" href="#services">Services</a><a class="link" href="#gallery">Gallery</a><a class="link" href="#contact">Contact</a><a class="btn-ar" href="../index.html">AR العربية</a></nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-eyebrow"><i></i><span>Jeddah • Since 2014 • Luxury Interiors</span></div>
+    <h1>Transform Your <em>Space Into Luxury</em></h1>
+    <p>We create elegant interior designs that reflect your personality — bespoke finishes, timeless materials, and a signature Dibaj touch for villas, apartments and commercial spaces in Jeddah.</p>
+    <div class="hero-actions"><a class="btn-gold" href="#gallery">View Our Work →</a><a class="btn-outline" href="#contact">Contact Us</a></div>
+    <div class="stats">
+      <div><b>10+</b><span>Years Experience</span></div>
+      <div><b>250+</b><span>Projects Delivered</span></div>
+      <div><b>100%</b><span>Bespoke Concepts</span></div>
+    </div>
+  </div>
+</section>
+<div class="gold-line"></div>
+
+<section id="about" class="section soft">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow"><i></i><span>About Dibaj Decor</span></div>
+        <h2 class="display">Crafting luxury interiors <em>in the heart of Jeddah.</em></h2>
+        <div class="about-text">
+          <p>Dibaj Decor is a luxury interior design studio based in Jeddah, dedicated to transforming residential and commercial spaces into timeless experiences. With over 10 years of expertise, we blend contemporary elegance with authentic Arabian warmth.</p>
+          <p>Every project starts with listening. We study light, proportion, and your daily rituals, then layer natural stone, brushed brass, oak, and bespoke joinery to create spaces that feel both elevated and deeply personal.</p>
+          <p><strong>From concept to final finishing, our team manages design, 3D visualization, material selection, and site supervision — ensuring flawless execution.</strong></p>
+        </div>
+        <div class="chips">
+          <div class="chip"><small>Based in</small><b>Jeddah, Saudi Arabia</b></div>
+          <div class="chip"><small>Specialty</small><b>Luxury Villas & Apartments</b></div>
+          <div class="chip"><small>Founded</small><b>2014</b></div>
+          <div class="chip"><small>Style</small><b>Modern Luxury + Classic</b></div>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius:22px;background:var(--bg-card);border:1px solid var(--line);padding:14px">
+          <div style="border-radius:16px;background:#121212;aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#24211c,#0f0f0f)"></div>
+            <div style="position:relative;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:56px;line-height:1">10+</div><div style="margin-top:8px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600">Years of Excellence</div></div>
+          </div>
+          <div style="margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+            <div style="border-radius:12px;background:var(--bg-elev);border:1px solid var(--line);padding:12px 8px;text-align:center"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Concept</div><div style="margin-top:4px;font-size:10px;color:var(--text-faint)">Mood & Layout</div></div>
+            <div style="border-radius:12px;background:var(--bg-elev);border:1px solid var(--line);padding:12px 8px;text-align:center"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Visualize</div><div style="margin-top:4px;font-size:10px;color:var(--text-faint)">Photoreal 3D</div></div>
+            <div style="border-radius:12px;background:var(--bg-elev);border:1px solid var(--line);padding:12px 8px;text-align:center"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Build</div><div style="margin-top:4px;font-size:10px;color:var(--text-faint)">Premium Finish</div></div>
+          </div>
+        </div>
+        <div style="margin-top:24px;border-radius:16px;border:1px solid var(--gold-border);background:var(--gold-soft);padding:16px 20px;display:flex;gap:12px">
+          <div style="color:var(--gold)">“</div>
+          <div><div style="font-size:13.5px;line-height:1.6;color:var(--text);font-style:italic">Dibaj turned our empty villa into a gallery-like home. The attention to lighting and materials is unmatched in Jeddah.</div><div style="margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)">— Client, Al Shati District</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <div class="services-head">
+      <div><div class="eyebrow"><i></i><span>Our Services</span></div><h2 class="display" style="max-width:520px">Everything for a complete luxury transformation.</h2></div>
+      <p style="max-width:380px;font-size:14.5px;line-height:1.7;color:var(--text-dim)">From interior architecture to final styling, we offer an end-to-end studio model so your project stays coherent, on time, and premium.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-icon">◐</div><h3>Interior Design</h3><p>Bespoke layouts, material palettes, lighting plans and custom furniture for villas, apartments & majlis.</p><ul><li>Space Planning</li><li>Furniture Curation</li><li>Lighting Design</li></ul></div>
+      <div class="card"><div class="card-icon">◑</div><h3>Exterior Design</h3><p>Facades that balance grandeur and privacy — stone, glass, landscape and entrance statements.</p><ul><li>Facade Concept</li><li>Landscape</li><li>Entrance Design</li></ul></div>
+      <div class="card"><div class="card-icon">✦</div><h3>Luxury Finishing</h3><p>Execution with master craftsmen — marble, woodwork, gypsum, brass and smart home integration.</p><ul><li>Marble & Wood</li><li>Gypsum & Brass</li><li>Smart Systems</li></ul></div>
+      <div class="card"><div class="card-icon">◎</div><h3>3D Visualization</h3><p>Photoreal renders and VR walkthroughs so you experience the space before we build it.</p><ul><li>Photoreal 3D</li><li>VR Walkthrough</li><li>Material Board</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section soft" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:40px">
+      <div class="eyebrow"><i></i><span>Selected Works</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)"><span style="width:6px;height:6px;border-radius:999px;background:#2ecc71;display:inline-block"></span>6 Spaces — Curated for Jeddah</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#2a2420,#151311)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Living Room</b><small>North Obhur Villa</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#232326,#121214)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Master Bedroom</b><small>Al Shati Residence</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#24211a,#14120f)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Majlis</b><small>Classic Modern</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#1e2322,#111312)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Kitchen</b><small>Minimal Luxury</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#262528,#141416)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Bathroom</b><small>Marble Suite</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+      <div class="work"><div class="work-bg" style="background:linear-gradient(135deg,#2b241e,#171410)"></div><div class="work-overlay"></div><div class="work-badge">Jeddah</div><div class="work-foot"><div class="work-foot-inner"><div><b>Dining Room</b><small>Family Villa</small></div><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">View</div></div></div></div>
+    </div>
+    <div style="margin-top:32px;display:flex;justify-content:center"><a href="#contact" style="height:44px;padding:0 24px;border-radius:999px;background:var(--bg-card);border:1px solid var(--line);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center">Start a project like these →</a></div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow"><i></i><span>Contact</span></div>
+        <h2 class="display">Let's design your<br/>luxury story.</h2>
+        <p style="margin-top:24px;max-width:460px;font-size:14.5px;line-height:1.7;color:var(--text-dim)">Visit our studio in Jeddah or reach us online. We respond within 24 hours with a consultation slot and initial mood direction.</p>
+        <div class="contact-cards">
+          <div class="c-card"><div class="c-icon">☎</div><div><small style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);display:block">Phone</small><b style="margin-top:4px;font-size:13px;font-weight:500;display:block">+966 50 000 0000</b></div></div>
+          <div class="c-card"><div class="c-icon">✆</div><div><small style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);display:block">WhatsApp</small><b style="margin-top:4px;font-size:13px;font-weight:500;display:block">Chat on WhatsApp</b></div></div>
+          <div class="c-card"><div class="c-icon">◎</div><div><small style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);display:block">Location</small><b style="margin-top:4px;font-size:13px;font-weight:500;display:block">Jeddah, Saudi Arabia</b></div></div>
+          <div class="c-card"><div class="c-icon">◍</div><div><small style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);display:block">Instagram</small><b style="margin-top:4px;font-size:13px;font-weight:500;display:block">@dibaj.decor</b></div></div>
+        </div>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
+          <a href="tel:+966500000000" style="height:46px;padding:0 24px;border-radius:999px;background:var(--gold);color:#000;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;display:inline-grid;place-items:center">Call Now</a>
+          <a href="https://wa.me/966500000000" target="_blank" style="height:46px;padding:0 24px;border-radius:999px;border:1px solid var(--line-strong);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:inline-grid;place-items:center">WhatsApp</a>
+        </div>
+      </div>
+      <div style="border-radius:22px;background:var(--bg-card);border:1px solid var(--line);padding:16px">
+        <div style="border-radius:16px;background:var(--bg-elev);border:1px solid var(--line);padding:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Cormorant Garamond',serif;font-size:20px">Quick Inquiry</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);border:1px solid var(--line);border-radius:999px;padding:4px 10px">Response in 24h</div></div>
+          <div style="margin-top:24px;display:grid;gap:16px">
+            <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px">Full Name</div><div style="height:46px;border-radius:12px;background:var(--bg-card);border:1px solid var(--line);padding:0 16px;display:flex;align-items:center;font-size:13.5px;color:var(--text-dim)">Your name</div></div>
+            <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px">Phone / WhatsApp</div><div style="height:46px;border-radius:12px;background:var(--bg-card);border:1px solid var(--line);padding:0 16px;display:flex;align-items:center;font-size:13.5px;color:var(--text-dim)">+966 ...</div></div>
+            <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px">Project Type</div><div style="height:46px;border-radius:12px;background:var(--bg-card);border:1px solid var(--line);padding:0 16px;display:flex;align-items:center;font-size:13.5px;color:var(--text-dim)">Villa, Apartment, Majlis...</div></div>
+            <div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px">Message</div><div style="min-height:84px;border-radius:12px;background:var(--bg-card);border:1px solid var(--line);padding:16px;font-size:13.5px;color:var(--text-dim)">Tell us about your space, size and style preference...</div></div>
+            <div style="height:48px;border-radius:12px;background:var(--gold);color:#000;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:grid;place-items:center">Send Inquiry</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;border-radius:14px;background:var(--bg-soft);border:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;border-radius:999px;background:var(--gold-soft);border:1px solid var(--gold-border);display:grid;place-items:center;color:var(--gold);font-size:12px">✦</div><div style="font-size:12px;font-weight:500">Jeddah Studio — By Appointment</div></div>
+          <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)">Open Sat–Thu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:32px;height:32px;border-radius:9px;background:var(--gold);display:grid;place-items:center;color:#000;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:14px">D</div><div><div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.16em;font-weight:600">DIBAJ DECOR</div><div class="copy">© 2026 All Rights Reserved — Jeddah</div></div></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)"><span>Luxury Decor & Design</span><span style="width:4px;height:4px;border-radius:999px;background:var(--line-strong);display:inline-block"></span><span>Made for GitHub Pages — en/index.html</span><a href="../index.html" style="height:28px;padding:0 12px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center">العربية</a></div>
+    </div>
+  </div>
+  <div class="gold-line" style="opacity:.6;margin-top:32px"></div>
+</footer>
+</body>
+</html>
