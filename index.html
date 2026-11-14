@@ -1334,20 +1334,26 @@ document.addEventListener('DOMContentLoaded',()=>{
 const langBtn = document.createElement('button');
 langBtn.innerText = 'EN';
 langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;font-family:inherit;';
+let isAr = true;
 langBtn.onclick = () => {
-  const html = document.documentElement;
-  const isAr = html.getAttribute('dir') === 'rtl' || !html.getAttribute('dir');
   if(isAr){
-    html.setAttribute('lang','en');
-    html.setAttribute('dir','ltr');
+    // صار انجليزي - انقل الزر لليمين جنب المينو
+    langBtn.style.left = 'auto';
+    langBtn.style.right = '70px';
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = 'en';
     document.body.style.direction = 'ltr';
     langBtn.innerText = 'عربي';
   } else {
-    html.setAttribute('lang','ar');
-    html.setAttribute('dir','rtl');
+    // رجع عربي - رجع الزر لليسار
+    langBtn.style.right = 'auto';
+    langBtn.style.left = '70px';
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
     document.body.style.direction = 'rtl';
     langBtn.innerText = 'EN';
   }
+  isAr = !isAr;
 };
 document.body.appendChild(langBtn);
 </script>
