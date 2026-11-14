@@ -1330,5 +1330,26 @@ document.addEventListener('DOMContentLoaded',()=>{
  els.forEach(el=>io.observe(el));
 });
 </script>
+<script>
+const langBtn = document.createElement('button');
+langBtn.innerText = 'EN';
+langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;font-family:inherit;';
+langBtn.onclick = () => {
+  const html = document.documentElement;
+  const isAr = html.getAttribute('dir') === 'rtl' || !html.getAttribute('dir');
+  if(isAr){
+    html.setAttribute('lang','en');
+    html.setAttribute('dir','ltr');
+    document.body.style.direction = 'ltr';
+    langBtn.innerText = 'عربي';
+  } else {
+    html.setAttribute('lang','ar');
+    html.setAttribute('dir','rtl');
+    document.body.style.direction = 'rtl';
+    langBtn.innerText = 'EN';
+  }
+};
+document.body.appendChild(langBtn);
+</script>
 </body>
 </html>
