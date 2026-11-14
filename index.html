@@ -1331,60 +1331,68 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script>
+// امسح الأزرار القديمة اذا موجودة
+document.querySelectorAll('button').forEach(b=>{ if(b.innerText==='EN'||b.innerText==='عربي') b.remove(); });
+
 const dict = {
   'ديباج للديكور': 'DIBAJ Decor',
   '15 عاماً معكم': '15 Years With You',
-  'لمساتنا في كل مكان - من المشافي إلى أرقى المطاعم والفنادق': 'Our touches everywhere - from hospitals to finest restaurants & hotels',
-  'لمساتنا في كل مكان': 'Our touches everywhere',
-  'من المشافي إلى أرقى المطاعم والفنادق': 'From hospitals to finest restaurants & hotels',
-  'منتجاتنا': 'Our Products',
-  'خدماتنا': 'Our Services',
-  'آراء العملاء': 'Reviews',
-  'من نحن': 'About Us',
-  'تواصل معنا': 'Contact Us',
-  'اطلب الآن': 'Order Now',
-  'شاهد المزيد': 'See More',
-  'ستائر رول': 'Roller Curtains',
+  'نزيّن نوافذك بأرقى تصاميم الستائر': 'We decorate your windows with finest curtain designs',
+  'فريق ديباج - جاهز لخدمتكم': 'DIBAJ Team - Ready to serve you',
+  'لمحة عن الشركة': 'About Company',
+  'هدف الشركة': 'Company Goal',
+  'رسالة الشركة': 'Company Message',
+  'أقسامنا': 'Our Categories',
+  'ستائر رول بلاك أوت': 'Blackout Roller',
+  'ستائر رول صن سكرين': 'Sun Screen Roller',
+  'ستائر طبية': 'Medical Curtains',
   'ستائر زيبرا': 'Zebra Curtains',
-  'ستائر واجهات': 'Facade Curtains',
-  'جميع الحقوق محفوظة': 'All Rights Reserved'
+  'ستائر قماشية': 'Fabric Curtains',
+  'ستائر روماني': 'Roman Curtains',
+  'من نحن': 'About Us',
+  'منتجاتنا': 'Products',
+  'تواصل معنا': 'Contact Us'
 };
 
 const langBtn = document.createElement('button');
 langBtn.innerText = 'EN';
-langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;font-family:inherit;transition:all 0.3s;';
+langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:9999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;';
 let isAr = true;
 
-function doTranslate(toEn){
-  document.querySelectorAll('h1,h2,h3,h4,p,a,span,button,div').forEach(el=>{
-    if(el.children.length>0) return; // لا تترجم الحاويات الكبيرة عشان ما تخرب الأيقونات
+// CSS يمنع انعكاس الأيقونات والصور
+const style = document.createElement('style');
+style.innerHTML = `img, svg, i, [class*="icon"]{transform:none !important; filter:none !important;}`;
+document.head.appendChild(style);
+
+langBtn.onclick = () => {
+  document.querySelectorAll('h1,h2,h3,h4,p,a,span,button').forEach(el=>{
+    if(el===langBtn) return;
+    if(el.children.length>0) return;
     const txt = el.innerText.trim();
-    if(!txt) return;
+    if(!txt || txt.length<2) return;
     if(!el.dataset.orig) el.dataset.orig = txt;
     
-    if(toEn){
-      if(dict[txt]) el.innerText = dict[txt];
-      else if(dict[el.dataset.orig]) el.innerText = dict[el.dataset.orig];
+    if(isAr){
+      // ترجمة
+      for(let ar in dict){
+        if(txt.includes(ar) || el.dataset.orig.includes(ar)){
+          el.innerText = el.innerText.replace(ar, dict[ar]).replace(el.dataset.orig, dict[ar]);
+          if(el.innerText===el.dataset.orig) el.innerText = dict[ar];
+          break;
+        }
+      }
     } else {
+      // رجع عربي
       el.innerText = el.dataset.orig;
     }
   });
-}
-
-langBtn.onclick = () => {
-  if(isAr){
-    doTranslate(true);
-    langBtn.style.left='auto'; langBtn.style.right='70px';
-    document.documentElement.dir='ltr'; document.documentElement.lang='en'; document.body.style.direction='ltr';
-    langBtn.innerText='عربي';
-  } else {
-    doTranslate(false);
-    langBtn.style.right='auto'; langBtn.style.left='70px';
-    document.documentElement.dir='rtl'; document.documentElement.lang='ar'; document.body.style.direction='rtl';
-    langBtn.innerText='EN';
-  }
-  isAr=!isAr;
+  
+  // لا نغير dir عشان الأيقونات ما تنعكس - بس نغير اللغة
+  document.documentElement.lang = isAr?'en':'ar';
+  langBtn.innerText = isAr?'عربي':'EN';
+  isAr = !isAr;
 };
+
 document.body.appendChild(langBtn);
 </script>
 </body>
