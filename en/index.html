@@ -244,13 +244,27 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
     </div>
   </div>
 </div>
-... سكريبت المنيو الي عندك ...
-</script>
-
 <script>
-... سكريبت العدادات الجديد الي فوق ...
+document.addEventListener('DOMContentLoaded',function(){
+  function runCounters(){
+    document.querySelectorAll('.dibaj-counter').forEach(counter=>{
+      let target=+counter.dataset.target;
+      let count=0;
+      let inc=target/50;
+      let timer=setInterval(()=>{
+        count+=inc;
+        if(count>=target){count=target;clearInterval(timer);}
+        counter.innerText=Math.floor(count);
+      },30);
+    });
+  }
+  // شغل مباشرة + لما تنزل
+  runCounters();
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>300) runCounters();
+  },{once:true});
+});
 </script>
-
 </body>
 </html>
 </body>
