@@ -1331,27 +1331,28 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 </script>
 <script>
-// امسح الأزرار القديمة اذا موجودة
-document.querySelectorAll('button').forEach(b=>{ if(b.innerText==='EN'||b.innerText==='عربي') b.remove(); });
+document.querySelectorAll('button').forEach(b=>{ if(b.innerText==='EN'||b.innerText==='عربي'||b.innerText==='EA') b.remove(); });
 
 const dict = {
   'ديباج للديكور': 'DIBAJ Decor',
   '15 عاماً معكم': '15 Years With You',
-  'نزيّن نوافذك بأرقى تصاميم الستائر': 'We decorate your windows with finest curtain designs',
-  'فريق ديباج - جاهز لخدمتكم': 'DIBAJ Team - Ready to serve you',
+  '15 عامًا معكم': '15 Years With You',
+  'نزيّن نوافذك بأرقى تصاميم الستائر': 'We decorate your windows with finest designs',
+  'فريق ديباج - راحتك احترامنا': 'DIBAJ Team - Your comfort is our respect',
   'لمحة عن الشركة': 'About Company',
   'هدف الشركة': 'Company Goal',
   'رسالة الشركة': 'Company Message',
   'أقسامنا': 'Our Categories',
+  'نفخر بخدمة قطاعات متنوعة': 'Proud to Serve Various Sectors',
+  'القطاع الصحي': 'Healthcare Sector',
+  'قطاع الضيافة': 'Hospitality Sector',
+  'القطاع السكني': 'Residential Sector',
   'ستائر رول بلاك أوت': 'Blackout Roller',
   'ستائر رول صن سكرين': 'Sun Screen Roller',
   'ستائر طبية': 'Medical Curtains',
   'ستائر زيبرا': 'Zebra Curtains',
   'ستائر قماشية': 'Fabric Curtains',
-  'ستائر روماني': 'Roman Curtains',
-  'من نحن': 'About Us',
-  'منتجاتنا': 'Products',
-  'تواصل معنا': 'Contact Us'
+  'ستائر روماني': 'Roman Curtains'
 };
 
 const langBtn = document.createElement('button');
@@ -1359,36 +1360,45 @@ langBtn.innerText = 'EN';
 langBtn.style.cssText = 'position:fixed;top:18px;left:70px;z-index:9999999;padding:8px 14px;border-radius:20px;border:1.5px solid #c8a97e;background:#fff;color:#1a1a1a;font-weight:bold;cursor:pointer;font-size:13px;';
 let isAr = true;
 
-// CSS يمنع انعكاس الأيقونات والصور
-const style = document.createElement('style');
-style.innerHTML = `img, svg, i, [class*="icon"]{transform:none !important; filter:none !important;}`;
-document.head.appendChild(style);
+// منع انعكاس الصور نهائياً
+let s = document.createElement('style');
+s.innerHTML = `img,svg,i{transform:none !important;} html{overflow-x:hidden;}`;
+document.head.appendChild(s);
 
 langBtn.onclick = () => {
-  document.querySelectorAll('h1,h2,h3,h4,p,a,span,button').forEach(el=>{
+  document.querySelectorAll('h1,h2,h3,h4,p,a,span,div').forEach(el=>{
     if(el===langBtn) return;
     if(el.children.length>0) return;
-    const txt = el.innerText.trim();
-    if(!txt || txt.length<2) return;
+    let txt = el.innerText.trim();
+    if(!txt || txt.length<3) return;
     if(!el.dataset.orig) el.dataset.orig = txt;
-    
+
     if(isAr){
-      // ترجمة
+      // انجليزي
+      let newTxt = el.dataset.orig;
       for(let ar in dict){
-        if(txt.includes(ar) || el.dataset.orig.includes(ar)){
-          el.innerText = el.innerText.replace(ar, dict[ar]).replace(el.dataset.orig, dict[ar]);
-          if(el.innerText===el.dataset.orig) el.innerText = dict[ar];
-          break;
+        if(newTxt.includes(ar)){
+          newTxt = newTxt.replaceAll(ar, dict[ar]);
         }
       }
+      // تصليح مشكلة 15
+      if(newTxt.includes('Years With You 15')) newTxt = '15 Years With You';
+      if(newTxt.includes('Years With You')) newTxt = newTxt.replace('Years With You 15','15 Years With You');
+      
+      el.innerText = newTxt;
+      el.style.direction = 'ltr';
+      el.style.textAlign = 'left';
+      el.style.unicodeBidi = 'plaintext';
     } else {
-      // رجع عربي
+      // عربي
       el.innerText = el.dataset.orig;
+      el.style.direction = 'rtl';
+      el.style.textAlign = 'right';
     }
   });
   
-  // لا نغير dir عشان الأيقونات ما تنعكس - بس نغير اللغة
   document.documentElement.lang = isAr?'en':'ar';
+  // مهم: لا نغير dir تبع الصفحة عشان الأيقونات ما تنعكس
   langBtn.innerText = isAr?'عربي':'EN';
   isAr = !isAr;
 };
