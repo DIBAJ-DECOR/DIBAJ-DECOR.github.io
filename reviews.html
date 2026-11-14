@@ -99,4 +99,15 @@ document.getElementById('submitBtn').onclick=async function(){
 }
 </script>
 <a href="https://wa.me/966557755026" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,.35)">💬</a>
+<script>
+const btn = document.createElement('button');
+btn.innerHTML = 'EN / عربي';
+btn.style.cssText = 'position:fixed;top:15px;left:15px;z-index:9999;padding:8px 16px;border-radius:20px;border:2px solid #c8a97e;background:#fff;color:#c8a97e;font-weight:bold;cursor:pointer;';
+btn.onclick = () => {
+  const h = document.documentElement;
+  if(h.dir === 'rtl' || h.lang === 'ar'){ h.lang='en'; h.dir='ltr'; document.body.style.direction='ltr'; btn.innerHTML='عربي / EN'; }
+  else{ h.lang='ar'; h.dir='rtl'; document.body.style.direction='rtl'; btn.innerHTML='EN / عربي'; }
+};
+document.body.appendChild(btn);
+</script>
 </body></html>
