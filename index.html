@@ -1330,5 +1330,23 @@ document.addEventListener('DOMContentLoaded',()=>{
  els.forEach(el=>io.observe(el));
 });
 </script>
+<script>
+const btn = document.createElement('button');
+btn.innerHTML = 'EN / عربي';
+btn.style.cssText = 'position:fixed;top:15px;left:15px;z-index:9999;padding:8px 16px;border-radius:20px;border:2px solid #c8a97e;background:#fff;color:#c8a97e;font-weight:bold;cursor:pointer;';
+btn.onclick = () => {
+  const html = document.documentElement;
+  if(html.dir === 'rtl' || html.lang === 'ar'){
+    html.lang='en'; html.dir='ltr';
+    document.body.style.direction='ltr';
+    btn.innerHTML='عربي / EN';
+  }else{
+    html.lang='ar'; html.dir='rtl';
+    document.body.style.direction='rtl';
+    btn.innerHTML='EN / عربي';
+  }
+};
+document.body.appendChild(btn);
+</script>
 </body>
 </html>
