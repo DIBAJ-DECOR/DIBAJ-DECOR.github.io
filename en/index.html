@@ -245,26 +245,20 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
   </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  function runCounters(){
-    document.querySelectorAll('.dibaj-counter').forEach(counter=>{
-      let target=+counter.dataset.target;
-      let count=0;
-      let inc=target/50;
-      let timer=setInterval(()=>{
-        count+=inc;
-        if(count>=target){count=target;clearInterval(timer);}
-        counter.innerText=Math.floor(count);
-      },30);
-    });
-  }
-  // شغل مباشرة + لما تنزل
-  runCounters();
-  window.addEventListener('scroll',()=>{
-    if(window.scrollY>300) runCounters();
-  },{once:true});
-});
+setTimeout(function(){
+  document.querySelectorAll('.dibaj-counter').forEach(function(el){
+    var target = parseInt(el.getAttribute('data-target')) || 5000;
+    var count = 0;
+    var step = target / 100;
+    var timer = setInterval(function(){
+      count += step;
+      if(count >= target){ count = target; clearInterval(timer); }
+      el.textContent = Math.floor(count);
+    },15);
+  });
+},1000);
 </script>
 </body>
 </html>
+
 
