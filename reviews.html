@@ -82,6 +82,12 @@ function applyLang(){
     inp.style.textAlign = isEn ? 'left' : 'right';
     inp.style.direction = isEn ? 'ltr' : 'rtl';
   }); 
+   // ترجم الأزرار
+  document.querySelectorAll('a, button').forEach(b=>{
+    if(b.textContent.includes('الرئيسية') || b.textContent.includes('Home')){
+      b.innerHTML = isEn ? '🏠 Home' : '🏠 الرئيسية';
+    }
+  });
   if(isEn){
     CRITERIA=[
       {id:'quality',label:'Product Quality'},
