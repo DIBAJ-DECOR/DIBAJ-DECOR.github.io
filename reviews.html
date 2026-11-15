@@ -41,8 +41,35 @@
   let lang = localStorage.getItem('lang') || 'ar';
   lang = lang === 'ar' ? 'en' : 'ar';
   localStorage.setItem('lang', lang);
-  window.location.href = lang === 'en' ? 'index-en.html' : 'index.html';
+  applyLang();
 }
+function applyLang(){
+  const lang = localStorage.getItem('lang') || 'ar';
+  const isEn = lang === 'en';
+  const btn = document.getElementById('langBtn');
+  if(btn) btn.textContent = isEn ? 'عربي' : 'EN';
+  if(isEn){
+    CRITERIA=[
+      {id:'quality',label:'Product Quality'},
+      {id:'speed',label:'Site visit & measurements speed'},
+      {id:'punctuality',label:'Punctuality'},
+      {id:'installation',label:'Installation'},
+      {id:'afterSale',label:'After Sales'},
+      {id:'other',label:'Other'}
+    ];
+  }else{
+    CRITERIA=[
+      {id:'quality',label:'جودة المنتج'},
+      {id:'speed',label:'سرعة في زيارة الموقع واخذ المقاسات'},
+      {id:'punctuality',label:'دقة المواعيد'},
+      {id:'installation',label:'التركيب'},
+      {id:'afterSale',label:'ما بعد البيع'},
+      {id:'other',label:'أخرى'}
+    ];
+  }
+  if(typeof renderCriteria==='function') renderCriteria();
+}
+document.addEventListener('DOMContentLoaded', applyLang);
 // === النجوم - يشتغل بدون انترنت ===
 const CRITERIA=[{id:'quality',label:'جودة المنتج'},{id:'speed',label:'سرعة في زيارة الموقع واخذ المقاسات'},{id:'punctual',label:'دقة المواعيد'},{id:'install',label:'التركيب'},{id:'after',label:'ما بعد البيع'},{id:'other',label:'اخرى'}];
 let ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};
