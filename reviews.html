@@ -22,6 +22,7 @@
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f5e6c8;color:#0a1931;padding:10px 16px;border-radius:999px;font-weight:800;z-index:10000;display:none}.toast.show{display:block}
 </style></head><body>
 <a href="index.html" class="home-btn-fixed">🏠 الرئيسية</a>
+<button id="langBtn" onclick="switchLang()" style="position:fixed;top:18px;right:18px;z-index:999;background:#f5e6c8;color:#0a1931;border:none;padding:8px 16px;border-radius:20px;font-weight:700">EN</button>
 <div class="container">
 <h1 class="main-title">تقييمات عملائنا</h1><p class="sub-title">قيّم تجربتك</p>
 <div class="criteria-grid" id="criteriaGrid"></div>
@@ -36,6 +37,12 @@
 <div id="reviewsList"></div></div>
 <div id="toast" class="toast"></div>
 <script>
+ function switchLang(){
+  let lang = localStorage.getItem('lang') || 'ar';
+  lang = lang === 'ar' ? 'en' : 'ar';
+  localStorage.setItem('lang', lang);
+  window.location.href = lang === 'en' ? 'index-en.html' : 'index.html';
+}
 // === النجوم - يشتغل بدون انترنت ===
 const CRITERIA=[{id:'quality',label:'جودة المنتج'},{id:'speed',label:'سرعة في زيارة الموقع واخذ المقاسات'},{id:'punctual',label:'دقة المواعيد'},{id:'install',label:'التركيب'},{id:'after',label:'ما بعد البيع'},{id:'other',label:'اخرى'}];
 let ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};
