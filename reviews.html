@@ -46,10 +46,12 @@
 function applyLang(){
   const lang = localStorage.getItem('lang')||'ar';
   const isEn = lang==='en';
-  const mainTitle = document.querySelector('h1');
-  if(mainTitle) mainTitle.textContent = isEn ? 'Customer Reviews' : 'تقييمات عملائنا';
-  const subTitle = document.querySelector('h2');
-  if(subTitle && subTitle.textContent.includes('تجربتك')) subTitle.textContent = isEn ? 'Rate your experience' : 'قيّم تجربتك';
+    document.querySelectorAll('*').forEach(el=>{
+    if(el.childNodes.length===1 && el.textContent.trim()==='قيّم تجربتك') el.textContent = isEn ? 'Rate your experience' : 'قيّم تجربتك';
+    if(el.childNodes.length===1 && el.textContent.trim()==='Rate your experience') el.textContent = isEn ? 'Rate your experience' : 'قيّم تجربتك';
+    if(el.childNodes.length===1 && el.textContent.trim()==='تقييمات عملائنا') el.textContent = isEn ? 'Customer Reviews' : 'تقييمات عملائنا';
+    if(el.childNodes.length===1 && el.textContent.trim()==='Customer Reviews') el.textContent = isEn ? 'Customer Reviews' : 'تقييمات عملائنا';
+  });
   const labels = document.querySelectorAll('form label, .form-group label, div label');
   if(labels[0]) labels[0].textContent = isEn ? 'Name *' : 'الاسم *';
   if(labels[1]) labels[1].textContent = isEn ? 'Phone' : 'رقم الجوال';
