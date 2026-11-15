@@ -46,18 +46,30 @@
 function applyLang(){
   const lang = localStorage.getItem('lang')||'ar';
   const isEn = lang==='en';
-  const mainTitle = document.querySelector('h1, .main-title');
-  if(mainTitle) mainTitle.textContent = isEn?'Customer Reviews':'تقييمات عملائنا';
-  const labels = document.querySelectorAll('.form-label');
-  if(labels[0]) labels[0].textContent = isEn?'Name *':'الاسم *';
-  if(labels[1]) labels[1].textContent = isEn?'Phone':'رقم الجوال';
-  if(labels[2]) labels[2].textContent = isEn?'Comment':'تعليقك';
-  const fileLabel = document.querySelector('.file-label');
-  if(fileLabel) fileLabel.textContent = isEn?'📷 Photo':'📷 صورة';
-  const submitBtn = document.getElementById('submitBtn');
-  if(submitBtn) submitBtn.textContent = isEn?'✨ Submit Review':'✨ إرسال التقييم';
+  const mainTitle = document.querySelector('h1');
+  if(mainTitle) mainTitle.textContent = isEn ? 'Customer Reviews' : 'تقييمات عملائنا';
+  const subTitle = document.querySelector('h2');
+  if(subTitle && subTitle.textContent.includes('تجربتك')) subTitle.textContent = isEn ? 'Rate your experience' : 'قيّم تجربتك';
+  const labels = document.querySelectorAll('form label, .form-group label, div label');
+  if(labels[0]) labels[0].textContent = isEn ? 'Name *' : 'الاسم *';
+  if(labels[1]) labels[1].textContent = isEn ? 'Phone' : 'رقم الجوال';
+  if(labels[2]) labels[2].textContent = isEn ? 'Comment' : 'تعليقك';
+  const fileLabel = document.querySelector('label[for="file"], .file-label');
+  if(fileLabel) fileLabel.textContent = isEn ? '📷 Photo' : '📷 صورة';
+  const submitBtn = document.querySelector('button[type="submit"], .submit-btn');
+  if(submitBtn) submitBtn.textContent = isEn ? '✨ Submit Review' : '✨ إرسال التقييم';
   document.querySelectorAll('button').forEach(b=>{
-    if(b.textContent.trim()==='EN'||b.textContent.trim()==='عربي') b.textContent=isEn?'عربي':'EN';
+    if(b.textContent.trim()==='EN' || b.textContent.trim()==='عربي') b.textContent = isEn ? 'عربي' : 'EN';
+  });
+  const inputs = document.querySelectorAll('input[placeholder], textarea[placeholder]');
+  inputs.forEach(inp=>{
+    if(!isEn){
+      if(inp.placeholder.includes('name') || inp.placeholder==='Your name') inp.placeholder='اسمك';
+      if(inp.placeholder.includes('feedback') || inp.placeholder==='Your feedback (optional)') inp.placeholder='تعليقك (اختياري)';
+    } else {
+      if(inp.placeholder==='اسمك' || inp.placeholder.includes('الاسم')) inp.placeholder='Your name';
+      if(inp.placeholder.includes('تعليقك') || inp.placeholder.includes('رأيك')) inp.placeholder='Your feedback (optional)';
+    }
   });
   if(isEn){
     CRITERIA=[
