@@ -38,16 +38,27 @@
 <div id="toast" class="toast"></div>
 <script>
  function switchLang(){
-  let lang = localStorage.getItem('lang') || 'ar';
-  lang = lang === 'ar' ? 'en' : 'ar';
-  localStorage.setItem('lang', lang);
+  let lang = localStorage.getItem('lang')||'ar';
+  lang = lang==='ar'?'en':'ar';
+  localStorage.setItem('lang',lang);
   applyLang();
 }
 function applyLang(){
-  const lang = localStorage.getItem('lang') || 'ar';
-  const isEn = lang === 'en';
-  const btn = document.getElementById('langBtn');
-  if(btn) btn.textContent = isEn ? 'عربي' : 'EN';
+  const lang = localStorage.getItem('lang')||'ar';
+  const isEn = lang==='en';
+  const mainTitle = document.querySelector('h1, .main-title');
+  if(mainTitle) mainTitle.textContent = isEn?'Customer Reviews':'تقييمات عملائنا';
+  const labels = document.querySelectorAll('.form-label');
+  if(labels[0]) labels[0].textContent = isEn?'Name *':'الاسم *';
+  if(labels[1]) labels[1].textContent = isEn?'Phone':'رقم الجوال';
+  if(labels[2]) labels[2].textContent = isEn?'Comment':'تعليقك';
+  const fileLabel = document.querySelector('.file-label');
+  if(fileLabel) fileLabel.textContent = isEn?'📷 Photo':'📷 صورة';
+  const submitBtn = document.getElementById('submitBtn');
+  if(submitBtn) submitBtn.textContent = isEn?'✨ Submit Review':'✨ إرسال التقييم';
+  document.querySelectorAll('button').forEach(b=>{
+    if(b.textContent.trim()==='EN'||b.textContent.trim()==='عربي') b.textContent=isEn?'عربي':'EN';
+  });
   if(isEn){
     CRITERIA=[
       {id:'quality',label:'Product Quality'},
@@ -67,10 +78,9 @@ function applyLang(){
       {id:'other',label:'أخرى'}
     ];
   }
-  if(typeof renderCriteria==='function') renderCriteria();
+  renderCriteria();
 }
-document.addEventListener('DOMContentLoaded', applyLang);
-let CRITERIA=[]; 
+document.addEventListener('DOMContentLoaded',applyLang);
 let ratings={quality:0,speed:0,punctual:0,install:0,after:0,other:0};
 function renderCriteria(){
  const g=document.getElementById('criteriaGrid');
