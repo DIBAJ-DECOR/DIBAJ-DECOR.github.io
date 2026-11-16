@@ -1334,3 +1334,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
 </body>
 </html>
+<style>div[style*="position:fixed"]{display:none!important}#wa{display:block!important;position:fixed!important;bottom:20px!important;right:20px!important;z-index:9999999!important}</style>
+<script>
+setTimeout(()=>{
+document.querySelectorAll('div').forEach(d=>{
+ if(d!=document.getElementById('wa') && (d.textContent.trim()=='...' || d.innerHTML=='...')) d.parentElement.remove();
+});
+let olds=document.querySelectorAll('[id=wa]');
+if(olds.length>1){ for(let i=0;i<olds.length-1;i++) olds[i].remove(); }
+},500);
+</script>
