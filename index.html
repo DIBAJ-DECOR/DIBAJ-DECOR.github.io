@@ -1325,13 +1325,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  els.forEach(el=>io.observe(el));
 });
 </script>
-<div id=wa style="position:fixed;bottom:20px;right:20px;z-index:999999">
-<div id=wm style="display:none;background:#fff;border-radius:12px;padding:10px;margin-bottom:10px;width:240px;box-shadow:0 8px 24px rgba(0,0,0,.2)">
-<a href="https://wa.me/966557755026" style="display:block;padding:8px;color:#111;text-decoration:none">📞 مبيعات المشاريع 0557755026</a>
-<a href="https://wa.me/966560013851" style="display:block;padding:8px;color:#111;text-decoration:none">🛠️ تركيب ومبيعات 0560013851</a>
-</div>
-<div onclick="var m=document.getElementById('wm');m.style.display=m.style.display=='block'?'none':'block'" style="width:60px;height:60px;background:#25D366;border-radius:50%;text-align:center;line-height:60px;font-size:30px;cursor:pointer">💬</div>
-</div>
-</div>  
+<div id=wa style="position:fixed;bottom:20px;right:20px;z-index:9999">
+<div id=wm style="display:none;background:#fff;border-radius:12px;padding:8px;margin-bottom:10px;width:240px">
+<a href="https://wa.me/966557755026" style="display:block;padding:8px;color:#000">📞 مبيعات 0557755026</a>
+<a href="https://wa.me/966560013851" style="display:block;padding:8px;color:#000">🛠️ تركيب 0560013851</a>
+</div><div onclick="document.getElementById('wm').style.display=document.getElementById('wm').style.display=='block'?'none':'block'" style="width:60px;height:60px;background:#25D366;border-radius:50%;text-align:center;line-height:60px;font-size:30px">💬</div></div>
 </body>
 </html>
