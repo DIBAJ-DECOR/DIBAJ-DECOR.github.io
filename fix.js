@@ -1,1 +1,2 @@
-for(let e of document.images){let s=e.getAttribute('src');if(s&&s.indexOf('../')!=0&&s.indexOf('/')!=0&&s.indexOf('http')!=0)e.src='../'+s}
+for(let e of document.images){let s=e.getAttribute('src');if(s&&!s.startsWith('../')&&!s.startsWith('/')&&!s.startsWith('http')&&!s.startsWith('data:'))e.src='../'+s}
+document.querySelectorAll('[style]').forEach(a=>{let t=a.getAttribute('style');if(t.includes('url('))a.setAttribute('style',t.replace(/url\(['"]?([^'")]+)['"]?\)/g,(m,b)=>{if(b.startsWith('../')||b.startsWith('/')||b.startsWith('http')||b.startsWith('data:'))return m;return`url('../${b}')`}))});
