@@ -1345,20 +1345,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
-<style>
-#wa-widget ~ #wa-widget{display:none !important}
-div[style*="fixed"]:not(#wa-widget):not(#dibaj-nav){display:none !important}
-#wa-widget{display:block !important}
-</style>
+<div id="wa-widget" style="position:fixed;bottom:25px;right:25px;z-index:9999999">
+<div id="wa-list" style="display:none;margin-bottom:12px;background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.25);overflow:hidden;min-width:180px">
+<div style="background:#0a1931;color:#FFD700;padding:10px 14px;font-weight:bold;text-align:center">تواصل معنا</div>
+<a href="https://wa.me/966557755026" target="_blank" style="display:block;text-decoration:none;color:#0a1931;font-weight:700;padding:12px 14px;border-bottom:1px solid #eee">📱 0557755026</a>
+<a href="https://wa.me/966560013851" target="_blank" style="display:block;text-decoration:none;color:#0a1931;font-weight:700;padding:12px 14px">📱 0560013851</a>
+</div>
+<div id="wa-btn" style="width:62px;height:62px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:30px;cursor:pointer">💬</div>
+</div>
 <script>
-setInterval(function(){
-  var w=document.querySelectorAll('#wa-widget');
-  for(var i=1;i<w.length;i++){ w[i].remove(); }
-  document.querySelectorAll('div').forEach(function(d){
-    if(d.id==='wa-widget') return;
-    if(d.closest && d.closest('#wa-widget')) return;
-    var s=d.getAttribute('style')||'';
-    if(s.includes('fixed') && d.innerHTML.includes('💬')) d.style.display='none';
-  });
-},300);
+document.getElementById('wa-btn').onclick=function(){
+ var l=document.getElementById('wa-list');
+ l.style.display=l.style.display==='none'?'block':'none';
+};
 </script>
