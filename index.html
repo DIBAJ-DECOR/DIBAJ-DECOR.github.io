@@ -6,7 +6,7 @@
 <title>DIBAJ | ديباج</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
 <style>
-#wa-widget,#wa-btn,.wa-float,.wa-button,#wa-widget *{display:none !important; visibility:hidden !important; opacity:0 !important; pointer-events:none !important;}
+:root{--navy:#0a1931;--navy2:#12244d;--gold:#d4af37;--gold2:#e8c96a}
 *{box-sizing:border-box;margin:0}
 body{font-family:'Tajawal',system-ui;background:#0a1931;color:#fff;overflow-x:hidden}
 .dibaj-top{position:sticky;top:0;z-index:20;background:#0a1931f2;backdrop-filter:blur(8px);border-bottom:1px solid #d4af3730;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
@@ -1274,7 +1274,15 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 </div>
-<!-- WhatsApp زر واحد مع قائمة - عربي -->
+
+<div style="margin-top:30px; text-align:center;">
+<a href="https://wa.me/966557755026?text=مرحبا، أرغب في استشارة أنظمة المحركات" target="_blank" style="display:inline-block; background:#111; color:#f5e6c8; padding:19px 52px; border-radius:100px; text-decoration:none; font-weight:500; font-size:12.5px; letter-spacing:1.5px;">حجز استشارة خاصة</a>
+<p style="font-size:9px; color:#ccc; margin:16px 0 0; letter-spacing:2px;">DIBAJ DECOR - JEDDAH</p>
+</div>
+
+</div>
+</div>
+</div>
 <script>
 // === ربط ديباج مع Google Sheet ===
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbyXEeeaMbM3bhNdyxbgM0-EJEKbpUWsB944ScUiBtFtDjbwm9yeS_IT0rF3ZBTQTXsm/exec";
@@ -1324,8 +1332,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  },{threshold:0.3});
  els.forEach(el=>io.observe(el));
 });
-
 </script>
-<script>setTimeout(()=>{let a=document.querySelectorAll('[id^=wa-]');let w=document.querySelectorAll('#wa-widget');if(w.length>1){for(let i=0;i<w.length-1;i++)w[i].remove()}},1500)</script>
-</body>
+ </body>
 </html>
