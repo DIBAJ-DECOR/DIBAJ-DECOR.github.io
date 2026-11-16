@@ -267,21 +267,33 @@ setTimeout(function(){
 </div>
 <!-- END FLOATING -->
 <script>
-// تصليح صور القطاعات في النسخة الانجليزية
-document.querySelectorAll('[style*="background-image"]').forEach(el=>{
-  let s = el.getAttribute('style');
-  if(s.includes('url(images/') || s.includes("url('images/") || s.includes('url("images/')){
-    el.setAttribute('style', s.replace(/url\(['"]?images\//g, "url('../images/"));
+// تصليح نهائي لصور القطاعات في الانجليزي
+(function(){
+  function fixPath(url){
+    if(!url) return url;
+    // اذا كان url(images/ ) نحوله لـ ../images/
+    if(url.includes('images/') && !url.includes('../images/') && !url.includes('dibaj-decor.github.io')){
+      return url.replace(/images\//g, '../images/');
+    }
+    return url;
   }
-});
-document.querySelectorAll('img').forEach(img=>{
-  if(img.src.includes('/en/images/')){
-    img.src = img.src.replace('/en/images/', '/images/');
-  }
-  if(img.getAttribute('src') && img.getAttribute('src').startsWith('images/')){
-    img.setAttribute('src', '../'+img.getAttribute('src'));
-  }
-});
+  // 1- صلح كل الـ style tags
+  document.querySelectorAll('style').forEach(styleTag=>{
+    styleTag.textContent = styleTag.textContent.replace(/url\(['"]?images\//g, "url('../images/");
+  });
+  // 2- صلح الـ stylesheets الخارجية
+  try{
+    for(let sheet of document.styleSheets){
+      try{
+        for(let rule of sheet.cssRules){
+          if(rule.style && rule.style.backgroundImage && rule.style.backgroundImage.includes('images/')){
+            rule.style.backgroundImage = fixPath(rule.style.backgroundImage);
+          }
+        }
+      }catch(e){}
+    }
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
