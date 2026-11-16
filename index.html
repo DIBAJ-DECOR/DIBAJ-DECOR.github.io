@@ -1274,12 +1274,42 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 
 </div>
+<!-- WhatsApp زر واحد مع قائمة - عربي -->
+<style>
+#wa-btn{position:fixed;bottom:20px;right:20px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:0.3s}
+#wa-btn:hover{transform:scale(1.1)}
+#wa-menu{position:fixed;bottom:90px;right:20px;z-index:9999;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);padding:12px;width:260px;display:none;animation:waFade 0.3s}
+#wa-menu.show{display:block}
+@keyframes waFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.wa-item{display:flex;align-items:center;padding:12px;border-radius:8px;text-decoration:none;color:#0a1b3d;transition:0.2s}
+.wa-item:hover{background:#f1f5f9}
+.wa-item span{font-size:14px;line-height:1.3}
+.wa-item small{color:#64748b;display:block;font-size:12px}
+</style>
 
-<div style="margin-top:30px; text-align:center;">
-<a href="https://wa.me/966557755026?text=مرحبا، أرغب في استشارة أنظمة المحركات" target="_blank" style="display:inline-block; background:#111; color:#f5e6c8; padding:19px 52px; border-radius:100px; text-decoration:none; font-weight:500; font-size:12.5px; letter-spacing:1.5px;">حجز استشارة خاصة</a>
-<p style="font-size:9px; color:#ccc; margin:16px 0 0; letter-spacing:2px;">DIBAJ DECOR - JEDDAH</p>
+<div id="wa-btn" onclick="document.getElementById('wa-menu').classList.toggle('show')">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2a9.94 9.94 0 0 0-8.65 14.93L2 22l5.26-1.38a9.94 9.94 0 0 0 4.78 1.22h.01a9.94 9.94 0 0 0 7-16.93zM12.05 20.9a8.3 8.3 0 0 1-4.23-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.27-4.43 8.34 8.34 0 0 1 13.99-6.22 8.3 8.3 0 0 1-5.99 13.52zm4.54-6.18c-.25-.12-1.47-.73-1.7-.81-.23-.09-.4-.12-.56.12s-.65.81-.8.97-.29.19-.54.06a6.86 6.86 0 0 1-2-1.23 7.6 7.6 0 0 1-1.4-1.74c-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43a1.7 1.7 0 0 0 .25-.43.47.47 0 0 0-.02-.43c-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48a.9.9 0 0 0-.65.3 2.73 2.73 0 0 0-.85 2.03 4.74 4.74 0 0 0 1 2.54 10.8 10.8 0 0 0 4.14 3.66c.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </div>
 
+<div id="wa-menu">
+<div style="font-weight:700;padding:8px 12px 4px;color:#0a1b3d">💬 تواصل معنا</div>
+<a class="wa-item" href="https://wa.me/966557755026" target="_blank">
+<div style="font-size:22px;margin-left:10px">📞</div>
+<span>مبيعات المشاريع / الدعم الفني<small>0557755026 - اضغط للمحادثة</small></span>
+</a>
+<a class="wa-item" href="https://wa.me/966560013851" target="_blank">
+<div style="font-size:22px;margin-left:10px">🛠️</div>
+<span>المبيعات / التركيب<small>0560013851 - اضغط للمحادثة</small></span>
+</a>
+</div>
+
+<script>
+document.addEventListener('click',function(e){
+ let b=document.getElementById('wa-btn'), m=document.getElementById('wa-menu');
+ if(!b.contains(e.target) && !m.contains(e.target)){ m.classList.remove('show'); }
+});
+</script>
+<!-- انتهى كود الواتساب -->
 </div>
 </div>
 </div>
