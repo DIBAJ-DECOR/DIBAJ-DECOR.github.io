@@ -1345,3 +1345,20 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+<style>
+#wa-widget ~ #wa-widget{display:none !important}
+div[style*="fixed"]:not(#wa-widget):not(#dibaj-nav){display:none !important}
+#wa-widget{display:block !important}
+</style>
+<script>
+setInterval(function(){
+  var w=document.querySelectorAll('#wa-widget');
+  for(var i=1;i<w.length;i++){ w[i].remove(); }
+  document.querySelectorAll('div').forEach(function(d){
+    if(d.id==='wa-widget') return;
+    if(d.closest && d.closest('#wa-widget')) return;
+    var s=d.getAttribute('style')||'';
+    if(s.includes('fixed') && d.innerHTML.includes('💬')) d.style.display='none';
+  });
+},300);
+</script>
