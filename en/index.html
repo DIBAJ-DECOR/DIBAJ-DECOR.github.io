@@ -261,24 +261,7 @@ setTimeout(function(){
   });
 },1000);
 </script>
-<div id="wa-float" style="position:fixed;bottom:25px;left:25px;z-index:99999;">
-<div id="wa-menu" style="display:none;position:absolute;bottom:70px;left:0;background:white;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.15);padding:8px;min-width:220px;">
-<a href="https://wa.me/966557755026" target="_blank" style="display:flex;align-items:center;gap:10px;padding:10px;text-decoration:none;color:#111;"><div style="width:42px;height:42px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">W</div><div><div style="font-weight:700;font-size:14px;">0557755026</div><div style="font-size:12px;color:#666;">Sales</div></div></a>
-<a href="https://wa.me/966560013851" target="_blank" style="display:flex;align-items:center;gap:10px;padding:10px;text-decoration:none;color:#111;"><div style="width:42px;height:42px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">W</div><div><div style="font-weight:700;font-size:14px;">0560013851</div><div style="font-size:12px;color:#666;">Support</div></div></a>
-</div>
-<button id="wa-btn" style="width:60px;height:60px;background:#25D366;border-radius:50%;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);font-size:28px;color:white;">W</button>
-</div>
-<script>
-(function(){
-const btn=document.getElementById('wa-btn');
-const menu=document.getElementById('wa-menu');
-let open=false;
-function showMenu(){menu.style.display='block';open=true;}
-function hideMenu(){menu.style.display='none';open=false;}
-btn.addEventListener('click',function(e){e.stopPropagation();if(open){hideMenu();}else{showMenu();}});
-document.addEventListener('click',function(){if(open)hideMenu();});
-})();
-</script>
+<div id="wa-test" style="position:fixed !important;bottom:25px !important;left:25px !important;z-index:9999999 !important;width:60px;height:60px;background:#ff0000 !important;border-radius:50%;display:flex !important;align-items:center;justify-content:center;color:white;font-size:30px;">W</div>
 <script src="../fix.js"></script>
 </body>
 </html>
