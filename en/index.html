@@ -261,20 +261,25 @@ setTimeout(function(){
   });
 },1000);
 </script>
-<div id="wa-float" style="position:fixed;bottom:20px;left:20px;z-index:99999">
-<div id="wa-menu" style="display:none;background:#fff;border-radius:10px;padding:8px;box-shadow:0 4px 15px rgba(0,0,0,.2);margin-bottom:10px">
-<a href="https://wa.me/966557755026" style="display:block;padding:8px;text-decoration:none;color:#000">0557755026 - Sales</a>
-<a href="https://wa.me/966560013851" style="display:block;padding:8px;text-decoration:none;color:#000">0560013851 - Support</a>
+<div id="wa-float" style="position:fixed;bottom:20px;right:20px;z-index:99999;font-family:system-ui">
+<div id="wa-menu" style="display:none;width:300px;background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:12px;margin-bottom:12px">
+<div style="text-align:center;font-weight:bold;padding:10px 0 12px;border-bottom:1px solid #eee;margin-bottom:8px">Contact via WhatsApp</div>
+<a href="https://wa.me/966557755026" style="display:flex;align-items:center;justify-content:space-between;background:#f8f9fa;border-radius:14px;padding:12px 14px;margin-bottom:8px;text-decoration:none;color:#000">
+<div style="text-align:left"><div style="font-weight:bold">0557755026</div><div style="font-size:12px;color:#666">Sales / Technical</div></div>
+<div style="width:44px;height:44px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px">✓</div>
+</a>
+<a href="https://wa.me/966560013851" style="display:flex;align-items:center;justify-content:space-between;background:#f8f9fa;border-radius:14px;padding:12px 14px;text-decoration:none;color:#000">
+<div style="text-align:left"><div style="font-weight:bold">0560013851</div><div style="font-size:12px;color:#666">Sales / Installation</div></div>
+<div style="width:44px;height:44px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px">✓</div>
+</a>
 </div>
-<button id="wa-btn" style="width:55px;height:55px;background:#25D366;border:0;border-radius:50%;color:#fff;font-size:24px">W</button>
+<button id="wa-btn" style="width:62px;height:62px;background:#25D366;border:0;border-radius:50%;box-shadow:0 4px 15px rgba(0,0,0,.3);font-size:28px">💬</button>
 </div>
 <script>
 var o=0;
-document.getElementById('wa-btn').onclick=function(e){
-e.stopPropagation();
-var m=document.getElementById('wa-menu');
-if(o==0){m.style.display='block';o=1}else{m.style.display='none';o=0}
-};
+document.getElementById('wa-btn').onclick=function(e){e.stopPropagation();var m=document.getElementById('wa-menu');if(o==0){m.style.display='block';o=1}else{m.style.display='none';o=0}};
+document.addEventListener('click',function(){document.getElementById('wa-menu').style.display='none';o=0});
+</script>
 </script>
 </body>
 </html>
