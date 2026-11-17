@@ -262,36 +262,17 @@ setTimeout(function(){
 },1000);
 </script>
 <div id="wa-float"
-style="position:fixed;bottom:25px;left:25px;z-index:99999;">
-<div id="wa-menu"
-style="display:none;position:absolute;bottom:70px;left:0;background:white;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.15);padding:8px;min-width:220px;">
-<a href="https://wa.me/966557755026"
-style="display:flex;gap:10px;padding:10px;text-decoration:none;color:#111;">
-<span style="width:40px;height:40px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">W</span>
-<span><b>0557755026</b><br><small>Sales</small></span>
-</a>
-<a href="https://wa.me/966560013851"
-style="display:flex;gap:10px;padding:10px;text-decoration:none;color:#111;">
-<span style="width:40px;height:40px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">W</span>
-<span><b>0560013851</b><br><small>Support</small></span>
-</a>
-</div>
+style="position:fixed;
+bottom:25px;left:25px;
+z-index:99999;">
 <button id="wa-btn"
-style="width:60px;height:60px;background:#25D366;border:none;border-radius:50%;color:white;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">W</button>
+style="width:60px;height:60px;
+background:#25D366;
+border:none;border-radius:50%;
+color:white;font-size:28px;">
+W
+</button>
 </div>
-<script>
-var btn=document.getElementById('wa-btn');
-var menu=document.getElementById('wa-menu');
-var open=false;
-btn.onclick=function(e){
-e.stopPropagation();
-if(open){menu.style.display='none';open=false;}
-else{menu.style.display='block';open=true;}
-};
-document.addEventListener('click',function(){
-menu.style.display='none';open=false;
-});
-</script>
 <script src="../fix.js"></script>
 </body>
 </html>
