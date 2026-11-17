@@ -262,13 +262,18 @@ setTimeout(function(){
 },1000);
 </script>
 <div id="wa-float" style="position:fixed;bottom:20px;left:20px;z-index:99999;font-family:system-ui">
-<div id="wa-menu" style="display:none;position:absolute;bottom:70px;left:0;width:310px;background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.3);padding:12px">
+<div id="wa-menu" style="opacity:0;transform:translateY(25px) scale(.92);pointer-events:none;transition:all .4s cubic-bezier(.34,1.56,.64,1);width:310px;background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.3);padding:12px;position:absolute;bottom:75px;left:0">
 <div style="text-align:center;font-weight:900;font-size:16px;color:#000;padding:12px 0;border-bottom:2px solid #eee;margin-bottom:12px">Contact via WhatsApp</div>
 <a href="https://wa.me/966557755026" style="display:flex;justify-content:space-between;align-items:center;background:#f5f5f5;border-radius:12px;padding:12px;margin-bottom:8px;text-decoration:none;color:#000"><span><b>0557755026</b><br><small>Sales / Technical</small></span><span style="background:#25D366;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center">✓</span></a>
 <a href="https://wa.me/966560013851" style="display:flex;justify-content:space-between;align-items:center;background:#f5f5f5;border-radius:12px;padding:12px;text-decoration:none;color:#000"><span><b>0560013851</b><br><small>Sales / Installation</small></span><span style="background:#25D366;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center">✓</span></a>
 </div>
-<button id="wa-btn" onclick="var m=document.getElementById('wa-menu');m.style.display=m.style.display=='block'?'none':'block'" style="width:62px;height:62px;background:#25D366;border:0;border-radius:50%;font-size:28px">💬</button>
+<button id="wa-btn" style="width:62px;height:62px;background:#25D366;border:0;border-radius:50%;font-size:28px;cursor:pointer;transition:transform .2s">💬</button>
 </div>
+<script>
+let open=0;const menu=document.getElementById('wa-menu'),btn=document.getElementById('wa-btn');
+btn.onclick=(e)=>{e.stopPropagation();if(!open){menu.style.opacity='1';menu.style.transform='translateY(0) scale(1)';menu.style.pointerEvents='auto';btn.style.transform='scale(.9) rotate(15deg)';open=1}else{menu.style.opacity='0';menu.style.transform='translateY(25px) scale(.92)';menu.style.pointerEvents='none';btn.style.transform='scale(1)';open=0}};
+document.addEventListener('click',()=>{menu.style.opacity='0';menu.style.transform='translateY(25px) scale(.92)';menu.style.pointerEvents='none';btn.style.transform='scale(1)';open=0});
+</script>
 </body>
 </html>
 
