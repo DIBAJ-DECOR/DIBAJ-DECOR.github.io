@@ -262,7 +262,7 @@ setTimeout(function(){
 },1000);
 </script>
 <div id="wa-float" style="position:fixed;bottom:20px;left:20px;z-index:99999;font-family:system-ui">
-<div id="wa-menu" style="display:none;width:300px;background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:12px;margin-bottom:12px">
+<div id="wa-menu" style="opacity:0;transform:translateY(20px) scale(.95);pointer-events:none;transition:all .35s cubic-bezier(.34,1.56,.64,1);width:300px;background:#fff;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:12px;margin-bottom:12px">
 <div style="text-align:center;font-weight:bold;padding:10px 0 12px;border-bottom:1px solid #eee;margin-bottom:8px">Contact via WhatsApp</div>
 <a href="https://wa.me/966557755026" style="display:flex;align-items:center;justify-content:space-between;background:#f8f9fa;border-radius:14px;padding:12px 14px;margin-bottom:8px;text-decoration:none;color:#000">
 <div style="text-align:left"><div style="font-weight:bold">0557755026</div><div style="font-size:12px;color:#666">Sales / Technical</div></div>
@@ -273,12 +273,12 @@ setTimeout(function(){
 <div style="width:44px;height:44px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px">✓</div>
 </a>
 </div>
-<button id="wa-btn" style="width:62px;height:62px;background:#25D366;border:0;border-radius:50%;box-shadow:0 4px 15px rgba(0,0,0,.3);font-size:28px">💬</button>
+<button id="wa-btn" style="width:62px;height:62px;background:#25D366;border:0;border-radius:50%;box-shadow:0 4px 15px rgba(0,0,0,.3);font-size:28px;cursor:pointer;transition:transform .2s">💬</button>
 </div>
 <script>
-var o=0;
-document.getElementById('wa-btn').onclick=function(e){e.stopPropagation();var m=document.getElementById('wa-menu');if(o==0){m.style.display='block';o=1}else{m.style.display='none';o=0}};
-document.addEventListener('click',function(){document.getElementById('wa-menu').style.display='none';o=0});
+var o=0; var menu=document.getElementById('wa-menu'); var btn=document.getElementById('wa-btn');
+btn.onclick=function(e){e.stopPropagation(); if(o==0){menu.style.opacity='1';menu.style.transform='translateY(0) scale(1)';menu.style.pointerEvents='auto';btn.style.transform='scale(0.9) rotate(15deg)';o=1}else{menu.style.opacity='0';menu.style.transform='translateY(20px) scale(.95)';menu.style.pointerEvents='none';btn.style.transform='scale(1) rotate(0)';o=0}};
+document.addEventListener('click',function(){menu.style.opacity='0';menu.style.transform='translateY(20px) scale(.95)';menu.style.pointerEvents='none';btn.style.transform='scale(1)';o=0});
 </script>
 </script>
 </body>
