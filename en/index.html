@@ -261,23 +261,20 @@ setTimeout(function(){
   });
 },1000);
 </script>
-<div id="wa-float" style="position:fixed;bottom:25px;left:25px;z-index:99999">
-<div id="wa-menu" style="display:none;position:absolute;bottom:70px;left:0;background:#fff;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.2);padding:8px;width:220px">
-<a href="https://wa.me/966557755026" style="display:flex;gap:10px;padding:10px;text-decoration:none;color:#111;border-bottom:1px solid #eee"><span style="width:40px;height:40px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff">W</span><span><b>0557755026</b><br><small>Sales</small></span></a>
-<a href="https://wa.me/966560013851" style="display:flex;gap:10px;padding:10px;text-decoration:none;color:#111"><span style="width:40px;height:40px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff">W</span><span><b>0560013851</b><br><small>Support</small></span></a>
+<div id="wa-float" style="position:fixed;bottom:20px;left:20px;z-index:99999">
+<div id="wa-menu" style="display:none;background:#fff;border-radius:10px;padding:8px;box-shadow:0 4px 15px rgba(0,0,0,.2);margin-bottom:10px">
+<a href="https://wa.me/966557755026" style="display:block;padding:8px;text-decoration:none;color:#000">0557755026 - Sales</a>
+<a href="https://wa.me/966560013851" style="display:block;padding:8px;text-decoration:none;color:#000">0560013851 - Support</a>
 </div>
-<button id="wa-btn" style="width:60px;height:60px;background:#25D366;border:none;border-radius:50%;color:white;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.3)">W</button>
+<button id="wa-btn" style="width:55px;height:55px;background:#25D366;border:0;border-radius:50%;color:#fff;font-size:24px">W</button>
 </div>
 <script>
-var b=document.getElementById('wa-btn');
-var m=document.getElementById('wa-menu');
-var o=false;
-b.onclick=function(e){
+var o=0;
+document.getElementById('wa-btn').onclick=function(e){
 e.stopPropagation();
-if(o){m.style.display='none';o=false}
-else{m.style.display='block';o=true}
+var m=document.getElementById('wa-menu');
+if(o==0){m.style.display='block';o=1}else{m.style.display='none';o=0}
 };
-document.addEventListener('click',function(){m.style.display='none';o=false});
 </script>
 </body>
 </html>
